@@ -29,9 +29,7 @@ Route::get('/login', LoginController::class);
 // });
 
 Route::get('/inicio', InicioController::class);
-Route::get('/quehacemos', QueHacemosController::class);
-Route::get('/nuestrotrabajo', NuestroTrabajoController::class);
+Route::get('/nuestroTrabajo', NuestroTrabajoController::class);
 Route::get('/talento', TalentoController::class);
-Route::get('/sobrenosotros', SobreNosotrosController::class);
 Route::get('/contacto', ContactoController::class);
 
