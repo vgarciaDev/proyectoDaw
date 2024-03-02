@@ -3,7 +3,7 @@
 @section('title') Talento @endsection
 
 @section('content')
-    <div class="container mt-4">
+    <div class="container">
         <div class="row mt-5">
             <div class="col-md-6 fade-in"> 
                 <img class="img-tech" src="{{ asset('img/imagen-tech.png') }}" alt="Imagen">   
@@ -59,7 +59,7 @@
                     <p class="text-justify text-light">Nuestro programa de planes de carrera diseñado para impulsar el crecimiento profesional de nuestros colaboradores, ofreciendo oportunidades de desarrollo personalizado y crecimiento dentro de la organización.</p>
                 </div>
             </div>
-            <div class="col-md-3 mt-5 mx-auto">
+            <div class="col-md-3 mt-5 mx-auto mb-5">
                 <div class="beneficios">
                     <h3 class="text-center text-light"><i class="fa-solid fa-handshake-angle me-3"></i>   Impacto en la sociedad</h3>
                     <p class="text-justify text-light">
@@ -67,6 +67,14 @@
                 </div>
             </div>
         </div>
-        
+       
+    </div>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-6 mx-auto">
+                <h2 class="text-center"><b>Ofertas de Trabajo Activas</b></h2>
+                <hr class="underline">
+            </div>
+        </div>
     </div>
 @endsection

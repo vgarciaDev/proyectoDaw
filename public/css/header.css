@@ -3,6 +3,13 @@
     background-color: #2e2e2e;
 }
 
+header {
+    margin-top: -15px;
+    position: sticky;
+    top: 0;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.322);
+}
+
 .color-sec,
 .btn-outline-success {
     color: #00fefb;
