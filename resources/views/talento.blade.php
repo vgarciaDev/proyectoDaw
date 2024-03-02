@@ -1,4 +1,4 @@
-@extends('templates.template')
+artisan@extends('templates.template')
 
 @section('title') Talento @endsection
 

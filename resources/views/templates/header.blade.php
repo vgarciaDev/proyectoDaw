@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary ">
+<nav class="navbar navbar-expand-lg bg-body-tertiary -bottom-3">
     <div class="container-fluid header">
       <div class="row">
         <div class="col-7">
