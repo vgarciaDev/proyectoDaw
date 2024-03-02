@@ -29,3 +29,9 @@
 .link-active {
     text-decoration: underline;
 }
+
+.custom-toggler {
+    background-color: white;
+    border-color: white;
+    color: black;
+}
