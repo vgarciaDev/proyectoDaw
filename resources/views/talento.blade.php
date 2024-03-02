@@ -78,8 +78,9 @@
         </div>
         <div class="row mt-3">
             <div class="row-md-6">
-                <h3>Desarrollador Full-Stack PHP</h3>
-                <p>Localización: Madrid</p>
+                <h3>Desarrollador Full-Stack PHP/Vue.js Jr</h3>
+                <p>Localización: Full remote</p>
+                <p>Localización: Full remote</p>
             </div>
             <div class="row-md-6">
 
