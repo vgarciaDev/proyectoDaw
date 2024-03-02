@@ -21,9 +21,7 @@
             <a class="link-hover nav-link text-light fs-4 ms-2"href="{{ url('/contacto') }}">Contacto</a>
           </li>
         </ul>
-        
           <button class="btn btn-bd-primary me-5" type="submit">Acceso empleados</button>
-        
       </div>
     </div>
   </div>

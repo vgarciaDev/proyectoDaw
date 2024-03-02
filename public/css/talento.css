@@ -1,14 +1,12 @@
 .text-justify-h2 {
     text-align: justify;
 }
-.img-container {
-    position: relative; /* Establece un contexto de apilamiento para los elementos dentro del contenedor */
-    z-index: 1; /* Asegura que el contenedor esté por encima del texto */
+
+.underline {
+    color: #00fefb;
+    border-width: 3px;
 }
 
-.img-head {
-    margin-top: 55px;
-    width: 900px;
-    transform: rotate(-8deg);
-    z-index: -1;
+.img-tech {
+    width: 90%;
 }
