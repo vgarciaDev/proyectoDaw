@@ -76,5 +76,14 @@
                 <hr class="underline">
             </div>
         </div>
+        <div class="row mt-3">
+            <div class="row-md-6">
+                <h3>Desarrollador Full-Stack PHP</h3>
+                <p>Localización: Madrid</p>
+            </div>
+            <div class="row-md-6">
+
+            </div>
+        </div>
     </div>
 @endsection
