@@ -40,7 +40,7 @@
             </h4>
         </div>
     </div>
-    <div class="row justify-content-center mb-4 fade-in" id="texto">
+    <div class="row justify-content-center mb-4 fade-in float-sm-end" id="texto">
         <div class="col-3" id="imagenJS">
             {{-- <img src="{{ asset('img/inicio/inicio_04.jpg') }}" class="img-fluid img-thumbnail" alt="Imagen 1" > --}}
         </div>
@@ -52,16 +52,16 @@
     </div>
     <div class="row">
         <div class="col-3" id="pic1">
-            <a href="javascript:void(0)"><img src="{{ asset('img/inicio/inicio_04.jpg') }}" class="img-fluid img-thumbnail" alt="Imagen 1" onclick="mostrarTexto('pic1')"></a>
+            <a href="javascript:void(0)"><img src="{{ asset('img/inicio/inicio_05.jpg') }}" class="img-fluid img-thumbnail" alt="Imagen 1" onclick="mostrarTexto('pic1')"></a>
         </div>
         <div class="col-3" id="pic2">
-            <a href="javascript:void(0)"><img src="{{ asset('img/inicio/inicio_04.jpg') }}" class="img-fluid img-thumbnail" alt="Imagen 1" onclick="mostrarTexto('pic2')"></a>        
+            <a href="javascript:void(0)"><img src="{{ asset('img/inicio/inicio_06.jpg') }}" class="img-fluid img-thumbnail" alt="Imagen 1" onclick="mostrarTexto('pic2')"></a>        
         </div>
         <div class="col-3" id="pic3">
-            <a href="javascript:void(0)"><img src="{{ asset('img/inicio/inicio_04.jpg') }}" class="img-fluid img-thumbnail" alt="Imagen 1" onclick="mostrarTexto('pic3')"></a>        
+            <a href="javascript:void(0)"><img src="{{ asset('img/inicio/inicio_07.jpg') }}" class="img-fluid img-thumbnail" alt="Imagen 1" onclick="mostrarTexto('pic3')"></a>        
         </div>
         <div class="col-3" id="pic4">
-            <a href="javascript:void(0)"><img src="{{ asset('img/inicio/inicio_04.jpg') }}" class="img-fluid img-thumbnail" alt="Imagen 1" onclick="mostrarTexto('pic4')"></a>        
+            <a href="javascript:void(0)"><img src="{{ asset('img/inicio/inicio_08.jpg') }}" class="img-fluid img-thumbnail" alt="Imagen 1" onclick="mostrarTexto('pic4')"></a>        
         </div>
     </div>
     
@@ -100,7 +100,7 @@
                 textoJSH3.textContent = arrayTexto[0];
                 hrDisplay.style.display = "block";
                 textoJSH5.textContent = arrayTexto[1];  
-                nuevaImagen.src = "{{ asset('img/inicio/inicio_04.jpg') }}";
+                nuevaImagen.src = "{{ asset('img/inicio/inicio_05.jpg') }}";
                 nuevaImagen.classList.add("img-fluid", "img-thumbnail", "fade-in");
                 imagenJS.appendChild(nuevaImagen);
                 pic1.style.opacity = "0.2";
@@ -112,7 +112,7 @@
                 textoJSH3.textContent = arrayTexto[2];
                 hrDisplay.style.display = "block";
                 textoJSH5.textContent = arrayTexto[3];  
-                nuevaImagen.src = "{{ asset('img/inicio/inicio_04.jpg') }}";
+                nuevaImagen.src = "{{ asset('img/inicio/inicio_06.jpg') }}";
                 nuevaImagen.classList.add("img-fluid", "img-thumbnail", "fade-in");
                 imagenJS.appendChild(nuevaImagen);                
                 pic1.style.opacity = "1";
@@ -124,7 +124,7 @@
                 textoJSH3.textContent = arrayTexto[4];
                 hrDisplay.style.display = "block";
                 textoJSH5.textContent = arrayTexto[5];  
-                nuevaImagen.src = "{{ asset('img/inicio/inicio_04.jpg') }}";
+                nuevaImagen.src = "{{ asset('img/inicio/inicio_07.jpg') }}";
                 nuevaImagen.classList.add("img-fluid", "img-thumbnail", "fade-in");
                 imagenJS.appendChild(nuevaImagen);
                 pic1.style.opacity = "1";
@@ -136,7 +136,7 @@
                 textoJSH3.textContent = arrayTexto[6];
                 hrDisplay.style.display = "block";
                 textoJSH5.textContent = arrayTexto[7];  
-                nuevaImagen.src = "{{ asset('img/inicio/inicio_04.jpg') }}";
+                nuevaImagen.src = "{{ asset('img/inicio/inicio_08.jpg') }}";
                 nuevaImagen.classList.add("img-fluid", "img-thumbnail", "fade-in");
                 imagenJS.appendChild(nuevaImagen);
                 pic1.style.opacity = "1";
