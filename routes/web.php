@@ -30,6 +30,6 @@ Route::get('/login', LoginController::class);
 
 Route::get('/inicio', InicioController::class);
 Route::get('/nuestroTrabajo', NuestroTrabajoController::class);
-Route::get('/talento', TalentoController::class);
+Route::get('/talento', [TalentoController::class, 'index']);
 Route::get('/contacto', ContactoController::class);
 
