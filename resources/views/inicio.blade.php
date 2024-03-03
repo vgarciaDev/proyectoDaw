@@ -33,25 +33,7 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-8">
-            <h4 class="justify-content-end mt-5 w-75 m-auto p-4 mb-4">    
-                Nuestro enfoque se centra en comprender las necesidades únicas de cada cliente y diseñar soluciones innovadoras que impulsen su 
-                crecimiento y éxito a largo plazo. Ya sea que se trate de implementar nuevas tecnologías, mejorar la eficiencia operativa o 
-                garantizar la seguridad de los datos, estamos comprometidos a proporcionar servicios de la más alta calidad que agreguen valor 
-                tangible a su negocio.
-            <br> 
-                En ROYAL TECH, nos apasiona la tecnología y creemos en su poder para transformar el mundo. Nos esforzamos por estar a la vanguardia 
-                de las últimas tendencias y desarrollos en el campo de la TI, para ofrecer a nuestros clientes soluciones innovadoras y adaptadas a 
-                los desafíos del futuro.
-            </h4>
-        </div>
-        <div class="col-3 m-auto">
-            <img src="{{ asset('img/inicio/inicio_11.jpg') }}" class="w-100 m-auto imgRounded">
-        </div>
-        <div class="col-1">            
-        </div>
-    </div>
+    
     
         
     <div class="row row-cols-2 justify-content-center mb-4 fade-in float-sm-end" id="texto">
@@ -79,6 +61,26 @@
         </div>
     </div>
     
+
+    <div class="row">
+        <div class="col-8">
+            <h4 class="justify-content-end mt-5 w-75 m-auto p-4 mb-4">    
+                Nuestro enfoque se centra en comprender las necesidades únicas de cada cliente y diseñar soluciones innovadoras que impulsen su 
+                crecimiento y éxito a largo plazo. Ya sea que se trate de implementar nuevas tecnologías, mejorar la eficiencia operativa o 
+                garantizar la seguridad de los datos, estamos comprometidos a proporcionar servicios de la más alta calidad que agreguen valor 
+                tangible a su negocio.
+            <br> 
+                En ROYAL TECH, nos apasiona la tecnología y creemos en su poder para transformar el mundo. Nos esforzamos por estar a la vanguardia 
+                de las últimas tendencias y desarrollos en el campo de la TI, para ofrecer a nuestros clientes soluciones innovadoras y adaptadas a 
+                los desafíos del futuro.
+            </h4>
+        </div>
+        <div class="col-3 m-auto">
+            <img src="{{ asset('img/inicio/inicio_11.jpg') }}" class="w-100 m-auto imgRounded">
+        </div>
+        <div class="col-1">            
+        </div>
+    </div>
     
   
 
