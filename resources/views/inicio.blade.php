@@ -40,11 +40,11 @@
             </h4>
         </div>
     </div>
-    <div class="row justify-content-center mb-4 fade-in float-sm-end" id="texto">
-        <div class="col-3" id="imagenJS">
+    <div class="row row-cols-2 justify-content-center mb-4 fade-in float-sm-end" id="texto">
+        <div class="row" id="imagenJS">
             {{-- <img src="{{ asset('img/inicio/inicio_04.jpg') }}" class="img-fluid img-thumbnail" alt="Imagen 1" > --}}
         </div>
-        <div class="col-4" id="textoJS">                
+        <div class="row" id="textoJS">                
             <h3 id="textoJSH3"></h3>
             <hr id="hrDisplay" class="underline">
             <h5 id="textoJSH5"></h5>
@@ -91,10 +91,17 @@
     const pic3 = document.getElementById("pic3");
     const pic4 = document.getElementById("pic4");
     hrDisplay.style.display = "none";
-    
+    let anchoPantalla = window.innerWidth;
+    let ancho = '';
 
     function mostrarTexto(idImagen) {
+        anchoPantalla = window.innerWidth;
         console.log(idImagen);
+        if(anchoPantalla>700){
+            ancho = 'w-25'
+        }else{
+            ancho = 'w-100';
+        }
         switch (idImagen){
             case 'pic1':
                 textoJSH3.textContent = arrayTexto[0];
@@ -102,6 +109,7 @@
                 textoJSH5.textContent = arrayTexto[1];  
                 nuevaImagen.src = "{{ asset('img/inicio/inicio_05.jpg') }}";
                 nuevaImagen.classList.add("img-fluid", "img-thumbnail", "fade-in");
+                imagenJS.classList.add(ancho);
                 imagenJS.appendChild(nuevaImagen);
                 pic1.style.opacity = "0.2";
                 pic2.style.opacity = "1";
@@ -144,10 +152,23 @@
                 pic3.style.opacity = "1";
                 pic4.style.opacity = "0.2";
                 break;
+            default:
+                imagenJS.classList.remove(ancho);
+                imagenJS.classList.add(ancho);
         }
-            
-        
-        
-  }
+    }
+    function responsive(){
+        anchoPantalla = window.innerWidth;
+        if(anchoPantalla>1500){
+            ancho = 'w-25'
+        }else{
+            ancho = 'w-75';
+        }
+        imagenJS.classList.remove("w-50");
+        imagenJS.classList.remove("w-75");
+        imagenJS.classList.add(ancho);
+    }
+    
+    window.addEventListener("resize", responsive); 
 </script>
 @endsection
