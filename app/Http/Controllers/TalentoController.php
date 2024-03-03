@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 
 class TalentoController extends Controller
 {
-    public function __invoke() {
+    public function index() {
         return view('talento');
     }
+
+    
 }
