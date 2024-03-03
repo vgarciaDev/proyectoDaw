@@ -122,6 +122,7 @@
                 textoJSH5.textContent = arrayTexto[3];  
                 nuevaImagen.src = "{{ asset('img/inicio/inicio_06.jpg') }}";
                 nuevaImagen.classList.add("img-fluid", "img-thumbnail", "fade-in");
+                imagenJS.classList.add(ancho);
                 imagenJS.appendChild(nuevaImagen);                
                 pic1.style.opacity = "1";
                 pic2.style.opacity = "0.2";
@@ -134,6 +135,7 @@
                 textoJSH5.textContent = arrayTexto[5];  
                 nuevaImagen.src = "{{ asset('img/inicio/inicio_07.jpg') }}";
                 nuevaImagen.classList.add("img-fluid", "img-thumbnail", "fade-in");
+                imagenJS.classList.add(ancho);
                 imagenJS.appendChild(nuevaImagen);
                 pic1.style.opacity = "1";
                 pic2.style.opacity = "1";
@@ -146,6 +148,7 @@
                 textoJSH5.textContent = arrayTexto[7];  
                 nuevaImagen.src = "{{ asset('img/inicio/inicio_08.jpg') }}";
                 nuevaImagen.classList.add("img-fluid", "img-thumbnail", "fade-in");
+                imagenJS.classList.add(ancho);
                 imagenJS.appendChild(nuevaImagen);
                 pic1.style.opacity = "1";
                 pic2.style.opacity = "1";
