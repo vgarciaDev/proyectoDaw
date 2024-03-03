@@ -10,41 +10,37 @@
 </div>
     
 <div class="container-fluid">
-    <div class="row" id="introduccion">
-        <div class="col-12">
-            <h4 class="text-justify mt-5 w-75 m-auto p-4 mb-4">En un mundo donde la tecnología evoluciona a un ritmo vertiginoso, las empresas se enfrentan a desafíos 
-                cada vez más complejos para mantenerse competitivas y adaptarse a las demandas del mercado. En este contexto, la consultoría en 
-                tecnologías de la información ROYAL TECH se convierte en un aliado indispensable para impulsar la innovación, optimizar procesos 
-                y maximizar el rendimiento empresarial.<br>
-
+    <div class="row">
+        <div class="col-1">            
+        </div>
+        <div class="col-3 m-auto">
+            <img src="{{ asset('img/inicio/inicio_12.jpg') }}" class="w-100 m-auto imgRounded">
+        </div>
+        
+        <div class="col-7">
+            <h4 class="text-justify mt-5 w-100 m-auto p-4 mb-4">En un mundo donde la tecnología evoluciona a un ritmo vertiginoso, las empresas se 
+                enfrentan a desafíos cada vez más complejos para mantenerse competitivas y adaptarse a las demandas del mercado. En este contexto, 
+                la consultoría en tecnologías de la información ROYAL TECH se convierte en un aliado indispensable para impulsar la innovación, 
+                optimizar procesos y maximizar el rendimiento empresarial.
+            <br>
                 ROYAL TECH, líder en consultoría de TI, se enorgullece de ofrecer soluciones integrales y personalizadas que ayudan a las 
                 organizaciones a alcanzar sus objetivos estratégicos. Con una vasta experiencia y un equipo multidisciplinario de expertos, 
                 nos dedicamos a brindar asesoramiento especializado en una amplia gama de áreas, desde la planificación y ejecución de proyectos 
-                hasta la gestión de riesgos y la optimización de infraestructuras tecnológicas.<br>
-                
-                Nuestro enfoque se centra en comprender las necesidades únicas de cada cliente y diseñar soluciones innovadoras que impulsen su 
-                crecimiento y éxito a largo plazo. Ya sea que se trate de implementar nuevas tecnologías, mejorar la eficiencia operativa o 
-                garantizar la seguridad de los datos, estamos comprometidos a proporcionar servicios de la más alta calidad que agreguen valor 
-                tangible a su negocio.<br>
-                
-                En ROYAL TECH, nos apasiona la tecnología y creemos en su poder para transformar el mundo. Nos esforzamos por estar a la vanguardia 
-                de las últimas tendencias y desarrollos en el campo de la TI, para ofrecer a nuestros clientes soluciones innovadoras y adaptadas a 
-                los desafíos del futuro.<br>
-                
-                Nuestro compromiso con la excelencia, la integridad y la satisfacción del cliente nos ha permitido construir relaciones sólidas y 
-                duraderas con empresas de todos los tamaños y sectores industriales. Estamos comprometidos a seguir siendo un socio confiable y de 
-                confianza para todas sus necesidades de consultoría en tecnologías de la información.<br>
-                
-                Confíe en ROYAL TECH para llevar su negocio al siguiente nivel y enfrentar los desafíos del mundo digital con confianza y éxito. 
-                Juntos, podemos convertir los desafíos en oportunidades y alcanzar nuevos horizontes de crecimiento y prosperidad.
-            </h4>
+                hasta la gestión de riesgos y la optimización de infraestructuras tecnológicas.
+            </h4>            
+        </div>
+        <div class="col-1">            
         </div>
     </div>
+
+    
+    
+        
     <div class="row row-cols-2 justify-content-center mb-4 fade-in float-sm-end" id="texto">
         <div class="row" id="imagenJS">
             {{-- <img src="{{ asset('img/inicio/inicio_04.jpg') }}" class="img-fluid img-thumbnail" alt="Imagen 1" > --}}
         </div>
-        <div class="row" id="textoJS">                
+        <div class="row ms-4" id="textoJS">                
             <h3 id="textoJSH3"></h3>
             <hr id="hrDisplay" class="underline">
             <h5 id="textoJSH5"></h5>
@@ -65,6 +61,26 @@
         </div>
     </div>
     
+
+    <div class="row">
+        <div class="col-8">
+            <h4 class="justify-content-end mt-5 w-75 m-auto p-4 mb-4">    
+                Nuestro enfoque se centra en comprender las necesidades únicas de cada cliente y diseñar soluciones innovadoras que impulsen su 
+                crecimiento y éxito a largo plazo. Ya sea que se trate de implementar nuevas tecnologías, mejorar la eficiencia operativa o 
+                garantizar la seguridad de los datos, estamos comprometidos a proporcionar servicios de la más alta calidad que agreguen valor 
+                tangible a su negocio.
+            <br> 
+                En ROYAL TECH, nos apasiona la tecnología y creemos en su poder para transformar el mundo. Nos esforzamos por estar a la vanguardia 
+                de las últimas tendencias y desarrollos en el campo de la TI, para ofrecer a nuestros clientes soluciones innovadoras y adaptadas a 
+                los desafíos del futuro.
+            </h4>
+        </div>
+        <div class="col-3 m-auto">
+            <img src="{{ asset('img/inicio/inicio_11.jpg') }}" class="w-100 m-auto imgRounded">
+        </div>
+        <div class="col-1">            
+        </div>
+    </div>
     
   
 
