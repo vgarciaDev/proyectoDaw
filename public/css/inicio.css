@@ -34,3 +34,7 @@ h4{
 .fade-in {
     animation: fade-in 1s ease-in-out;
 }
+.imgRounded{
+    border: #004f4d 4px solid;
+    border-radius: 15px;
+}
