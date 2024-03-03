@@ -96,43 +96,49 @@
         </div>
             <div class="row">
                 <div class="col-md-8 mx-auto">
-                    <form @submit.prevent="submit">
-                        <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" v-model="form.nombre">
-                        </div>
-                        <div class="mb-3">
-                            <label for="apellidos" class="form-label">Apellidos</label>
-                            <input type="text" class="form-control" v-model="form.apellidos">
-                        </div>
-                        <div class="mb-3">
-                            <label for="telefono" class="form-label">Teléfono</label>
-                            <input type="text" class="form-control" v-model="form.telefono">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" v-model="form.email">
-                        </div>
-                        
-                        <div class="mb-3" v-for="(formacion, index) in form.formaciones" :key="index">
-                            <label class="form-label">Formación @{{ index + 1 }} </label>
-                            <input type="text" class="form-control mb-2" v-model="form.formaciones[index].titulo" placeholder="Titulo">
-                            <input type="text" class="form-control mb-2" v-model="form.formaciones[index].institucion" placeholder="Institución">
-                            <input type="text" class="form-control mb-2" v-model="form.formaciones[index].graduacion" placeholder="Año Graduación">
-                        </div>
-                        <button class="btn btn-primary mb-3" @click.prevent="addFormacion" :disabled="form.formaciones.length >= 3">Añadir formación</button>
-    
-                        <div class="mb-3" v-for="(experiencia, index) in form.experiencias" :key="index">
-                            <label class="form-label">Experiencia @{{ index + 1 }} </label>
-                            <input type="text" class="form-control mb-2" v-model="form.experiencias[index].puesto" placeholder="Puesto">
-                            <input type="text" class="form-control mb-2" v-model="form.experiencias[index].empresa" placeholder="Empresa">
-                            <input type="text" class="form-control mb-2" v-model="form.experiencias[index].fecha" placeholder="Fecha">
-                            <input type="text" class="form-control mb-2" v-model="form.experiencias[index].descripcion" placeholder="Descripción">
-                        </div>
-                        <button class="btn btn-primary mb-5" @click.prevent="addExperiencia" :disabled="form.experiencias.length >= 3">Añadir Experiencia</button>
-                        <br>
-                        <button type="submit" class="btn btn-primary mb-5">Enviar CV</button>
-                  </form>
+                    <div v-if="formulario == true">
+                        <form @submit.prevent="submit">
+                            @csrf
+                            <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" v-model="form.nombre">
+                            </div>
+                            <div class="mb-3">
+                                <label for="apellidos" class="form-label">Apellidos</label>
+                                <input type="text" class="form-control" v-model="form.apellidos">
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label">Teléfono</label>
+                                <input type="text" class="form-control" v-model="form.telefono">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" v-model="form.email">
+                            </div>
+                            
+                            <div class="mb-3" v-for="(formacion, index) in form.formaciones" :key="index">
+                                <label class="form-label">Formación @{{ index + 1 }} </label>
+                                <input type="text" class="form-control mb-2" v-model="form.formaciones[index].titulo" placeholder="Titulo">
+                                <input type="text" class="form-control mb-2" v-model="form.formaciones[index].institucion" placeholder="Institución">
+                                <input type="text" class="form-control mb-2" v-model="form.formaciones[index].graduacion" placeholder="Año Graduación">
+                            </div>
+                            <button class="btn btn-bd-primary mb-3" @click.prevent="addFormacion" :disabled="form.formaciones.length >= 3">Añadir Formación</button>
+        
+                            <div class="mb-3" v-for="(experiencia, index) in form.experiencias" :key="index">
+                                <label class="form-label">Experiencia @{{ index + 1 }} </label>
+                                <input type="text" class="form-control mb-2" v-model="form.experiencias[index].puesto" placeholder="Puesto">
+                                <input type="text" class="form-control mb-2" v-model="form.experiencias[index].empresa" placeholder="Empresa">
+                                <input type="text" class="form-control mb-2" v-model="form.experiencias[index].fecha" placeholder="Fecha">
+                                <input type="text" class="form-control mb-2" v-model="form.experiencias[index].descripcion" placeholder="Descripción">
+                            </div>
+                            <button class="btn btn-bd-primary mb-5" @click.prevent="addExperiencia" :disabled="form.experiencias.length >= 3">Añadir Experiencia</button>
+                            <br>
+                            <button type="submit" class="btn btn-primary mb-5">Enviar CV</button>
+                      </form>
+                    </div>
+                    <div v-else>
+                        FORMULARIO ENVIADO
+                    </div>
                 </div>
             </div>
     </div>
@@ -140,6 +146,7 @@
 
 @section('script')
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 <script>
     const app = Vue.createApp({
         data() {
@@ -163,7 +170,8 @@
                             descripcion: ""
                         }
                     ]
-                }
+                }, 
+                formulario: true
             }
         }, 
         methods: {
@@ -178,7 +186,19 @@
                 } 
             },
             submit() {
-                console.log(this.form);
+                let form = {
+                    _token: '{{ csrf_token() }}',
+                    form: this.form
+                }
+
+                $.post("talento", form, function(response){
+                    if(response.status == "OK"){
+                        console.log("OK");
+                        app.formulario = false;
+                    } else{
+                        console.log("BAD");
+                    }
+                });
             }
         } 
     });
