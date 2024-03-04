@@ -44,11 +44,7 @@ h4{
     background-position: center; 
     
 }
-.titulo{
-    border: #00fffb 4px solid;
-    border-radius: 15px;
-    margin:10%;
-}
+
 .imagenFondo {
     background-image: url('../img/inicio/inicio_03_c.jpg');
     background-position: center; 

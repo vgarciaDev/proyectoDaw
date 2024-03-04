@@ -3,10 +3,10 @@
 @section('title') Inicio @endsection
 
 @section('content')
-<div class="container-fluid">
-    <div class="row imagenFondo">        
+<div>
+    <div class="row imagenFondo">
+        <h4 class="imagenFondoH4">Cambia tu mundo con nosotros</h4>
         {{-- <img src="{{ asset('img/inicio/inicio_03.jpg') }}" class="img-fluid w-100"  alt="inicio_01"> --}}
-        <h1 class="imagenFondoH4">Cambia tu mundo con nosotros</h1>
     </div>
 </div>
     
@@ -96,7 +96,7 @@
         "Consultoría en Gestión de Proyectos y Procesos:",
         "Esta área se centra en ayudar a las empresas a gestionar de manera eficiente sus proyectos y procesos tecnológicos. Los consultores en gestión de proyectos y procesos trabajan con equipos internos para planificar, ejecutar y controlar proyectos de TI, asegurando que se entreguen a tiempo y dentro del presupuesto. Esto puede incluir la implementación de metodologías de gestión de proyectos como Scrum o Kanban, la identificación y mitigación de riesgos, y la optimización de procesos para mejorar la eficiencia y la calidad del trabajo."
     ];
-
+    
     const nuevaImagen = document.createElement("img");
     const textoJS = document.getElementById("textoJS");
     const textoJSH3 = document.getElementById("textoJSH3");
@@ -190,5 +190,7 @@
     }
     
     window.addEventListener("resize", responsive); 
+
+    mostrarTexto('pic1');
 </script>
 @endsection
