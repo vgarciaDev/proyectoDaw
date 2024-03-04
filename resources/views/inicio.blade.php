@@ -3,9 +3,10 @@
 @section('title') Inicio @endsection
 
 @section('content')
-<div>
-    <div class="row">
-        <img src="{{ asset('img/inicio/inicio_03.jpg') }}" class="img-fluid w-100"  alt="inicio_01">
+<div class="container-fluid">
+    <div class="row imagenFondo">        
+        {{-- <img src="{{ asset('img/inicio/inicio_03.jpg') }}" class="img-fluid w-100"  alt="inicio_01"> --}}
+        <h1 class="imagenFondoH4">Cambia tu mundo con nosotros</h1>
     </div>
 </div>
     
