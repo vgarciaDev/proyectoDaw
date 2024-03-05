@@ -4,7 +4,7 @@ h1,
 h2 {
     font-family: "Montserrat", sans-serif;
 }
-h4{
+h4 {
     border: #00fffb 4px solid;
     border-radius: 15px;
 }
@@ -19,7 +19,7 @@ h4{
     width: 85%;
     margin-left: 25px;
 }
-.borderTest{
+.borderTest {
     border: red 2px solid;
 }
 @keyframes fade-in {
@@ -34,20 +34,19 @@ h4{
 .fade-in {
     animation: fade-in 1s ease-in-out;
 }
-.imgRounded{
+.imgRounded {
     border: #004f4d 4px solid;
     border-radius: 15px;
 }
 .imagenFondo {
-    background-image: url('../img/inicio/inicio_03_c.jpg');
+    background-image: url("../img/inicio/inicio_03_c.jpg");
     background-size: cover;
-    background-position: center; 
-    
+    background-position: center;
 }
 
 .imagenFondo {
-    background-image: url('../img/inicio/inicio_03_c.jpg');
-    background-position: center; 
+    background-image: url("../img/inicio/inicio_03_c.jpg");
+    background-position: center;
     background-size: cover; /* Ajusta la imagen de fondo para cubrir todo el div */
     padding: 20px; /* Añade un espacio alrededor del texto */
 }
@@ -70,4 +69,41 @@ h4{
         margin: 40px;
         padding: 30px;
     }
+}
+
+
+.videoFondo {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+}
+
+.videoFondo video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    z-index: -1; /* Asegura que el video esté detrás del texto */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Opacidad del fondo */
+}
+
+.texto-superpuesto {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    z-index: 1; /* Asegura que el texto esté sobre el video */
 }
