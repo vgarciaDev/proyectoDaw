@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ asset('css/talento.css') }}">
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
     <link rel="stylesheet" href="{{ asset('css/inicio.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/contacto.css') }}">
 </head>
 <body>
     <header>
