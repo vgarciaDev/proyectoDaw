@@ -53,7 +53,7 @@
                       </div>
     
                     <br>
-                    <button type="button" @click="submit" class="btn btn-primary mb-5">Contactar</button>
+                    <button type="button" @click="submit" class="btn btn-bd-primary mb-5">Contactar</button>
               </form>
             </div>
         </div>
