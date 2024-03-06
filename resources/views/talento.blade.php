@@ -133,7 +133,7 @@
                             </div>
                             <button class="btn btn-bd-primary mb-5" @click.prevent="addExperiencia" :disabled="form.experiencias.length >= 3">Añadir Experiencia</button>
                             <br>
-                            <button type="submit" class="btn btn-primary mb-5">Enviar CV</button>
+                            <button type="submit" class="btn btn-bd-primary mb-5">Enviar CV</button>
                       </form>
                     </div>
                     <div v-else>
