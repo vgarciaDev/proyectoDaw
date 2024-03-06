@@ -4,9 +4,19 @@
 
 @section('content')
 <div>
-    <div class="row imagenFondo">
-        <h4 class="imagenFondoH4">Cambia tu mundo con nosotros</h4>
-        {{-- <img src="{{ asset('img/inicio/inicio_03.jpg') }}" class="img-fluid w-100"  alt="inicio_01"> --}}
+    <div class="container-fluid p-0 mt-2">
+        <div class=" videoFondo mt-2">
+            <video autoplay loop muted playsinline class="w-100">
+                <source src="{{asset('img/inicio/explosion_-_891 (720p).mp4')}}" type="video/mp4">
+                Tu navegador no admite el elemento de video.
+            </video>
+            <div class="overlay"></div>
+            <div class="texto-superpuesto mt-5">
+                <h4 class=" fs-1 m-auto mt-5 w-50 p-4 animate__animated animate__backInDown"><b>Cambia tu mundo con nosotros</b></h4>
+            </div>
+            
+            {{-- <img src="{{ asset('img/inicio/inicio_03.jpg') }}" class="img-fluid w-100"  alt="inicio_01"> --}}
+        </div>
     </div>
 </div>
     

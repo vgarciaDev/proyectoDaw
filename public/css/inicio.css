@@ -70,3 +70,41 @@ h4 {
         padding: 30px;
     }
 }
+
+
+.videoFondo {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+}
+
+.videoFondo video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    z-index: -1; /* Asegura que el video esté detrás del texto */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Opacidad del fondo */
+}
+
+.texto-superpuesto {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    z-index: 1; /* Asegura que el texto esté sobre el video */
+}
+
