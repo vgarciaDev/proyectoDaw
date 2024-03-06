@@ -30,14 +30,56 @@
         <!--SECCIÓN PROYECTOS-->
     <div style="margin-top:100px;">
         <div class="container text-center">
-            <div class="row proyectos">
-                <div class="col">
-                    <img src="img/inicio/proyecto-santander.jpg">
-                    <h3 class="tit-pro">Proyecto Santander</h3>
-                </div>
-                <div class="col">
-                    <img src="img/inicio/proyecto-santander.jpg">
-                </div>
+
+            <!--SECCIÓN 2-->
+        <div style="margin-top:100px;">
+            <div class="container text-center">
+                <div class="row mb-4">
+
+                    <div class="col" style="width: 30%;">
+                        <img style="width: 100%;" src="img/inicio/proyecto-santander.jpg">
+                        <h3 class="text-start">Proyecto Santander</h3>
+                        <p class="text-start">Lorem ipsum dolor sit amet consectetur, adipiscing elit molestie at lobortis, cum nullam sapien volutpat.</p>
+                        <button class="btn btn-bd-primary mt-2 ">Saber más</button>
+                    </div>
+
+                    <div class="col" style="width: 30%;">
+                        <img style="width: 100%;" src="img/inicio/unicaja-proyecto.jpg">
+                        <h3 class="text-start">Unicaja Banco</h3>
+                        <p class="text-start">Lorem ipsum dolor sit amet consectetur, adipiscing elit molestie at lobortis, cum nullam sapien volutpat.</p>
+                        <button class="btn btn-bd-primary mt-2 ">Saber más</button>
+                    </div>
+
+                    <div class="col" style="width: 30%;">
+                        <img style="width: 100%;" src="img/inicio/ikea-proyecto.jpg">
+                        <h3 class="text-start">Ikea</h3>
+                        <p class="text-start">Lorem ipsum dolor sit amet consectetur, adipiscing elit molestie at lobortis, cum nullam sapien volutpat.</p>
+                        <button class="btn btn-bd-primary mt-2">Saber más</button>
+                    </div>
+
+                    <hr class="underline-2">
+
+                    <div class="col" style="width: 30%;">
+                        <img style="width: 100%;" src="img/inicio/movistar-proyecto.jpg">
+                        <h3 class="text-start">Movistar</h3>
+                        <p class="text-start">Lorem ipsum dolor sit amet consectetur, adipiscing elit molestie at lobortis, cum nullam sapien volutpat.</p>
+                        <button class="btn btn-bd-primary mt-2 ">Saber más</button>
+                    </div>
+
+                    <div class="col" style="width: 30%;">
+                        <img style="width: 100%;" src="img/inicio/bank.jpg">
+                        <h3 class="text-start">Towerbank</h3>
+                        <p class="text-start">Lorem ipsum dolor sit amet consectetur, adipiscing elit molestie at lobortis, cum nullam sapien volutpat.</p>
+                        <button class="btn btn-bd-primary mt-2 ">Saber más</button>
+                    </div>
+
+                    <div class="col" style="width: 30%;">
+                        <img style="width: 100%;" src="img/inicio/teleflex-proyecto.jpg">
+                        <h3 class="text-start">Teleflex</h3>
+                        <p class="text-start">Lorem ipsum dolor sit amet consectetur, adipiscing elit molestie at lobortis, cum nullam sapien volutpat.</p>
+                        <button class="btn btn-bd-primary mt-2">Saber más</button>
+                    </div>
+
             </div>
         </div>
     </div>
