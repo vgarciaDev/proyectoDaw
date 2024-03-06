@@ -36,47 +36,53 @@
             <div class="container text-center">
                 <div class="row mb-4">
 
-                    <div class="col" style="width: 30%;">
-                        <img style="width: 100%;" src="img/inicio/proyecto-santander.jpg">
-                        <h3 class="text-start">Proyecto Santander</h3>
-                        <p class="text-start">Lorem ipsum dolor sit amet consectetur, adipiscing elit molestie at lobortis, cum nullam sapien volutpat.</p>
+                    <div class="col sombra" style="width: 30%;">
+                        <img style="width: 100%;" src="img/inicio/santander.png">
+                        <h3 class="text-start">Santander</h3>
+                        <p class="text-start"><strong>Banco Santander</strong> es uno de los bancos más grandes del mundo, con sede en España
+                            y una presencia significativa en América, Europa y otros continentes.</p>
                         <button class="btn btn-bd-primary mt-2 ">Saber más</button>
                     </div>
 
-                    <div class="col" style="width: 30%;">
-                        <img style="width: 100%;" src="img/inicio/unicaja-proyecto.jpg">
+                    <div class="col sombra" style="width: 30%;">
+                        <img style="width: 100%;" src="img/inicio/unicaja.png">
                         <h3 class="text-start">Unicaja Banco</h3>
-                        <p class="text-start">Lorem ipsum dolor sit amet consectetur, adipiscing elit molestie at lobortis, cum nullam sapien volutpat.</p>
+                        <p class="text-start">Unicaja es una <strong>entidad financiera con sede en Málaga</strong>, España, y es
+                                            uno de los principales bancos regionales de España.</p>
                         <button class="btn btn-bd-primary mt-2 ">Saber más</button>
                     </div>
 
-                    <div class="col" style="width: 30%;">
-                        <img style="width: 100%;" src="img/inicio/ikea-proyecto.jpg">
+                    <div class="col sombra" style="width: 30%;">
+                        <img style="width: 100%;" src="img/inicio/ikea.png">
                         <h3 class="text-start">Ikea</h3>
-                        <p class="text-start">Lorem ipsum dolor sit amet consectetur, adipiscing elit molestie at lobortis, cum nullam sapien volutpat.</p>
+                        <p class="text-start">IKEA es una empresa multinacional sueca, conocida principalmente por su negocio minorista
+                                            de muebles y artículos para el hogar a precios accesibles.</p>
                         <button class="btn btn-bd-primary mt-2">Saber más</button>
                     </div>
 
                     <hr class="underline-2">
 
-                    <div class="col" style="width: 30%;">
-                        <img style="width: 100%;" src="img/inicio/movistar-proyecto.jpg">
+                    <div class="col sombra" style="width: 30%;">
+                        <img style="width: 100%;" src="img/inicio/movistar.png">
                         <h3 class="text-start">Movistar</h3>
-                        <p class="text-start">Lorem ipsum dolor sit amet consectetur, adipiscing elit molestie at lobortis, cum nullam sapien volutpat.</p>
+                        <p class="text-start">Movistar es una de las principales empresas de telecomunicaciones a nivel mundial,
+                                            con una fuerte presencia en España y en varios países de América Latina.</p>
                         <button class="btn btn-bd-primary mt-2 ">Saber más</button>
                     </div>
 
-                    <div class="col" style="width: 30%;">
-                        <img style="width: 100%;" src="img/inicio/bank.jpg">
+                    <div class="col sombra" style="width: 30%;">
+                        <img style="width: 100%;" src="img/inicio/bank.png">
                         <h3 class="text-start">Towerbank</h3>
-                        <p class="text-start">Lorem ipsum dolor sit amet consectetur, adipiscing elit molestie at lobortis, cum nullam sapien volutpat.</p>
+                        <p class="text-start">Es posible que sea una entidad financiera regional o localizada en una región
+                                            específica que no esté ampliamente reconocida a nivel internacional o que haya surgido después de esa fecha.</p>
                         <button class="btn btn-bd-primary mt-2 ">Saber más</button>
                     </div>
 
-                    <div class="col" style="width: 30%;">
-                        <img style="width: 100%;" src="img/inicio/teleflex-proyecto.jpg">
+                    <div class="col sombra" style="width: 30%;">
+                        <img style="width: 100%;" src="img/inicio/teleflex.png">
                         <h3 class="text-start">Teleflex</h3>
-                        <p class="text-start">Lorem ipsum dolor sit amet consectetur, adipiscing elit molestie at lobortis, cum nullam sapien volutpat.</p>
+                        <p class="text-start">Teleflex es una empresa estadounidense que se especializa en la fabricación y suministro de
+                                            productos médicos y tecnologías para el sector de la salud.</p>
                         <button class="btn btn-bd-primary mt-2">Saber más</button>
                     </div>
 
