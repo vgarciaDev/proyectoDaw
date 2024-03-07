@@ -20,25 +20,26 @@
     <div class="container mt-4">
         <div class="row mt-2">
             <div class="col-md-6 mx-auto">
-                <form  id="contact">
+                <form  id="contact" method="POST" action="{{ route('email') }}">
+                    @csrf
                     <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" v-model="form.nombre">
+                    <input type="text" class="form-control" v-model="form.nombre" name="nombre">
                     </div>
                     <div class="mb-3">
                         <label for="apellidos" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" v-model="form.apellidos">
+                        <input type="text" class="form-control" v-model="form.apellidos" name="apellidos">
                     </div>
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Teléfono</label>
-                        <input type="text" class="form-control" v-model="form.telefono">
+                        <input type="text" class="form-control" v-model="form.telefono" name="telefono">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" v-model="form.email">
+                        <input type="email" class="form-control" v-model="form.email" name="email">
                     </div>
                     <div class="mb-3">
-                        <select class="form-select"  v-model="form.opciones">
+                        <select class="form-select"  v-model="form.opciones" name="selector">
                             <option value="" disabled selected>¿En qué te podemos ayudar?</option>
                             <option value="info">Información</option>
                             <option value="seleccion">Proceso de selección</option>
@@ -48,12 +49,12 @@
                         </select>
                     </div>
                     <div class="form-floating mb-3">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" v-model="form.mensaje"></textarea>
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" v-model="form.mensaje" name="mensaje"></textarea>
                         <label for="floatingTextarea2">Mensaje</label>
                       </div>
     
                     <br>
-                    <button type="button" @click="submit" class="btn btn-bd-primary mb-5">Contactar</button>
+                    <button type="submit" @click="submit" class="btn btn-bd-primary mb-5">Contactar</button>
               </form>
             </div>
         </div>

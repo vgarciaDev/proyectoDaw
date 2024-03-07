@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\EmailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\LoginController;
@@ -33,4 +34,6 @@ Route::get('/nuestroTrabajo', NuestroTrabajoController::class);
 Route::get('/talento', [TalentoController::class, 'index']);
 Route::post('/talento', [TalentoController::class, 'setCv']);
 Route::get('/contacto', ContactoController::class);
+
+Route::post('/sendEmail', EmailController::class)->name('email');
 
