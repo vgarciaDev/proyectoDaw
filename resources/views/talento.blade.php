@@ -96,8 +96,7 @@
         </div>
             <div class="row">
                 <div class="col-md-8 mx-auto">
-                    <div v-if="formulario == true">
-                        <form @submit.prevent="submit">
+                        <form @submit.prevent="submit" v-if="formulario == true">
                             @csrf
                             <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre</label>
@@ -135,7 +134,6 @@
                             <br>
                             <button type="submit" class="btn btn-bd-primary mb-5">Enviar CV</button>
                       </form>
-                    </div>
                     <div v-else>
                         FORMULARIO ENVIADO
                     </div>
@@ -186,6 +184,7 @@
                 } 
             },
             submit() {
+                let self = this;
                 let form = {
                     _token: '{{ csrf_token() }}',
                     form: this.form
@@ -194,7 +193,7 @@
                 $.post("talento", form, function(response){
                     if(response.status == "OK"){
                         console.log("OK");
-                        app.formulario = false;
+                        self.formulario = false;
                     } else{
                         console.log("BAD");
                     }
