@@ -76,5 +76,134 @@
                 <hr class="underline">
             </div>
         </div>
+        <div class="row mt-3">
+            @foreach($jobOffers as $jobOffer)
+            <div class="col-md-6 mx-auto ">
+                <h3>{{$jobOffer['id']}}. {{$jobOffer['title']}}</h3>
+                <p>Localización: {{$jobOffer['location']}}</p>
+                <p>Jornada: {{$jobOffer['hours']}}</p>
+                <p>Descripción: {{$jobOffer['description']}}</p>
+            </div>
+            @endforeach
+        </div>
+    </div>
+    <div class="container" id="form">
+        <div class="row mt-5">
+            <div class="col-md-6 mx-auto">
+                <h2 class="text-center"><b>Déjanos tu CV</b></h2>
+                <hr class="underline">
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div v-if="formulario == true">
+                        <form @submit.prevent="submit">
+                            @csrf
+                            <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" v-model="form.nombre">
+                            </div>
+                            <div class="mb-3">
+                                <label for="apellidos" class="form-label">Apellidos</label>
+                                <input type="text" class="form-control" v-model="form.apellidos">
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label">Teléfono</label>
+                                <input type="text" class="form-control" v-model="form.telefono">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" v-model="form.email">
+                            </div>
+                            
+                            <div class="mb-3" v-for="(formacion, index) in form.formaciones" :key="index">
+                                <label class="form-label">Formación @{{ index + 1 }} </label>
+                                <input type="text" class="form-control mb-2" v-model="form.formaciones[index].titulo" placeholder="Titulo">
+                                <input type="text" class="form-control mb-2" v-model="form.formaciones[index].institucion" placeholder="Institución">
+                                <input type="text" class="form-control mb-2" v-model="form.formaciones[index].graduacion" placeholder="Año Graduación">
+                            </div>
+                            <button class="btn btn-bd-primary mb-3" @click.prevent="addFormacion" :disabled="form.formaciones.length >= 3">Añadir Formación</button>
+        
+                            <div class="mb-3" v-for="(experiencia, index) in form.experiencias" :key="index">
+                                <label class="form-label">Experiencia @{{ index + 1 }} </label>
+                                <input type="text" class="form-control mb-2" v-model="form.experiencias[index].puesto" placeholder="Puesto">
+                                <input type="text" class="form-control mb-2" v-model="form.experiencias[index].empresa" placeholder="Empresa">
+                                <input type="text" class="form-control mb-2" v-model="form.experiencias[index].fecha" placeholder="Fecha">
+                                <input type="text" class="form-control mb-2" v-model="form.experiencias[index].descripcion" placeholder="Descripción">
+                            </div>
+                            <button class="btn btn-bd-primary mb-5" @click.prevent="addExperiencia" :disabled="form.experiencias.length >= 3">Añadir Experiencia</button>
+                            <br>
+                            <button type="submit" class="btn btn-bd-primary mb-5">Enviar CV</button>
+                      </form>
+                    </div>
+                    <div v-else>
+                        FORMULARIO ENVIADO
+                    </div>
+                </div>
+            </div>
     </div>
 @endsection
+
+@section('script')
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                form: {
+                    nombre: "",
+                    apellidos: "",
+                    telefono: "",
+                    formaciones: [
+                        {
+                            titulo: "",
+                            institucion: "",
+                            graduacion: "",
+                        }
+                    ],
+                    experiencias: [
+                        {
+                            puesto: "",
+                            empresa: "",
+                            fecha: "",
+                            descripcion: ""
+                        }
+                    ]
+                }, 
+                formulario: true
+            }
+        }, 
+        methods: {
+            addFormacion(){
+                if(this.form.formaciones.length < 3){
+                    this.form.formaciones.push({titulo:'', institucion: '', graduacion: ''});
+                } 
+            },
+            addExperiencia(){
+                if(this.form.experiencias.length < 3){
+                    this.form.experiencias.push({puesto:'', empresa: '', fecha: '', descripcion: ""});
+                } 
+            },
+            submit() {
+                let form = {
+                    _token: '{{ csrf_token() }}',
+                    form: this.form
+                }
+
+                $.post("talento", form, function(response){
+                    if(response.status == "OK"){
+                        console.log("OK");
+                        app.formulario = false;
+                    } else{
+                        console.log("BAD");
+                    }
+                });
+            }
+        } 
+    });
+
+    app.mount('#form');
+</script>
+@endsection
+
