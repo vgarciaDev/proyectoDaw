@@ -33,7 +33,7 @@ Route::get('/inicio', InicioController::class);
 Route::get('/nuestroTrabajo', NuestroTrabajoController::class);
 Route::get('/talento', [TalentoController::class, 'index']);
 Route::post('/talento', [TalentoController::class, 'setCv']);
-Route::get('/contacto', ContactoController::class);
+Route::get('/contacto', [ContactoController::class, 'index']);
 
-Route::post('/sendEmail', EmailController::class)->name('email');
+Route::post('/sendEmail', [ContactoController::class, 'sendEmailFn'])->name('email');
 
