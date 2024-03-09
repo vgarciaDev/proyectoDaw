@@ -10,18 +10,19 @@ class TalentoController extends Controller
 {
     public function index() {
         $jobOffers = JobOffer::all()->toArray();
-       
         return view('talento', ['jobOffers'=> $jobOffers]);
     }
 
     public function setCv(Request $request){
         try {
+       
             $candidato = new Candidate();
 
             $candidato->name = $request->form["nombre"];
             $candidato->lastname = $request->form["apellidos"];
             $candidato->tel = $request->form["telefono"];
             $candidato->mail = $request->form["email"];
+            $candidato->job_offer = $request->form["oferta"];
             
             foreach($request->form["formaciones"] as $index => $formacion){
                 $arrayTitle = ['education_title_1', 'education_title_2','education_title_3'];

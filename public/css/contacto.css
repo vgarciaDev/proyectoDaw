@@ -65,3 +65,19 @@
     border-radius: 15px;
     margin: 40px 0px;
 }
+
+.formulario {
+    padding: 55px 55px 0px 55px;
+    background-color: #2e2e2e;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+@media (width < 800px) {
+    .formulario {
+        padding: 0px;
+        padding-top: 15px;
+        border: 2px solid #2e2e2e;
+        border-radius: 15px;
+    }
+}

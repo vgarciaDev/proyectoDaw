@@ -11,7 +11,7 @@ h2 {
     --bs-btn-bg: #00fefb;
     --bs-btn-border-color: #00fefb;
     --bs-btn-hover-color: #00807d;
-    --bs-btn-hover-bg: #{shade-color($bd-violet, 10%)};
+    --bs-btn-hover-bg: #ececec;
     --bs-btn-hover-border-color: #{shade-color($bd-violet, 10%)};
     --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
     --bs-btn-active-color: var(--bs-btn-hover-color);
