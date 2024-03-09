@@ -1,10 +1,11 @@
-.texto-comun{
+@import url("index.css");
+.texto-comun {
     font-size: 15px;
 }
-.proyectos{
+.proyectos {
     margin-top: 100px !important;
 }
 
-.tit-pro{
+.tit-pro {
     text-align: left !important;
 }
