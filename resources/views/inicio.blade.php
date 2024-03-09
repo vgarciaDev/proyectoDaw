@@ -2,6 +2,12 @@
 
 @section('title') Inicio @endsection
 
+@section('css')
+
+<link rel="stylesheet" href="{{ asset('css/inicio.css') }}">
+
+@endsection
+
 @section('content')
 <div>
     <div class="container-fluid p-0 mt-2">

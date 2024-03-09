@@ -2,6 +2,11 @@
 
 @section('title') Contacto @endsection
 
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/contacto.css') }}">
+@endsection
+
+
 @section('content')
 <div class="container-fluid p-0 mt-2">
     <div class="video-container mt-2">
@@ -19,8 +24,8 @@
 </div>
     <div class="container mt-4" id="contact">
         <div class="row mt-2">
-            <div class="col-md-6 mx-auto">
-                <form   @submit.prevent="submit" v-if="contacto == true">
+            <div class="col-md-8 mx-auto">
+                <form @submit.prevent="submit" v-if="contacto == true">
                     @csrf
                     <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre</label>
@@ -55,8 +60,9 @@
                     <br>
                     <button type="submit" class="btn btn-bd-primary mb-5">Contactar</button>
               </form>
-              <div v-else>
-                CORREO ENVIADO
+              <div class="enviado" v-else>
+                    <h2 class="text-center"><i style="color: green" class="fa-solid fa-circle-check"></i> Gracias por ponerte en contacto</h2>
+                    <h4 class="text-center">Te responderemos a la mayor brevedad posible</h4>
               </div>
             </div>
         </div>

@@ -53,3 +53,10 @@
     --bs-btn-active-bg: #{shade-color($bd-violet, 20%)};
     --bs-btn-active-border-color: #{shade-color($bd-violet, 20%)};
 }
+
+.enviado {
+    padding: 50px;
+    border: 2px solid #00fffb;
+    border-radius: 15px;
+    margin: 40px 0px;
+}

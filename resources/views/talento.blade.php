@@ -2,6 +2,13 @@
 
 @section('title') Talento @endsection
 
+@section('css') 
+
+<link rel="stylesheet" href="{{ asset('css/talento.css') }}">
+
+@endsection
+
+
 @section('content')
     <div class="container">
         <div class="row mt-5">
@@ -134,8 +141,9 @@
                             <br>
                             <button type="submit" class="btn btn-bd-primary mb-5">Enviar CV</button>
                       </form>
-                    <div v-else>
-                        FORMULARIO ENVIADO
+                    <div class="enviado" v-else>
+                        <h2 class="text-center"><i style="color: green" class="fa-solid fa-circle-check"></i> Gracias por dejar tu CV</h2>
+                        <h4 class="text-center">Si tu perfil se ajusta a alguna nueva oferta te contactaremos</h4>
                     </div>
                 </div>
             </div>

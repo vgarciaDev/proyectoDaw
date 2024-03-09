@@ -2,6 +2,12 @@
 
 @section('title') Nuestro Trabajo @endsection
 
+@section('css')
+
+<link rel="stylesheet" href="{{ asset('css/inicio.css') }}">
+
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row mt-5">
