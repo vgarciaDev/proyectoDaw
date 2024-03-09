@@ -20,7 +20,7 @@ class ContactoController extends Controller
         $selector = $request->form['opciones'];
         $mensaje = $request->form['mensaje'];
         // Aquí puedes personalizar el contenido del correo electrónico
-        $contenido = "Nombre: $nombre\nApellidos: $apellidos\nTelefono: $telefono\nEmail: $email\nSelector: $selector\nMensaje: $mensaje";
+        $contenido = "Nombre: $nombre\nApellidos: $apellidos\nTelefono: $telefono\nEmail: $email\nDepartamento: $selector\nMensaje: $mensaje";
         
         // Envía el correo electrónico
         Mail::raw($contenido, function ($message) use ($email) {
