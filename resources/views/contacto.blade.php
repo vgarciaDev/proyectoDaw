@@ -160,7 +160,7 @@
                 }
 
                 //Si no hay errores enviamos formulario
-                if(this.errors.nombre == "" && this.errors.telefono == "" && this.errors.email == ""){
+                if(this.errors.nombre == "" && this.errors.telefono == "" && this.errors.email == "" && this.errors.mensaje == ""){
                    this.submit();
                 }
             }

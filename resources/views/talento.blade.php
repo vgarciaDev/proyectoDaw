@@ -106,7 +106,7 @@
                         <form @submit.prevent="validateForm" v-if="formulario == true" class="formulario">
                             @csrf
                             <div class="mb-3 w-75 mx-auto">
-                            <label for="nombre" class="form-label text-light">Nombre</label>
+                            <label for="nombre" class="form-label text-light">Nombre <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" v-model="form.nombre">
                             <div class="alert alert-danger mt-2" role="alert" v-if="errors.nombre!=''">
                                 @{{errors.nombre}}
@@ -117,14 +117,14 @@
                                 <input type="text" class="form-control" v-model="form.apellidos">
                             </div>
                             <div class="mb-3 w-75 mx-auto">
-                                <label for="telefono" class="form-label text-light">Teléfono</label>
+                                <label for="telefono" class="form-label text-light">Teléfono <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" v-model="form.telefono">
                                 <div class="alert alert-danger mt-2" role="alert" v-if="errors.telefono!=''">
                                     @{{errors.telefono}}
                                 </div>
                             </div>
                             <div class="mb-3 w-75 mx-auto">
-                                <label for="email" class="form-label text-light">Email</label>
+                                <label for="email" class="form-label text-light">Email <span class="text-danger">*</span></label>
                                 <input type="email" class="form-control" v-model="form.email">
                                 <div class="alert alert-danger mt-2" role="alert" v-if="errors.email!=''">
                                     @{{errors.email}}
@@ -202,7 +202,7 @@
                             fecha: "",
                             descripcion: ""
                         }
-                    ]
+                    ], 
                 }, 
                 errors: {
                     nombre: "",
@@ -266,7 +266,7 @@
                 if(this.errors.nombre == "" && this.errors.telefono == "" && this.errors.email == ""){
                    this.submit();
                 }
-            }
+        }
         } 
     });
 
