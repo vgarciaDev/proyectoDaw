@@ -17,7 +17,8 @@ class Candidate extends Model
     'education_title_3', 'education_center_3', 'education_year_3',
     'experience_position_1', 'experience_company_1', 'experience_date_1', 'experience_description_1',
     'experience_position_2', 'experience_company_2', 'experience_date_2', 'experience_description_2',
-    'experience_position_3', 'experience_company_3', 'experience_date_3', 'experience_description_3'];
+    'experience_position_3', 'experience_company_3', 'experience_date_3', 'experience_description_3',
+    'job_offer', 'url_cv'];
 
     public $timestamps = false;
 }
