@@ -2,16 +2,11 @@
     margin-top: 20px;
     margin-bottom: 5px;
     border: 2px red solid; 
-    width: 100%; 
-    color: red;  
+    width: 100%;   
 }
 .btnStyle{
-    color: red;
+    color: blue
     /* color: #00fefb;
     background-color: #2e2e2e; */
-   
-}
-.btnStyle:hover{
-   
    
 }

@@ -16,7 +16,10 @@
                 <smart-calendar months="4" @click="handleClick"></smart-calendar>
             </div> 
             <div class="col-3" id="botones">
-                <button class="btnStyle" @click="seleccionClick">Seleccionar días</button>
+                <button class="btnStyle"  @click="seleccionClick">Seleccionar días</button>
+                <div id="cajonDias">
+
+                </div>
 
                     
             </div> 
@@ -34,6 +37,8 @@
 <script>
     let diasSeleccionados = [];
     let seleccion = false;
+    
+    
     const app = Vue.createApp({
         
         // data() {
@@ -52,15 +57,24 @@
             handleClick(event) {                
                 // Verifica si el elemento clickeado o alguno de sus ancestros tiene la clase 'elemento'
                 if (event.target.closest('.smart-calendar-week')&&seleccion==true) {
+                    console.log(event);
                     const dia = Number(event.srcElement.value.getDate());
                     const mes = Number(event.srcElement.value.getMonth())+1;
-                    const element = `${dia}.${mes}`;
+                    const year = Number(event.srcElement.value.getFullYear());
+                    const element = `${dia}.${mes}.${year}`;
                     // console.log(`${dia}.${mes}`);
                     diasSeleccionados.push(element);
                     console.log(diasSeleccionados);
 
+                    const nuevoDiv = document.createElement('div');
+                    nuevoDiv.textContent = `Has seleccionado el día ${element}`;
+                
+                    // Agrega el nuevo div al div 'cajonDias'
+                    document.getElementById('cajonDias').appendChild(nuevoDiv);
+                }
+
             }
-            },
+            ,
             seleccionClick(event){
                 seleccion = true;
             }
