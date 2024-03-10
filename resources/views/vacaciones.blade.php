@@ -1,5 +1,9 @@
 @extends('templates.template')
 
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/vacaciones.css') }}">
+@endsection
+
 @section('content')
     <div class="container-fluid menu" id="calendar">
         <div class="row">

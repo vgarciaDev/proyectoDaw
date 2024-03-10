@@ -12,13 +12,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     @yield('css')
-
-    <link rel="stylesheet" href="{{ asset('css/inicio.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('css/trabajo.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('css/contacto.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/vacaciones.css') }}">
+   
     <link rel="stylesheet" href="{{ asset('css/smart-webcomponents/smart.default.css') }}">
 
 
