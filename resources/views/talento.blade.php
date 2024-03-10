@@ -2,6 +2,13 @@
 
 @section('title') Talento @endsection
 
+@section('css') 
+
+<link rel="stylesheet" href="{{ asset('css/talento.css') }}">
+
+@endsection
+
+
 @section('content')
     <div class="container">
         <div class="row mt-5">
@@ -95,50 +102,75 @@
             </div>
         </div>
             <div class="row">
-                <div class="col-md-8 mx-auto">
-                    <div v-if="formulario == true">
-                        <form @submit.prevent="submit">
+                <div class="col-md-9 mx-auto">
+                        <form @submit.prevent="validateForm" v-if="formulario == true" class="formulario">
                             @csrf
-                            <div class="mb-3">
-                            <label for="nombre" class="form-label">Nombre</label>
+                            <div class="mb-3 w-75 mx-auto">
+                            <label for="nombre" class="form-label text-light">Nombre <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" v-model="form.nombre">
+                            <div class="alert alert-danger mt-2" role="alert" v-if="errors.nombre!=''">
+                                @{{errors.nombre}}
+                              </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="apellidos" class="form-label">Apellidos</label>
+                            <div class="mb-3 w-75 mx-auto">
+                                <label for="apellidos" class="form-label text-light">Apellidos</label>
                                 <input type="text" class="form-control" v-model="form.apellidos">
                             </div>
-                            <div class="mb-3">
-                                <label for="telefono" class="form-label">Teléfono</label>
+                            <div class="mb-3 w-75 mx-auto">
+                                <label for="telefono" class="form-label text-light">Teléfono <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" v-model="form.telefono">
+                                <div class="alert alert-danger mt-2" role="alert" v-if="errors.telefono!=''">
+                                    @{{errors.telefono}}
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
+                            <div class="mb-3 w-75 mx-auto">
+                                <label for="email" class="form-label text-light">Email <span class="text-danger">*</span></label>
                                 <input type="email" class="form-control" v-model="form.email">
+                                <div class="alert alert-danger mt-2" role="alert" v-if="errors.email!=''">
+                                    @{{errors.email}}
+                                </div>
                             </div>
                             
-                            <div class="mb-3" v-for="(formacion, index) in form.formaciones" :key="index">
-                                <label class="form-label">Formación @{{ index + 1 }} </label>
+                            <div class="mb-3 w-75 mx-auto" v-for="(formacion, index) in form.formaciones" :key="index">
+                                <label class="form-label text-light">Formación @{{ index + 1 }} </label>
                                 <input type="text" class="form-control mb-2" v-model="form.formaciones[index].titulo" placeholder="Titulo">
                                 <input type="text" class="form-control mb-2" v-model="form.formaciones[index].institucion" placeholder="Institución">
                                 <input type="text" class="form-control mb-2" v-model="form.formaciones[index].graduacion" placeholder="Año Graduación">
                             </div>
-                            <button class="btn btn-bd-primary mb-3" @click.prevent="addFormacion" :disabled="form.formaciones.length >= 3">Añadir Formación</button>
-        
-                            <div class="mb-3" v-for="(experiencia, index) in form.experiencias" :key="index">
-                                <label class="form-label">Experiencia @{{ index + 1 }} </label>
+
+                            <div class="mb-3 w-75 mx-auto">
+                                <button class="btn btn-bd-primary" @click.prevent="addFormacion" :disabled="form.formaciones.length >= 3">Añadir Formación</button>
+                            </div>
+
+                            <div class="mb-3 w-75 mx-auto" v-for="(experiencia, index) in form.experiencias" :key="index">
+                                <label class="form-label text-light">Experiencia @{{ index + 1 }} </label>
                                 <input type="text" class="form-control mb-2" v-model="form.experiencias[index].puesto" placeholder="Puesto">
                                 <input type="text" class="form-control mb-2" v-model="form.experiencias[index].empresa" placeholder="Empresa">
                                 <input type="text" class="form-control mb-2" v-model="form.experiencias[index].fecha" placeholder="Fecha">
                                 <input type="text" class="form-control mb-2" v-model="form.experiencias[index].descripcion" placeholder="Descripción">
                             </div>
-                            <button class="btn btn-bd-primary mb-5" @click.prevent="addExperiencia" :disabled="form.experiencias.length >= 3">Añadir Experiencia</button>
-                            <br>
-                            <button type="submit" class="btn btn-bd-primary mb-5">Enviar CV</button>
-                      </form>
-                    </div>
-                    <div v-else>
-                        FORMULARIO ENVIADO
-                    </div>
+                            <div class="mb-3 w-75 mx-auto">
+                                <button class="btn btn-bd-primary" @click.prevent="addExperiencia" :disabled="form.experiencias.length >= 3">Añadir Experiencia</button>
+                             </div>
+                             
+                            <div class="mb-3 w-75 mx-auto">
+                                <label for="oferta" class="form-label text-light">Oferta a postular</label>
+                                <select class="form-select" aria-label="Default select example" v-model="form.oferta">
+                                    <option value="">Ninguna actual, cuando mi perfil se ajuste a otra</option>
+                                    @foreach($jobOffers as $jobOffer)
+                                    <option value="{{$jobOffer['id']}}">{{$jobOffer['id']}}. {{$jobOffer['title']}} - {{$jobOffer['location']}}</option>
+                                    @endforeach
+                                  </select>                             
+                            </div>
+
+                            <div class="w-75 mx-auto">
+                                <button type="submit" class="btn btn-bd-primary mb-5">Enviar CV</button>
+                            </div>
+                        </form>
+                        <div class="enviado" v-else>
+                            <h2 class="text-center"><i style="color: green" class="fa-solid fa-circle-check"></i> Gracias por dejar tu CV</h2>
+                            <h4 class="text-center">Si tu perfil se ajusta a alguna nueva oferta te contactaremos</h4>
+                        </div>
                 </div>
             </div>
     </div>
@@ -155,6 +187,7 @@
                     nombre: "",
                     apellidos: "",
                     telefono: "",
+                    oferta:"",
                     formaciones: [
                         {
                             titulo: "",
@@ -169,8 +202,13 @@
                             fecha: "",
                             descripcion: ""
                         }
-                    ]
+                    ], 
                 }, 
+                errors: {
+                    nombre: "",
+                    telefono: "",
+                    email: "",
+                },
                 formulario: true
             }
         }, 
@@ -186,20 +224,49 @@
                 } 
             },
             submit() {
+                let self = this;
                 let form = {
                     _token: '{{ csrf_token() }}',
                     form: this.form
                 }
-
                 $.post("talento", form, function(response){
                     if(response.status == "OK"){
-                        console.log("OK");
-                        app.formulario = false;
+                        self.formulario = false;
                     } else{
-                        console.log("BAD");
+                        console.log("KO");
                     }
                 });
-            }
+            }, 
+            validateForm(){
+                //Iniciamos nombre a vacío por si se corrigen los errores que no salga de nuevo
+                this.errors.nombre="";
+                if(this.form.nombre == ""){
+                    this.errors.nombre = "El nombre es obligatorio";
+                }
+
+                //Iniciamos telefono a vacío por si se corrigen los errores que no salga de nuevo
+                this.errors.telefono="";
+                let checkTel = /^\+?\d{0,3}?\s?\(?\d{1,3}\)?[\s.-]?\d{3,4}[\s.-]?\d{4}$/ //Expresión regular para comprobar formato telefono
+                if(checkTel.test(this.form.telefono)){ //.test comprueba que una expresión regular se cumple
+                    this.errors.telefono="";
+                } else {
+                    this.errors.telefono="El telefono no tiene el formato correcto";
+                }
+
+                //Iniciamos email a vacío por si se corrigen los errores que no salga de nuevo
+                this.errors.email="";
+                let checkEmail = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/; //Expresión regular para comprobar formato email
+                if(checkEmail.test(this.form.email)){
+                    this.errors.email="";
+                } else {
+                    this.errors.email="El email no tiene el formato correcto";
+                }
+
+                //Si no hay errores enviamos formulario
+                if(this.errors.nombre == "" && this.errors.telefono == "" && this.errors.email == ""){
+                   this.submit();
+                }
+        }
         } 
     });
 
