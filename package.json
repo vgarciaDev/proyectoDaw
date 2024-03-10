@@ -9,5 +9,10 @@
         "axios": "^1.6.4",
         "laravel-vite-plugin": "^1.0.0",
         "vite": "^5.0.0"
+    },
+    "dependencies": {
+        "json-calendar": "^1.11.2",
+        "smart-webcomponents": "^18.0.26",
+        "smart-webcomponents-community": "^18.0.2"
     }
 }

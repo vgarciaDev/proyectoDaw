@@ -1,0 +1,17 @@
+.menu{
+    margin-top: 20px;
+    margin-bottom: 5px;
+    border: 2px red solid; 
+    width: 100%; 
+    color: red;  
+}
+.btnStyle{
+    color: red;
+    /* color: #00fefb;
+    background-color: #2e2e2e; */
+   
+}
+.btnStyle:hover{
+   
+   
+}

@@ -8,6 +8,7 @@ use App\Http\Controllers\NuestroTrabajoController;
 use App\Http\Controllers\QueHacemosController;
 use App\Http\Controllers\SobreNosotrosController;
 use App\Http\Controllers\TalentoController;
+use App\Http\Controllers\Vacacionescontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +34,6 @@ Route::get('/nuestroTrabajo', NuestroTrabajoController::class);
 Route::get('/talento', [TalentoController::class, 'index']);
 Route::post('/talento', [TalentoController::class, 'setCv']);
 Route::get('/contacto', ContactoController::class);
+
+Route::get('/vacaciones', Vacacionescontroller::class);
 
