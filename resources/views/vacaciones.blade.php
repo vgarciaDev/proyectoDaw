@@ -2,6 +2,7 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/vacaciones.css') }}">
+<link rel="stylesheet" href="{{ asset('css/smart-webcomponents/smart.default.css') }}">
 @endsection
 
 @section('content')
@@ -19,10 +20,14 @@
                 {{-- <smart-calendar id="calendar" class="menu" @click="handleClick"></smart-calendar> --}}
                 <smart-calendar months="4" @click="handleClick"></smart-calendar>
             </div> 
-            <div class="col-3" id="botones">
-                <button class="btnStyle"  @click="seleccionClick">Seleccionar días</button>
+            <div class="col-3" id="menuDias">
+                <button class="btn btn-bd-primary"  @click="seleccionClick">Seleccionar días</button>
                 <div id="cajonDias">
-
+                    <div>dias seleccionados</div>
+                    <ul>
+                        <!-- Utiliza v-for para iterar sobre cada elemento del array y renderizarlos como elementos de lista -->
+                        
+                    </ul>
                 </div>
 
                     
@@ -41,6 +46,7 @@
 <script>
     let diasSeleccionados = [];
     let seleccion = false;
+    let cajonDias = document.getElementById('cajonDias');
     
     
     const app = Vue.createApp({
@@ -58,7 +64,8 @@
         //         }
         //     }   
         methods: {
-            handleClick(event) {                
+            handleClick(event) {  
+                            
                 // Verifica si el elemento clickeado o alguno de sus ancestros tiene la clase 'elemento'
                 if (event.target.closest('.smart-calendar-week')&&seleccion==true) {
                     console.log(event);
@@ -69,12 +76,8 @@
                     // console.log(`${dia}.${mes}`);
                     diasSeleccionados.push(element);
                     console.log(diasSeleccionados);
-
-                    const nuevoDiv = document.createElement('div');
-                    nuevoDiv.textContent = `Has seleccionado el día ${element}`;
-                
-                    // Agrega el nuevo div al div 'cajonDias'
-                    document.getElementById('cajonDias').appendChild(nuevoDiv);
+                    this.pintarDias();
+                    
                 }
 
             }
