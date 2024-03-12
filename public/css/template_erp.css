@@ -1,0 +1,29 @@
+.seccion_erp{
+    padding: 50px 0px 50px 0px;
+}
+
+.img-usuario {
+    width: 30%;
+    padding: 20px 0px 10px 20px ;
+}
+
+.nombres{
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+}
+
+.col-3.usuario{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.col-9.info{
+    background-color: #ddfffe;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+i.fa-solid.fa-user {
+    color: #00fefb;
+    padding-right: 6px;
+}
