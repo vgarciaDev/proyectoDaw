@@ -1,6 +1,6 @@
 @extends('templates.template')
 
-@section('title') Nuestro Trabajo @endsection
+@section('title') Empleados @endsection
 
 @section('content')
     <div class="container">
