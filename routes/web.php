@@ -9,6 +9,7 @@ use App\Http\Controllers\NuestroTrabajoController;
 use App\Http\Controllers\QueHacemosController;
 use App\Http\Controllers\SobreNosotrosController;
 use App\Http\Controllers\TalentoController;
+use App\Http\Controllers\FichajeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +36,5 @@ Route::get('/talento', [TalentoController::class, 'index']);
 Route::post('/talento', [TalentoController::class, 'setCv'])->name("talento");
 Route::get('/contacto', [ContactoController::class, 'index']);
 Route::post('/contacto', [ContactoController::class, 'sendEmailFn']);
-
+Route::get('/fichaje', [FichajeController::class, 'index']);
+Route::post('/fichaje', [FichajeController::class, 'timekeeping']);
