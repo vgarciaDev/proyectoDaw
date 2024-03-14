@@ -9,8 +9,12 @@ use App\Http\Controllers\NuestroTrabajoController;
 use App\Http\Controllers\QueHacemosController;
 use App\Http\Controllers\SobreNosotrosController;
 use App\Http\Controllers\TalentoController;
+
 use App\Http\Controllers\templateERPController;
 use App\Http\Controllers\accesoController;
+
+use App\Http\Controllers\FichajeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -45,5 +49,6 @@ Route::get('/acceso', accesoController::class);
 Route::post('/talento', [TalentoController::class, 'setCv'])->name("talento");
 Route::get('/contacto', [ContactoController::class, 'index']);
 Route::post('/contacto', [ContactoController::class, 'sendEmailFn']);
-
+Route::get('/fichaje', [FichajeController::class, 'index']);
+Route::post('/fichaje', [FichajeController::class, 'timekeeping']);
 
