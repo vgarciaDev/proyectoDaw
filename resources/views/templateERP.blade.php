@@ -5,14 +5,46 @@
 @section('content')
     <div class="seccion_erp">
 
-        <div class="row">
+        <p class="frase">BIENVENIDO A TU PERFIL DE USUARIO</p>
 
+        <div class="row">
+            <!--COLUMNA DATOS DEL EMPLEADO-->
             <div class="col-3 usuario">
                 <img class="img-usuario" src="{{ asset('img/inicio/imagen_usuario.png') }}" alt="Imagen">
                 <p class="nombres"><i class="fa-solid fa-user"></i> Gustavo Tejera Martínes</p>
+
+                <!--CONTENEDOR SECCIONES-->
+                <div>
+
+                    <!--BOTON FICHAR-->
+                    <div class="seccion">
+                        <p style="cursor: pointer"><i class="fa-solid fa-clock" id="fichaje"></i> Fichaje</p>
+                    </div>
+
+                    <!--BOTON VACACIONES-->
+                    <div class="seccion">
+                        <p style="cursor: pointer"><i class="fa-solid fa-umbrella-beach" id="vacaciones"></i> Vacaciones</p>
+                    </div>
+
+                    <!--BOTON NOMINAS-->
+                    <div class="seccion">
+                        <p style="cursor: pointer"><i class="fa-solid fa-file-pdf" id="nominas"></i> Nominas</p>
+                    </div>
+
+                     <!--BOTON CURSOS-->
+                    <div class="seccion">
+                        <p style="cursor: pointer"><i class="fa-solid fa-book" id="cursos"></i> Cursos</p>
+                    </div>
+
+
+                    
+
+                </div>
                 
             </div>
-               
+
+
+            <!--COLUMNA VIEW DATOS-->
             <div class="col-9 info"></div>
         </div>
        
