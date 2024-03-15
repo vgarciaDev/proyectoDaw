@@ -15,16 +15,19 @@
             </div>
         </div>
         <div class="row mt-5">
-            <h3 class="text-center">AQUI VA LAS HORAS QUE LLEVAS</h3>
+            <h2 class="text-center fs-1">@{{formatTime}}</h2>
             <div class="col-md-4 mx-auto text-center mt-5 mb-5">
-                <button class="btn btn-success" :disabled="start == true" @click="clockIn">Iniciar fichaje</button>
+                <button class="btn btn-success" :disabled="start == false" @click="clockIn">Iniciar fichaje</button>
             </div>
             <div class="col-md-4 mx-auto text-center mt-5 mb-5">
-                <button class="btn btn-warning" :disabled="pause == true" @click="clockPause">Iniciar Descanso</button>
-                <button class="btn btn-warning" :disabled="pause == true" @click="clockEndPause">Acabar Descanso</button>
+                <button v-if="pauseButton == true" class="btn btn-warning" :disabled="pause == false" @click="clockPause">Iniciar Descanso</button>
+                <button v-else class="btn btn-warning" :disabled="pause == false" @click="clockEndPause">Acabar Descanso</button>
             </div>
             <div class="col-md-4 mx-auto text-center mt-5 mb-5">
-                <button class="btn btn-danger" :disabled="end == true">Finalizar Fichaje</button>
+                <button class="btn btn-danger" :disabled="end == false"  @click="clockOut">Finalizar Fichaje</button>
+            </div>
+            <div class="alert alert-danger mt-2" role="alert" v-if="errors!=''">
+                @{{errors}}
             </div>
         </div>
     </div>
@@ -42,13 +45,38 @@
                 minutes: "",
                 seconds: "",
                 time: "",
-                start: false, 
-                pause: true, 
-                end: true
+                start: true, 
+                pause: false, 
+                end: false,
+                pauseButton: true, 
+                errors: "",
+                timer:{
+                    isRunning: false,
+                    elapsedTime: 0,
+                    timer: null
+                }
+                
             }
         }, 
         mounted(){
             this.actualTime();
+        },
+        computed: {
+            formatTime() {
+            const seconds = Math.floor(this.timer.elapsedTime / 1000);
+            const minutes = Math.floor(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+
+            const addLeadingZero = (value) => {
+                return value < 10 ? `0${value}` : value;
+            };
+
+            const formattedHours = addLeadingZero(hours);
+            const formattedMinutes = addLeadingZero(minutes % 60);
+            const formattedSeconds = addLeadingZero(seconds % 60);
+
+            return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+    }
         },
         methods: {
             actualTime(){
@@ -59,6 +87,7 @@
                 }, 1000);
             }, 
             clockIn(){
+                let self= this;
                 let clockInTime = new Date().toLocaleTimeString(); 
                 console.log(clockInTime);
                 let dateIn = new Date().toLocaleDateString();
@@ -67,16 +96,31 @@
                     "clockInTime": clockInTime,
                     "dateIn": dateIn
                 }
-                this.start = true;
-                this.pause = false;
-                this.end = false;
+                this.start = false;
+                this.pause = true;
+                this.end = true;
+
+                
+
                 $.post('fichaje', information, function(response){
                     if(response.status == "OK"){
-                        console.log("OK");
+                        if (!self.timer.isRunning) {
+                            self.timer.timer = setInterval(() => {
+                            self.timer.elapsedTime += 1000;
+                        }, 1000);
+                        self.timer.isRunning = true;
+                    }
+                    } else if(response.status == "KO"){
+                        console.log("hola");
+                        self.errors = response.error;
+                        self.start = false;
+                        self.pause = false;
+                        self.end = false;
                     }
                 })
             }, 
             clockPause(){
+                let self= this;
                 let clockPauseTime = new Date().toLocaleTimeString(); 
                 let dateIn = new Date().toLocaleDateString();
                 let information = {
@@ -84,15 +128,85 @@
                     "clockPauseTime": clockPauseTime,
                     "dateIn": dateIn
                 }
+                this.pauseButton = false;
                 this.start = false;
                 this.pause = true;
                 this.end = false;
+
+                clearInterval(this.timer.timer);
+                this.timer.isRunning = false;
+
                 $.post('fichaje', information, function(response){
                     if(response.status == "OK"){
                         console.log("OK");
+                    }else if(response.status == "KO"){
+                        console.log("hola");
+                        self.errors = response.error;
+                        self.start = false;
+                        self.pause = false;
+                        self.end = false;
                     }
                 })
-            }
+            }, 
+            clockEndPause(){
+                let self= this;
+                let clockPauseTime = new Date().toLocaleTimeString(); 
+                let dateIn = new Date().toLocaleDateString();
+                let information = {
+                    "action": "action3",
+                    "clockPauseTime": clockPauseTime,
+                    "dateIn": dateIn
+                }
+                this.pauseButton = true;
+                this.start = false;
+                this.pause = true;
+                this.end = true;
+
+                if (!this.timer.isRunning) {
+                    this.timer.timer = setInterval(() => {
+                    this.timer.elapsedTime += 1000;
+                    }, 1000);
+                    this.timer.isRunning = true;
+                }
+
+                $.post('fichaje', information, function(response){
+                    if(response.status == "OK"){
+                        console.log("OK");
+                    }else if(response.status == "KO"){
+                        console.log("hola");
+                        self.errors = response.error;
+                        self.start = false;
+                        self.pause = false;
+                        self.end = false;
+                    }
+                })
+            },
+            clockOut(){
+                let self = this;
+                let clockOutTime = new Date().toLocaleTimeString(); 
+                let dateIn = new Date().toLocaleDateString();
+                let information = {
+                    "action": "action4",
+                    "clockOutTime": clockOutTime,
+                    "dateIn": dateIn
+                }
+                this.start = true;
+                this.pause = false;
+                this.end = false;
+
+                clearInterval(this.timer.timer);
+                this.timer.elapsedTime = 0;
+                this.timer.isRunning = false;
+
+                $.post('fichaje', information, function(response){
+                    if(response.status == "OK"){
+                        console.log("OK");
+                    } else if(response.status == "KO"){
+                        console.log("hola");
+                        self.errors = response.error;
+                    }
+                })
+            },
         }
     });
 
