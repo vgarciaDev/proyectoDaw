@@ -10,7 +10,13 @@ use DateTime;
 class FichajeController extends Controller
 {
     public function index(){
-        return view('fichaje');
+        $fichaje = Timekeeping::where('worker_id',11)
+                    ->limit(5)
+                    ->get()
+                    ->toArray();
+       
+
+        return view('fichaje', ['fichajes' => $fichaje]);
     }
 
     public function timekeeping(Request $request){
