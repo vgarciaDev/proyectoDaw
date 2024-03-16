@@ -30,8 +30,35 @@
             <div class="col-md-4 mx-auto text-center mt-5 mb-5">
                 <button class="btn btn-danger" :disabled="end == false"  @click="clockOut">Finalizar Fichaje</button>
             </div>
-            <div class="alert alert-danger mt-2" role="alert" v-if="errors!=''">
+            <div class="alert col-md-6 text-center mx-auto alert-danger mt-2" role="alert" v-if="errors!=''">
                 @{{errors}}
+            </div>
+        </div>
+        <div class="row mt-5">
+            <h2 class="text-center">Últimos fichajes</h2>
+            <div class="col-md-10 mx-auto text-center">
+                <table class="table table-info table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Entrada</th>
+                        <th scope="col">Descanso</th>
+                        <th scope="col">Salida</th>
+                        <th scope="col">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach ($fichajes as $fichaje)
+                      <tr>
+                        <th scope="row">{{$fichaje['date']}}</th>
+                        <td>{{$fichaje['clock_in']}}</td>
+                        <td>{{$fichaje['pause_time']}}</td>
+                        <td>{{$fichaje['clock_out']}}</td>
+                        <td>{{$fichaje['total_time']}}</td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
             </div>
         </div>
     </div>
@@ -289,14 +316,29 @@
                 this.timer.elapsedTime = 0;
                 this.timer.isRunning = false;
 
-                $.post('fichaje', information, function(response){
-                    if(response.status == "OK"){
-                        console.log("OK");
-                    } else if(response.status == "KO"){
-                        console.log("hola");
-                        self.errors = response.error;
-                    }
+                Swal.fire({
+                    title: "¿Quieres finalizar la jornada?",
+                    text: "Ya no podrás volver a fichar hasta mañana",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Si, finalizar",
+                    cancelButtonText: "Cancelar"
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.post('fichaje', information, function(response){
+                        if(response.status == "OK"){
+                            console.log("OK");
+                        } else if(response.status == "KO"){
+                            console.log("hola");
+                            self.errors = response.error;
+                        }
                 })
+                    }
+                    });
+
+                
             },
         }
     });
