@@ -31,6 +31,7 @@
                         <!-- Utiliza v-for para iterar sobre cada elemento del array y renderizarlos como elementos de lista -->
                     </ul>
                 </div>
+                <button class="btn btn-bd-primary" id="enviarDiasButton">Enviar días</button>
             </div> 
         </div>   
     </div>
@@ -38,6 +39,7 @@
 
 @section('script')
 <script src="/proyectoDAW/node_modules/smart-webcomponents/source/modules/smart.calendar.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     let diasSeleccionados = [];
     let seleccion = false;
@@ -95,10 +97,33 @@
             listaDias.appendChild(itemList);
         });
     }
-        
     
-                
+    $(document).ready(function() {
+        $('#enviarDiasButton').click(function(e) {
+            e.preventDefault();
 
+            // var miArray = ['valor1', 'valor2', 'valor3']; // Tu array aquí
+
+            $.ajax({
+                url: "{{ route('enviarDatos.ajax') }}",
+                type: "POST",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    mi_array: diasSeleccionados
+                },
+                success: function(response) {
+                    console.log(response);
+                    alert('Array enviado correctamente');
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                    alert('Hubo un error al enviar el array');
+                }
+            });
+        });
+    });
+    
+ 
         
     
     
