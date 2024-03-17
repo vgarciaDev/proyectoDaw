@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Vacacionescontroller extends Controller
+class VacacionesController extends Controller
 {
-    public function __invoke() {
+    public function index() {
         return view('vacaciones');
     }
 }

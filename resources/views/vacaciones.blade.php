@@ -1,21 +1,18 @@
-@extends('templates.template')
+@extends('templateERP')
 
-@section('css')
-<link rel="stylesheet" href="{{ asset('css/vacaciones.css') }}">
-<link rel="stylesheet" href="{{ asset('css/smart-webcomponents/smart.default.css') }}">
-@endsection
 
-@section('content')
+
+@section('menuElegido')
     <div class="container-fluid menu" id="calendar">
         <div class="row">
-            <div class="col-3">
+            {{-- <div class="col-3">
                 <div>MENU</div>    
                 <div>MENU</div>    
                 <div>MENU</div>    
                 <div>MENU</div>    
                 <div>MENU</div>    
                 <div>MENU</div>    
-            </div>  
+            </div>   --}}
             <div class="col-6">
                 {{-- <smart-calendar id="calendar" class="menu" @click="handleClick"></smart-calendar> --}}
                 <smart-calendar 

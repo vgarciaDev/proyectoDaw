@@ -2,6 +2,14 @@
 
 @section('title') Empleados @endsection
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/template_erp.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vacaciones.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/smart-webcomponents/smart.default.css') }}">
+@endsection
+    
+
+
 @section('content')
     <div class="seccion_erp">
 
@@ -42,10 +50,12 @@
                 </div>
                 
             </div>
-
+            
 
             <!--COLUMNA VIEW DATOS-->
-            <div class="col-9 info"></div>
+            <div class="col-9 info">
+                @yield('menuElegido')
+            </div>
         </div>
        
     </div>
