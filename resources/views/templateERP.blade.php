@@ -2,54 +2,60 @@
 
 @section('title') Empleados @endsection
 
+
 @section('content')
-    <div class="seccion_erp">
+<div class="container-fluid fs-5">
+    <!--inicio contenedor general-->
+    <div class="row">
 
-        <p class="frase">BIENVENIDO A TU PERFIL DE USUARIO</p>
+        <div class="container text-center">
+            <img class="img-logo" src="{{ asset('img/Logo.png') }}" alt="Imagen">
+        </div>
 
-        <div class="row">
-            <!--COLUMNA DATOS DEL EMPLEADO-->
-            <div class="col-3 usuario">
-                <img class="img-usuario" src="{{ asset('img/inicio/imagen_usuario.png') }}" alt="Imagen">
-                <p class="nombres"><i class="fa-solid fa-user"></i> Gustavo Tejera Martínes</p>
+        <div class="container-fluid">
+            <!--LADO IZQUIERDO-->
+            <div class="row">
+                <div class="col-3">
 
-                <!--CONTENEDOR SECCIONES-->
-                <div>
-
-                    <!--BOTON FICHAR-->
+                    <img class="img-usuario" src="{{ asset('img/inicio/imagen_usuario.png') }}" alt="Imagen">
+                    <p class="nombres"><i class="fa-solid fa-user"></i> Gustavo Tejera Martínes</p>
+                    <!--INICIO SECCIÓN DE BOTONES-->
+                    <!--boton 1-->
                     <div class="seccion">
                         <p style="cursor: pointer"><i class="fa-solid fa-clock" id="fichaje"></i> Fichaje</p>
                     </div>
-
-                    <!--BOTON VACACIONES-->
+                    <!--boton 2-->
                     <div class="seccion">
                         <p style="cursor: pointer"><i class="fa-solid fa-umbrella-beach" id="vacaciones"></i> Vacaciones</p>
                     </div>
-
-                    <!--BOTON NOMINAS-->
+                    <!--boton 3-->
                     <div class="seccion">
                         <p style="cursor: pointer"><i class="fa-solid fa-file-pdf" id="nominas"></i> Nominas</p>
                     </div>
-
-                     <!--BOTON CURSOS-->
+                    <!--boton 4-->
                     <div class="seccion">
                         <p style="cursor: pointer"><i class="fa-solid fa-book" id="cursos"></i> Cursos</p>
                     </div>
 
+                </div>
 
-                    
+                
+
+                <!--INICIO SECCION MOSTRAR INFORMACIÓN-->
+                <div class="col-9 info">
 
                 </div>
-                
+                <!--FIN SECCION MOSTRAR INFORMACIÓN-->
             </div>
 
 
-            <!--COLUMNA VIEW DATOS-->
-            <div class="col-9 info"></div>
+
         </div>
-       
+                
     </div>
+</div>
 
+    <!--fin contenedor general-->
 
-    
 @endsection
+
