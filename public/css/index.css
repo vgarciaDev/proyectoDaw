@@ -4,3 +4,17 @@ h1,
 h2 {
     font-family: "Montserrat", sans-serif;
 }
+
+.btn-bd-primary {
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: #2e2e2e;
+    --bs-btn-bg: #00fefb;
+    --bs-btn-border-color: #00fefb;
+    --bs-btn-hover-color: #00807d;
+    --bs-btn-hover-bg: #ececec;
+    --bs-btn-hover-border-color: #{shade-color($bd-violet, 10%)};
+    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+    --bs-btn-active-color: var(--bs-btn-hover-color);
+    --bs-btn-active-bg: #{shade-color($bd-violet, 20%)};
+    --bs-btn-active-border-color: #{shade-color($bd-violet, 20%)};
+}
