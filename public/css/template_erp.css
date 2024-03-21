@@ -1,0 +1,36 @@
+.container{
+    background-color: #2E2E2E;
+}
+img.img-logo {
+    width: 6%;
+
+}
+
+.col-3 {
+    padding-top: 50px;
+    padding-left: 50px;
+    background-color: white;
+}
+
+.col-9.info {
+    background-color: #00fefb1c !important;
+}
+
+.seccion{
+    background-color: #2E2E2E;
+    color: #00fefb;
+    width: 70%;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 20px;
+    border: #00fefb 1px solid;
+    border-radius: 15px;
+    padding-top: 12px;
+    margin-bottom: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+i.fa-solid.fa-user {
+    color: #00fefb;
+    padding-right: 6px;
+}
