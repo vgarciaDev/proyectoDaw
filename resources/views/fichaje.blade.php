@@ -1,4 +1,4 @@
-@extends('templates.template')
+@extends('templateERP')
 
 @section('title') Fichaje Empleado @endsection
 
