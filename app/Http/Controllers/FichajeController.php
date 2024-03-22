@@ -9,8 +9,12 @@ use DateTime;
 
 class FichajeController extends Controller
 {
+
+    protected $idWorker;
     public function index(){
-        $fichaje = Timekeeping::where('worker_id',11)
+        $idWorker = session()->get('id');
+        
+        $fichaje = Timekeeping::where('worker_id', $idWorker)
                     ->limit(5)
                     ->get()
                     ->toArray();
@@ -21,13 +25,13 @@ class FichajeController extends Controller
 
     public function timekeeping(Request $request){
         try{
+            $idWorker = session()->get('id');
             switch($request["action"]){
                 case "action1": 
                     $dateIn = $request['dateIn'];
                     $dateTime = DateTime::createFromFormat('d/m/Y', $dateIn);
                     $formattedDate = $dateTime->format('Y-m-d');   
-
-                    $fichaje = Timekeeping::where('worker_id', 11) //Cambiar despues por worker_id
+                    $fichaje = Timekeeping::where('worker_id', $idWorker) //Cambiar despues por worker_id
                                 ->where('date', $formattedDate)
                                 ->first();
                     
@@ -35,7 +39,7 @@ class FichajeController extends Controller
                         throw new \Exception("Ya existe un fichaje para el trabajador ". $fichaje['worker_id'].", el día ". $fichaje['date']);
                     } else{
                         $fichaje = new Timekeeping;
-                        $fichaje->worker_id= 11;
+                        $fichaje->worker_id= $idWorker;
                         $fichaje->clock_in = $request['clockInTime']; 
                         $fichaje->clock_in_pause = null;
                         $fichaje->clock_out = null;
@@ -54,7 +58,7 @@ class FichajeController extends Controller
                     $dateTime = DateTime::createFromFormat('d/m/Y', $dateIn);
                     $formattedDate = $dateTime->format('Y-m-d');   
 
-                    $fichaje = Timekeeping::where('worker_id', 11) //Cambiar despues por worker_id
+                    $fichaje = Timekeeping::where('worker_id', $idWorker) //Cambiar despues por worker_id
                                 ->where('date', $formattedDate)
                                 ->first();
 
@@ -71,7 +75,7 @@ class FichajeController extends Controller
                     $dateTime = DateTime::createFromFormat('d/m/Y', $dateIn);
                     $formattedDate = $dateTime->format('Y-m-d');   
 
-                    $fichaje = Timekeeping::where('worker_id', 11) //Cambiar despues por worker_id
+                    $fichaje = Timekeeping::where('worker_id', $idWorker) //Cambiar despues por worker_id
                                 ->where('date', $formattedDate)
                                 ->first();
 
@@ -140,7 +144,7 @@ class FichajeController extends Controller
                         $dateTime = DateTime::createFromFormat('d/m/Y', $dateIn);
                         $formattedDate = $dateTime->format('Y-m-d');   
 
-                        $fichaje = Timekeeping::where('worker_id', 11) //Cambiar despues por worker_id
+                        $fichaje = Timekeeping::where('worker_id', $idWorker) //Cambiar despues por worker_id
                                     ->where('date', $formattedDate)
                                     ->first();
 
