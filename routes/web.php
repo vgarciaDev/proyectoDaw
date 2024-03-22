@@ -12,6 +12,7 @@ use App\Http\Controllers\TalentoController;
 use App\Http\Controllers\templateERPController;
 use App\Http\Controllers\accesoController;
 use App\Http\Controllers\FichajeController;
+use App\Http\Controllers\cursoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,8 @@ use App\Http\Controllers\FichajeController;
 */
 
 Route::get('/', InicioController::class);
-Route::get('/login', LoginController::class);
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'login']);
 
 //Ruta de ejemplo para poder meter en la url variables, supongamos el numero de un trabajadro que tenga 6 cifras
 // Route::get('/login/{numeroId?}', function($numeroId = null){
@@ -37,10 +39,11 @@ Route::get('/nuestroTrabajo', NuestroTrabajoController::class);
 Route::get('/talento', [TalentoController::class, 'index']);
 Route::post('/talento', [TalentoController::class, 'setCv'])->name("talento");
 Route::get('/templateERP', templateERPController::class);
-Route::get('/acceso', accesoController::class);
 
 Route::get('/contacto', [ContactoController::class, 'index']);
 Route::post('/contacto', [ContactoController::class, 'sendEmailFn']);
 Route::get('/fichaje', [FichajeController::class, 'index']);
 Route::post('/fichaje', [FichajeController::class, 'timekeeping']);
+
+Route::get('/cursos', [cursoController::class, 'index']);
 

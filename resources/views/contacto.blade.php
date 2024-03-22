@@ -26,7 +26,6 @@
         <div class="row mt-2">
             <div class="col-md-8 mx-auto">
                 <form @submit.prevent="validateForm" v-if="contacto == true" class="formulario">
-                    @csrf
                     <div class="mb-3">
                     <label for="nombre" class="form-label text-light">Nombre</label>
                     <input type="text" class="form-control" v-model="form.nombre">
@@ -115,11 +114,7 @@
         methods: {
             submit() {
                 let self = this;
-                let form = {
-                    _token: '{{ csrf_token() }}', //Esto es porque laravel tiene un sistema de seguridad y hay que enviarle como un token para que permita la entrada de datos
-                    form: this.form
-                }
-                $.post("contacto", form, function(response){
+                $.post("contacto", this.form, function(response){
                     if(response.status == "OK"){
                         console.log("OK");
                         self.contacto = false;

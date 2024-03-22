@@ -19,7 +19,7 @@
             <a class="link-hover nav-link text-light fs-4 ms-2 me-5" href="{{ url('/contacto') }}">Contacto</a>
           </li>
           <li class="nav-item ms-2 me-3">
-            <button class="btn btn-bd-primary mt-2 ">Acceso empleados</button>
+            <a href="{{ url('/login') }}"><button class="btn btn-bd-primary mt-2 " >Acceso empleados</button></a>
           </li>
         </ul>
       </div>

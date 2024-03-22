@@ -126,9 +126,7 @@
                 }
                 this.start = false;
                 this.pause = true;
-                this.end = true;
-
-                
+                this.end = true;                
 
                 $.post('fichaje', information, function(response){
                     if(response.status == "OK"){
@@ -239,6 +237,7 @@
                     if (result.isConfirmed) {
                         $.post('fichaje', information, function(response){
                         if(response.status == "OK"){
+                            window.location.reload()
                             console.log("OK");
                         } else if(response.status == "KO"){
                             console.log("hola");
