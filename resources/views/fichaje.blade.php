@@ -80,7 +80,7 @@
                 errors: "",
                 timer:{
                     isRunning: false,
-                    elapsedTime: 0,
+                    elapsedTime: {{$elapsed_time}},
                     timer: null
                 }
                 
@@ -88,6 +88,7 @@
         }, 
         mounted(){
             this.actualTime();
+            this.timer.elapsedTime = 
         },
         computed: {
             formatTime() {
