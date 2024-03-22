@@ -2,6 +2,11 @@
 
 @section('title') Contacto @endsection
 
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/contacto.css') }}">
+@endsection
+
+
 @section('content')
 <div class="container-fluid p-0 mt-2">
     <div class="video-container mt-2">
@@ -17,25 +22,35 @@
         </div>
     </div>
 </div>
-    <div class="container mt-4">
+    <div class="container mt-4" id="contact">
         <div class="row mt-2">
-            <div class="col-md-6 mx-auto">
-                <form  id="contact">
+            <div class="col-md-8 mx-auto">
+                <form @submit.prevent="validateForm" v-if="contacto == true" class="formulario">
+                    @csrf
                     <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
+                    <label for="nombre" class="form-label text-light">Nombre</label>
                     <input type="text" class="form-control" v-model="form.nombre">
+                    <div class="alert alert-danger mt-2" role="alert" v-if="errors.nombre!=''">
+                        @{{errors.nombre}}
+                      </div>
                     </div>
                     <div class="mb-3">
-                        <label for="apellidos" class="form-label">Apellidos</label>
+                        <label for="apellidos" class="form-label text-light">Apellidos</label>
                         <input type="text" class="form-control" v-model="form.apellidos">
                     </div>
                     <div class="mb-3">
-                        <label for="telefono" class="form-label">Teléfono</label>
+                        <label for="telefono" class="form-label text-light">Teléfono</label>
                         <input type="text" class="form-control" v-model="form.telefono">
+                        <div class="alert alert-danger mt-2" role="alert" v-if="errors.telefono!=''">
+                            @{{errors.telefono}}
+                          </div>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
+                        <label for="email" class="form-label text-light" text-light>Email</label>
                         <input type="email" class="form-control" v-model="form.email">
+                        <div class="alert alert-danger mt-2" role="alert" v-if="errors.email!=''">
+                            @{{errors.email}}
+                          </div>
                     </div>
                     <div class="mb-3">
                         <select class="form-select"  v-model="form.opciones">
@@ -50,11 +65,17 @@
                     <div class="form-floating mb-3">
                         <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" v-model="form.mensaje"></textarea>
                         <label for="floatingTextarea2">Mensaje</label>
-                      </div>
-    
+                        <div class="alert alert-danger mt-2" role="alert" v-if="errors.mensaje!=''">
+                            @{{errors.mensaje}}
+                          </div>
+                    </div>
                     <br>
-                    <button type="button" @click="submit" class="btn btn-bd-primary mb-5">Contactar</button>
+                    <button type="submit" class="btn btn-bd-primary mb-5">Contactar</button>
               </form>
+              <div class="enviado" v-else>
+                    <h2 class="text-center"><i style="color: green" class="fa-solid fa-circle-check"></i> Gracias por ponerte en contacto</h2>
+                    <h4 class="text-center">Te responderemos a la mayor brevedad posible</h4>
+              </div>
             </div>
         </div>
     </div>
@@ -81,13 +102,67 @@
                     email: "",
                     opciones: "",
                     mensaje: ""
-                }
+                },
+                errors: {
+                    nombre: "",
+                    telefono: "",
+                    email: "",
+                    mensaje: ""
+                },
+                contacto: true
                 }
             }, 
         methods: {
             submit() {
-                console.log(this.form);
-                return false;
+                let self = this;
+                let form = {
+                    _token: '{{ csrf_token() }}', //Esto es porque laravel tiene un sistema de seguridad y hay que enviarle como un token para que permita la entrada de datos
+                    form: this.form
+                }
+                $.post("contacto", form, function(response){
+                    if(response.status == "OK"){
+                        console.log("OK");
+                        self.contacto = false;
+                    } else{
+                        console.log("BAD");
+                    }
+                });
+            }, 
+            validateForm(){
+                //Iniciamos nombre a vacío por si se corrigen los errores que no salga de nuevo
+                this.errors.nombre="";
+                if(this.form.nombre == ""){
+                    this.errors.nombre = "El nombre es obligatorio";
+                }
+                
+                //Iniciamos mensaje a vacío por si se corrigen los errores que no salga de nuevo
+                this.errors.mensaje="";
+                if(this.form.mensaje == ""){
+                    this.errors.mensaje = "Dinos en qué te podemos ayudar";
+                }
+
+                //Iniciamos telefono a vacío por si se corrigen los errores que no salga de nuevo
+                this.errors.telefono="";
+                let checkTel = /^\+?\d{0,3}?\s?\(?\d{1,3}\)?[\s.-]?\d{3,4}[\s.-]?\d{4}$/ //Expresión regular para comprobar formato telefono
+                if(checkTel.test(this.form.telefono)){ //.test comprueba que una expresión regular se cumple
+                    this.errors.telefono="";
+                } else {
+                    this.errors.telefono="El telefono no tiene el formato correcto";
+                }
+
+                //Iniciamos email a vacío por si se corrigen los errores que no salga de nuevo
+                this.errors.email="";
+                let checkEmail = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/; //Expresión regular para comprobar formato email
+                if(checkEmail.test(this.form.email)){
+                    this.errors.email="";
+                } else {
+                    this.errors.email="El email no tiene el formato correcto";
+                }
+
+                //Si no hay errores enviamos formulario
+                if(this.errors.nombre == "" && this.errors.telefono == "" && this.errors.email == "" && this.errors.mensaje == ""){
+                   this.submit();
+                }
             }
         }   
     });

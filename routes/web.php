@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\EmailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\LoginController;
@@ -33,10 +34,15 @@ Route::get('/login', LoginController::class);
 Route::get('/inicio', InicioController::class);
 Route::get('/nuestroTrabajo', NuestroTrabajoController::class);
 Route::get('/talento', [TalentoController::class, 'index']);
+
 Route::post('/talento', [TalentoController::class, 'setCv']);
-Route::get('/contacto', ContactoController::class);
-Route::get('/templateERP', templateERPController::class);
+Route::get('/templateERP', [templateERPController::class, 'index']);
 Route::get('/acceso', accesoController::class);
 
+
+
+Route::post('/talento', [TalentoController::class, 'setCv'])->name("talento");
+Route::get('/contacto', [ContactoController::class, 'index']);
+Route::post('/contacto', [ContactoController::class, 'sendEmailFn']);
 
 
