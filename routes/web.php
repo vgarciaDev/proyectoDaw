@@ -12,6 +12,7 @@ use App\Http\Controllers\TalentoController;
 use App\Http\Controllers\templateERPController;
 use App\Http\Controllers\accesoController;
 use App\Http\Controllers\FichajeController;
+use App\Http\Controllers\cursoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,4 +44,6 @@ Route::get('/contacto', [ContactoController::class, 'index']);
 Route::post('/contacto', [ContactoController::class, 'sendEmailFn']);
 Route::get('/fichaje', [FichajeController::class, 'index']);
 Route::post('/fichaje', [FichajeController::class, 'timekeeping']);
+
+Route::get('/cursos', [cursoController::class, 'index']);
 
