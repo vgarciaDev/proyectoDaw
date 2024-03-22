@@ -36,8 +36,7 @@ Route::get('/nuestroTrabajo', NuestroTrabajoController::class);
 Route::get('/talento', [TalentoController::class, 'index']);
 
 Route::post('/talento', [TalentoController::class, 'setCv']);
-Route::get('/contacto', ContactoController::class);
-Route::get('/templateERP', templateERPController::class);
+Route::get('/templateERP', [templateERPController::class, 'index']);
 Route::get('/acceso', accesoController::class);
 
 

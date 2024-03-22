@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class templateERPController extends Controller
 {
-    public function __invoke() {
+    public function index() {
         return view('templateERP');
     }
 }
