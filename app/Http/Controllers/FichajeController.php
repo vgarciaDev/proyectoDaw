@@ -19,19 +19,8 @@ class FichajeController extends Controller
                     ->limit(5)
                     ->get()
                     ->toArray();
-        $last_fichaje =  Timekeeping::where('worker_id', $idWorker)
-                    ->orderBy('date', 'desc')
-                    ->get()
-                    ->first();
-
-        if($last_fichaje){
-            $current_time = now();
-            $elapsed_time = $current_time->diffInSeconds($last_fichaje->date);
-            return view('fichaje', ['fichajes' => $fichaje, "elapsed_time" => $elapsed_time]); 
-        } else{
-            return view('fichaje', ['fichajes' => $fichaje]);
-        }
-        
+                    
+        return view('fichaje', ['fichajes' => $fichaje]);
     }
 
     public function timekeeping(Request $request){
