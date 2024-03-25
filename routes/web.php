@@ -9,10 +9,15 @@ use App\Http\Controllers\NuestroTrabajoController;
 use App\Http\Controllers\QueHacemosController;
 use App\Http\Controllers\SobreNosotrosController;
 use App\Http\Controllers\TalentoController;
+
 use App\Http\Controllers\templateERPController;
 use App\Http\Controllers\accesoController;
 use App\Http\Controllers\FichajeController;
 use App\Http\Controllers\cursoController;
+
+use App\Http\Controllers\FichajeController;
+use App\Http\Controllers\cursoController;
+
 
 /*
 |--------------------------------------------------------------------------
