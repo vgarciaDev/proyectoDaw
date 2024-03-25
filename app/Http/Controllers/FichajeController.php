@@ -15,11 +15,11 @@ class FichajeController extends Controller
         $idWorker = session()->get('id');
         
         $fichaje = Timekeeping::where('worker_id', $idWorker)
+                    ->orderBy('date', 'desc')
                     ->limit(5)
                     ->get()
                     ->toArray();
-       
-
+                    
         return view('fichaje', ['fichajes' => $fichaje]);
     }
 
