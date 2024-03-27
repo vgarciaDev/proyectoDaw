@@ -16,14 +16,10 @@
         </div>
         <div class="row mt-5">
             <h2 class="text-center fs-1">@{{formatTime}}</h2>
-            <h2 class="text-center fs-1">@{{formatTime}}</h2>
             <div class="col-md-4 mx-auto text-center mt-5 mb-5">
-                <button class="btn btn-success" :disabled="start == false" @click="clockIn">Iniciar fichaje</button>
                 <button class="btn btn-success" :disabled="start == false" @click="clockIn">Iniciar fichaje</button>
             </div>
             <div class="col-md-4 mx-auto text-center mt-5 mb-5">
-                <button v-if="pauseButton == true" class="btn btn-warning" :disabled="pause == false" @click="clockPause">Iniciar Descanso</button>
-                <button v-else class="btn btn-warning" :disabled="pause == false" @click="clockEndPause">Acabar Descanso</button>
                 <button v-if="pauseButton == true" class="btn btn-warning" :disabled="pause == false" @click="clockPause">Iniciar Descanso</button>
                 <button v-else class="btn btn-warning" :disabled="pause == false" @click="clockEndPause">Acabar Descanso</button>
             </div>
@@ -88,38 +84,10 @@
                     timer: null
                 }
                 
-                start: true, 
-                pause: false, 
-                end: false,
-                pauseButton: true, 
-                errors: "",
-                timer:{
-                    isRunning: false,
-                    elapsedTime: 0,
-                    timer: null
-                }
-                
             }
         }, 
         mounted(){
             this.actualTime();
-        },
-        computed: {
-            formatTime() {
-            const seconds = Math.floor(this.timer.elapsedTime / 1000);
-            const minutes = Math.floor(seconds / 60);
-            const hours = Math.floor(minutes / 60);
-
-            const addLeadingZero = (value) => {
-                return value < 10 ? `0${value}` : value;
-            };
-
-            const formattedHours = addLeadingZero(hours);
-            const formattedMinutes = addLeadingZero(minutes % 60);
-            const formattedSeconds = addLeadingZero(seconds % 60);
-
-            return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
-    }
         },
         computed: {
             formatTime() {
@@ -148,7 +116,6 @@
             }, 
             clockIn(){
                 let self= this;
-                let self= this;
                 let clockInTime = new Date().toLocaleTimeString(); 
                 console.log(clockInTime);
                 let dateIn = new Date().toLocaleDateString();
@@ -159,24 +126,10 @@
                 }
                 this.start = false;
                 this.pause = true;
-                this.end = true;
-
-                
+                this.end = true;                
 
                 $.post('fichaje', information, function(response){
                     if(response.status == "OK"){
-                        if (!self.timer.isRunning) {
-                            self.timer.timer = setInterval(() => {
-                            self.timer.elapsedTime += 1000;
-                        }, 1000);
-                        self.timer.isRunning = true;
-                    }
-                    } else if(response.status == "KO"){
-                        console.log("hola");
-                        self.errors = response.error;
-                        self.start = false;
-                        self.pause = false;
-                        self.end = false;
                         if (!self.timer.isRunning) {
                             self.timer.timer = setInterval(() => {
                             self.timer.elapsedTime += 1000;
@@ -194,7 +147,6 @@
             }, 
             clockPause(){
                 let self= this;
-                let self= this;
                 let clockPauseTime = new Date().toLocaleTimeString(); 
                 let dateIn = new Date().toLocaleDateString();
                 let information = {
@@ -202,7 +154,6 @@
                     "clockPauseTime": clockPauseTime,
                     "dateIn": dateIn
                 }
-                this.pauseButton = false;
                 this.pauseButton = false;
                 this.start = false;
                 this.pause = true;
@@ -244,52 +195,9 @@
                     this.timer.isRunning = true;
                 }
 
-
-                clearInterval(this.timer.timer);
-                this.timer.isRunning = false;
-
                 $.post('fichaje', information, function(response){
                     if(response.status == "OK"){
                         console.log("OK");
-                    }else if(response.status == "KO"){
-                        console.log("hola");
-                        self.errors = response.error;
-                        self.start = false;
-                        self.pause = false;
-                        self.end = false;
-                    }
-                })
-            }, 
-            clockEndPause(){
-                let self= this;
-                let clockPauseTime = new Date().toLocaleTimeString(); 
-                let dateIn = new Date().toLocaleDateString();
-                let information = {
-                    "action": "action3",
-                    "clockPauseTime": clockPauseTime,
-                    "dateIn": dateIn
-                }
-                this.pauseButton = true;
-                this.start = false;
-                this.pause = true;
-                this.end = true;
-
-                if (!this.timer.isRunning) {
-                    this.timer.timer = setInterval(() => {
-                    this.timer.elapsedTime += 1000;
-                    }, 1000);
-                    this.timer.isRunning = true;
-                }
-
-                $.post('fichaje', information, function(response){
-                    if(response.status == "OK"){
-                        console.log("OK");
-                    }else if(response.status == "KO"){
-                        console.log("hola");
-                        self.errors = response.error;
-                        self.start = false;
-                        self.pause = false;
-                        self.end = false;
                     }else if(response.status == "KO"){
                         console.log("hola");
                         self.errors = response.error;
@@ -329,6 +237,7 @@
                     if (result.isConfirmed) {
                         $.post('fichaje', information, function(response){
                         if(response.status == "OK"){
+                            window.location.reload()
                             console.log("OK");
                         } else if(response.status == "KO"){
                             console.log("hola");
