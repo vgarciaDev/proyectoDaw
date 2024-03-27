@@ -25,7 +25,7 @@
         <div class="container-fluid">
             <!--LADO IZQUIERDO-->
             <div class="row">
-                <div class="col-3">
+                <div class="col-3 sec-usuario">
 
                     <img class="img-usuario" src="{{ asset('img/inicio/imagen_usuario.png') }}" alt="Imagen">
                     <p class="nombres"><i class="fa-solid fa-user"></i> Gustavo Tejera Martínez</p>
