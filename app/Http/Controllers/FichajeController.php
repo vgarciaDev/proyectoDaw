@@ -13,9 +13,6 @@ class FichajeController extends Controller
     protected $idWorker;
     public function index(){
         $idWorker = session()->get('id');
-        if(!$idWorker){
-            return view ('login');
-        }
         
         $fichaje = Timekeeping::where('worker_id', $idWorker)
                     ->orderBy('date', 'desc')
@@ -29,9 +26,6 @@ class FichajeController extends Controller
     public function timekeeping(Request $request){
         try{
             $idWorker = session()->get('id');
-            if(!$idWorker){
-                return view ('login');
-            }
             switch($request["action"]){
                 case "action1": 
                     $dateIn = $request['dateIn'];
