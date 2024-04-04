@@ -12,7 +12,7 @@
                 first-day-of-week='1'
                 theme='red'
                 selection-mode='one'
-                month-name-format='numeric'>
+                month-name-format='long'>
                 </smart-calendar>
             </div> 
             <div class="col-3" id="menuDias">
@@ -44,11 +44,48 @@
     calendario.addEventListener("click", (event) => {
         if (event.target.closest('.smart-calendar-week')&&seleccion==true) {
             const dia = Number(event.srcElement.value.getDate());
-            const mes = Number(event.srcElement.value.getMonth())+1;
-            //switch para pasar los nombres de los meses a numeros
-
+            let mes = Number(event.srcElement.value.getMonth())+1;  
+            switch (mes){
+                case 1: 
+                    mes = 'enero';
+                    break;
+                case 2:
+                    mes = 'febrero';
+                    break
+                case 3:
+                    mes = 'marzo';
+                    break;
+                case 4: 
+                    mes = 'abril';
+                    break;
+                case 5:
+                    mes = 'mayo';
+                    break
+                case 6:
+                    mes = 'junio';
+                    break;
+                case 7: 
+                    mes = 'julio';
+                    break;
+                case 8:
+                    mes = 'agosto';
+                    break
+                case 9:
+                    mes = 'septiembre';
+                    break;
+                case 10: 
+                    mes = 'octubre';
+                    break;
+                case 11:
+                    mes = 'noviembre';
+                    break
+                case 12:
+                    mes = 'diciembre';
+                    break;
+            }          
             const year = Number(event.srcElement.value.getFullYear());
             const element = `${year}-${mes}-${dia}`;
+            console.log(element);
             diasSeleccionados.push(element);
             console.log(diasSeleccionados);
             pintarDias(); 
