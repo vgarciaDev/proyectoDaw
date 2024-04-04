@@ -5,9 +5,22 @@
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/cursos.css') }}">
 @endsection
-
+    
 @section('content')
-
+<div class="container mt-5">
+    <div class="row mt-5">
+        @foreach ($courses as $course)
+            <div class="col-md-3">
+                <h3>{{$course["id"]}}. {{$course["title"]}}</h3>
+                <p>Duración: {{$course["duration"]}}</p>
+                <p>Fechas: {{$course["initial_date"]}} - {{$course["end_date"]}}</p>
+                <p>Dificultad: {{$course["difficulty"]}}</p>
+                <p>Descripción: {{$course["description"]}}</p>
+                <a href="{{ route('curso', $course['id']) }}"><button class="btn btn-bd-primary">Ver Más</button></a>
+            </div>
+        @endforeach
+    </div>
+</div>
 
 @endsection
 @section('script')

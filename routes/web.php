@@ -9,10 +9,13 @@ use App\Http\Controllers\NuestroTrabajoController;
 use App\Http\Controllers\QueHacemosController;
 use App\Http\Controllers\SobreNosotrosController;
 use App\Http\Controllers\TalentoController;
+
 use App\Http\Controllers\templateERPController;
 use App\Http\Controllers\accesoController;
 use App\Http\Controllers\FichajeController;
 use App\Http\Controllers\cursoController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +29,7 @@ use App\Http\Controllers\cursoController;
 */
 
 Route::get('/', InicioController::class);
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 
 //Ruta de ejemplo para poder meter en la url variables, supongamos el numero de un trabajadro que tenga 6 cifras
@@ -46,4 +49,6 @@ Route::get('/fichaje', [FichajeController::class, 'index']);
 Route::post('/fichaje', [FichajeController::class, 'timekeeping']);
 
 Route::get('/cursos', [cursoController::class, 'index']);
+Route::get('/cursos/{id}', [cursoController::class, 'curso'])->name("curso");
+Route::post('/cursos/{id}', [cursoController::class, 'apuntarse'])->name("apuntarse");
 
