@@ -11,11 +11,12 @@
     <div class="container-md mt-5" id="timekeeping">
         <div class="row">
             <div class="col-md-6">
-                <h3>Hora Actual: <span>@{{time}}</span></h3>
+                
             </div>
         </div>
         <div class="row mt-5">
-            <h2 class="text-center fs-1">@{{formatTime}}</h2>
+            <h3 class="text-center fs-1">Hora Actual: <span></span></h3>
+            <h2 class="text-center hora" v-clock>@{{time}}</h2>
             <div class="col-md-4 mx-auto text-center mt-5 mb-5">
                 <button class="btn btn-success" :disabled="start == false" @click="clockIn">Iniciar fichaje</button>
             </div>
@@ -77,35 +78,14 @@
                 pause: false, 
                 end: false,
                 pauseButton: true, 
-                errors: "",
-                timer:{
-                    isRunning: false,
-                    elapsedTime: 0,
-                    timer: null
-                }
+                errors: ""
                 
             }
         }, 
         mounted(){
             this.actualTime();
         },
-        computed: {
-            formatTime() {
-            const seconds = Math.floor(this.timer.elapsedTime / 1000);
-            const minutes = Math.floor(seconds / 60);
-            const hours = Math.floor(minutes / 60);
-
-            const addLeadingZero = (value) => {
-                return value < 10 ? `0${value}` : value;
-            };
-
-            const formattedHours = addLeadingZero(hours);
-            const formattedMinutes = addLeadingZero(minutes % 60);
-            const formattedSeconds = addLeadingZero(seconds % 60);
-
-            return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
-    }
-        },
+        
         methods: {
             actualTime(){
                 let self= this;
@@ -130,12 +110,7 @@
 
                 $.post('fichaje', information, function(response){
                     if(response.status == "OK"){
-                        if (!self.timer.isRunning) {
-                            self.timer.timer = setInterval(() => {
-                            self.timer.elapsedTime += 1000;
-                        }, 1000);
-                        self.timer.isRunning = true;
-                    }
+                       
                     } else if(response.status == "KO"){
                         console.log("hola");
                         self.errors = response.error;
@@ -158,9 +133,6 @@
                 this.start = false;
                 this.pause = true;
                 this.end = false;
-
-                clearInterval(this.timer.timer);
-                this.timer.isRunning = false;
 
                 $.post('fichaje', information, function(response){
                     if(response.status == "OK"){
@@ -188,12 +160,7 @@
                 this.pause = true;
                 this.end = true;
 
-                if (!this.timer.isRunning) {
-                    this.timer.timer = setInterval(() => {
-                    this.timer.elapsedTime += 1000;
-                    }, 1000);
-                    this.timer.isRunning = true;
-                }
+               
 
                 $.post('fichaje', information, function(response){
                     if(response.status == "OK"){
@@ -219,10 +186,6 @@
                 this.start = true;
                 this.pause = false;
                 this.end = false;
-
-                clearInterval(this.timer.timer);
-                this.timer.elapsedTime = 0;
-                this.timer.isRunning = false;
 
                 Swal.fire({
                     title: "¿Quieres finalizar la jornada?",
