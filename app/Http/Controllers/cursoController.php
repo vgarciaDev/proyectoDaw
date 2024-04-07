@@ -15,8 +15,22 @@ class cursoController extends Controller
             return view ('login');
         }
         $courses = Course::where('state', 1)->get()->toArray();
+        $coursesWorker = Course_Worker::where('id_worker', $idWorker)->get()->toArray();
+        $cW = [];
+        if($coursesWorker ){
+            foreach($coursesWorker as $courseWorker){
+           
+                $cW [] =  Course::where('id', $courseWorker['id_course'])
+                ->get()->toArray();
+    }
+        }
+
+        if(count($cW)>0){
+            return view ('cursos', ["courses"=>$courses, "coursesWorker"=>$cW[0]]);
+        } else{
+            return view ('cursos', ["courses"=>$courses, "coursesWorker"=>$cW]);
+        }
         
-        return view ('cursos', ["courses"=>$courses]);
     }
 
     public function curso($id){
@@ -27,8 +41,16 @@ class cursoController extends Controller
         $course = Course::where('id', $id)->get()->first()->toArray();
         $course['initial_date'] = DateTime::createFromFormat('Y-m-d', $course['initial_date'])->format('d-m-Y');
         $course['end_date'] = DateTime::createFromFormat('Y-m-d', $course['end_date'])->format('d-m-Y');
+
+        $courseSigned = Course_Worker::where('id_worker', $idWorker)->where('id_course', $id)->first();
+        $signed = false;
+        if($courseSigned){
+            $signed = true;
+        } else{
+            $signed = false;
+        }
         
-        return view ('curso', ["course"=>$course, "idWorker"=> $idWorker]);
+        return view ('curso', ["course"=>$course, "idWorker"=> $idWorker, "signed"=> $signed]);
     }
 
     public function apuntarse(Request $request){
@@ -44,6 +66,37 @@ class cursoController extends Controller
 
         return response()->json(["status" => "OK"]);
         } catch (\Exception $e){
+            return response()->json(["status" => "KO", "error"=> $e->getMessage()]);
+        }
+    }
+
+    public function desapuntarse($id){
+        try{
+            $idWorker = session()->get('id');
+        if(!$idWorker){
+            return view ('login');
+        }
+            $course = Course_Worker::where('id_worker', $idWorker)->where('id_course', $id)->first();
+            
+            $course->delete();
+
+            $courses = Course::where('state', 1)->get()->toArray();
+            $coursesWorker = Course_Worker::where('id_worker', $idWorker)->get()->toArray();
+            $cW = [];
+            if($coursesWorker ){
+                foreach($coursesWorker as $courseWorker){
+               
+                    $cW [] =  Course::where('id', $courseWorker['id_course'])
+                    ->get()->toArray();
+        }
+            }
+    
+            if(count($cW)>0){
+                return view ('cursos', ["courses"=>$courses, "coursesWorker"=>$cW[0]]);
+            } else{
+                return view ('cursos', ["courses"=>$courses, "coursesWorker"=>$cW]);
+            }
+        } catch(\Exception $e){
             return response()->json(["status" => "KO", "error"=> $e->getMessage()]);
         }
     }

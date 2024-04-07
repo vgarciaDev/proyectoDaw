@@ -50,5 +50,6 @@ Route::post('/fichaje', [FichajeController::class, 'timekeeping']);
 
 Route::get('/cursos', [cursoController::class, 'index']);
 Route::get('/cursos/{id}', [cursoController::class, 'curso'])->name("curso");
+Route::get('/cursos/{id}/desapuntarse', [cursoController::class, 'desapuntarse'])->name("desapuntarse");
 Route::post('/cursos/{id}', [cursoController::class, 'apuntarse'])->name("apuntarse");
 

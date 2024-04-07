@@ -9,7 +9,7 @@ class Course_worker extends Model
 {
     protected $table = 'courses_workers';
 
-    protected $fillable = ['id_course', 'id_worker'];
+    protected $fillable = ['id','id_course', 'id_worker'];
 
     public $timestamps = false;
 }
