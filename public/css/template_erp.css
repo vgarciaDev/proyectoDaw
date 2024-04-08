@@ -1,12 +1,16 @@
+
 .container.text-center.topbar{
     background-color: #2E2E2E;
     padding-top: 20px;
     padding-bottom: 20px;
+
+.logo {
+    background-color: #2e2e2e;
+
 }
 
 img.img-logo {
     width: 6%;
-
 }
 
 .col-3.sec-usuario {
@@ -23,8 +27,8 @@ img.img-logo {
     box-shadow: rgba(85, 163, 199, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
-.seccion{
-    background-color: #2E2E2E;
+.seccion {
+    background-color: #2e2e2e;
     color: #00fefb;
     width: 70%;
     text-transform: uppercase;
@@ -34,7 +38,8 @@ img.img-logo {
     border-radius: 15px;
     padding-top: 12px;
     margin-bottom: 20px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .seccion:hover{
@@ -47,6 +52,7 @@ i.fa-solid.fa-user {
     color: #00fefb;
     padding-right: 6px;
 }
+
 
 .sesion {
     float: right;
@@ -71,3 +77,4 @@ i.fa-solid.fa-power-off:hover {
     text-align: center !important;
     margin-bottom: 90px;
 }
+

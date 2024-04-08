@@ -17,13 +17,11 @@
     <link rel="stylesheet" href="{{ asset('css/inicio.css') }}">
     <link rel="stylesheet" href="{{ asset('css/trabajo.css') }}">
     <link rel="stylesheet" href="{{ asset('css/contacto.css') }}">
+
     <link rel="stylesheet" href="{{ asset('css/template_erp.css') }}">
     <link rel="stylesheet" href="{{ asset('css/acceso.css') }}">
+
     
-    
-
-
-
 </head>
 <body>
     <header class="z-3">
