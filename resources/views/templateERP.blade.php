@@ -20,13 +20,11 @@
     <div class="row">
 
         <div class="container text-center topbar">
-=======
+            
         <div class="container logo text-center">
 
             <img class="img-logo" src="{{ asset('img/Logo.png') }}" alt="Imagen">
-            <div class="sesion">
-                <p style="cursor: pointer"><i class="fa-solid fa-power-off"></i></p>
-            </div>
+            
         </div>
 
         <div class="container-fluid">

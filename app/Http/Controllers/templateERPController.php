@@ -8,8 +8,6 @@ class templateERPController extends Controller
 {
 
     public function index() {
-
-    public function __invoke() {
         $idWorker = session()->get('id');
         if(!$idWorker){
             return view ('login');
@@ -17,5 +15,7 @@ class templateERPController extends Controller
 
         return view('templateERP');
     }
+
+   
 }
 

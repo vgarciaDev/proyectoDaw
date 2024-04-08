@@ -44,11 +44,10 @@ Route::get('/talento', [TalentoController::class, 'index']);
 
 Route::post('/talento', [TalentoController::class, 'setCv']);
 Route::get('/templateERP', [templateERPController::class, 'index']);
-Route::get('/acceso', accesoController::class);
 
 
 Route::post('/talento', [TalentoController::class, 'setCv'])->name("talento");
-Route::get('/templateERP', templateERPController::class);
+Route::get('/templateERP', [templateERPController::class, 'index']);
 
 
 Route::get('/contacto', [ContactoController::class, 'index']);
