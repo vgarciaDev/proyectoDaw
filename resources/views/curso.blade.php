@@ -14,12 +14,13 @@
                 <p><b>Duración:</b> {{$course["duration"]}}h.</p>
                 <p><b>Fechas:</b> {{$course["initial_date"]}} / {{$course["end_date"]}}</p>
                 <p><b>Dificultad:</b> {{$course["difficulty"]}}</p>
-                <p ><b>Descripción:</b> </p>
+                <p><b>Descripción:</b></p>
                 <p class="text-justify">{!! nl2br(e($course['long_description'])) !!}</p>  {{--Función para formatear el texto tal y como viene en bd con saltos de línea --}}
-                <button class="btn btn-bd-primary" @click="singUp">Apuntarse</button>
+                <button v-if="signed == false" class="btn btn-bd-primary" @click="singUp">Apuntarse</button>
+                <h4 v-else> <i style="color: green" class="fa-solid fa-circle-check"></i> Ya estás registrado en este curso</h4>
             </div>
             <div v-else class="col-md-9">
-                <h2 class="text-center"> <i style="color: green" class="fa-solid fa-circle-check"></i> Se ha registrado en el curso {{$course["title"]}} correctamente</h3>
+                <h2 class="text-center"> <i style="color: green" class="fa-solid fa-circle-check"></i> Se ha registrado en el curso {{$course["title"]}} correctamente</h2>
                     <p class="text-center"><b>Fechas:</b> {{$course["initial_date"]}} / {{$course["end_date"]}}</p>
                     <p class="text-center">Cuando se aproxime la fecha le convocaremos por Teams para que se pueda conectar</p>
             </div>
@@ -36,7 +37,8 @@
         data() {
             return {
                 content: true,
-                id: "{{$idWorker}}" 
+                id: "{{$idWorker}}", 
+                signed: "{{$signed}}"
             }
         }, 
         methods: {
