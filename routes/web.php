@@ -40,8 +40,16 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::get('/inicio', InicioController::class);
 Route::get('/nuestroTrabajo', NuestroTrabajoController::class);
 Route::get('/talento', [TalentoController::class, 'index']);
+
+
+Route::post('/talento', [TalentoController::class, 'setCv']);
+Route::get('/templateERP', [templateERPController::class, 'index']);
+Route::get('/acceso', accesoController::class);
+
+
 Route::post('/talento', [TalentoController::class, 'setCv'])->name("talento");
 Route::get('/templateERP', templateERPController::class);
+
 
 Route::get('/contacto', [ContactoController::class, 'index']);
 Route::post('/contacto', [ContactoController::class, 'sendEmailFn']);
