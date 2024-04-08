@@ -32,21 +32,13 @@
                     <!--INICIO SECCIÓN DE BOTONES-->
 
                     <!--boton FICHAR-->
-                    <div class="seccion">
-                        <p style="cursor: pointer"><i class="fa-solid fa-clock" id="fichaje"></i> Fichaje</p>
-                    </div>
+                    <a href="{{ url('/fichaje') }}"><button  class="seccion pb-3"><i class="fa-solid fa-clock" id="fichaje"></i> Fichaje</button></a>
                     <!--boton VACACIONES-->
-                    <div class="seccion">
-                        <p style="cursor: pointer"><i class="fa-solid fa-umbrella-beach" id="vacaciones"></i> Vacaciones</p>
-                    </div>
+                    <a href="{{ url('/vacaciones') }}"><button  class="seccion pb-3"><i class="fa-solid fa-umbrella-beach" id="vacaciones"></i> Vacaciones</button></a>
                     <!--boton NOMINAS-->
-                    <div class="seccion">
-                        <p style="cursor: pointer"><i class="fa-solid fa-file-pdf" id="nominas"></i> Nominas</p>
-                    </div>
+                    <a href="{{ url('/nominas') }}"><button  class="seccion pb-3"><i class="fa-solid fa-file-pdf" id="nominas"></i> Nominas</button></a>
                     <!--boton CURSO-->
-                    <div class="seccion">
-                        <p style="cursor: pointer"><i class="fa-solid fa-book" id="cursos"></i> Cursos</p>
-                    </div>
+                    <a href="{{ url('/cursos') }}"><button  class="seccion pb-3"><i class="fa-solid fa-book" id="cursos"></i> Cursos</button></a>
 
                 </div>
                 <!--INICIO SECCION MOSTRAR INFORMACIÓN-->
