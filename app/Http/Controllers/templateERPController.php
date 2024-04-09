@@ -20,10 +20,4 @@ class templateERPController extends Controller
    
 }
 
-    public function __invoke() {
-        return view('templateERP');
-    }
-}
-
-?>
 

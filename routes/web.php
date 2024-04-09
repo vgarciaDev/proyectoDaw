@@ -9,7 +9,7 @@ use App\Http\Controllers\TalentoController;
 use App\Http\Controllers\templateERPController;
 use App\Http\Controllers\Vacacionescontroller;
 
-use App\Http\Controllers\templateERPController;
+
 use App\Http\Controllers\accesoController;
 use App\Http\Controllers\FichajeController;
 use App\Http\Controllers\cursoController;
@@ -61,7 +61,6 @@ Route::get('/cursos/{id}/desapuntarse', [cursoController::class, 'desapuntarse']
 Route::post('/cursos/{id}', [cursoController::class, 'apuntarse'])->name("apuntarse");
 
 
-Route::get('/templateERP', templateERPController::class);
 Route::get('/vacaciones', [Vacacionescontroller::class, 'index']);
 Route::post('/vacaciones', [Vacacionescontroller::class, 'enviarDatos'])->name('enviarDatos.ajax');
 
