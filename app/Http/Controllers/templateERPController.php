@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class templateERPController extends Controller
 {
 
+
     public function index() {
         $idWorker = session()->get('id');
         if(!$idWorker){
@@ -18,4 +19,11 @@ class templateERPController extends Controller
 
    
 }
+
+    public function __invoke() {
+        return view('templateERP');
+    }
+}
+
+?>
 

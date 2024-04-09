@@ -1,14 +1,13 @@
 <?php
 
 use App\Http\Controllers\ContactoController;
-use App\Http\Controllers\EmailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NuestroTrabajoController;
-use App\Http\Controllers\QueHacemosController;
-use App\Http\Controllers\SobreNosotrosController;
 use App\Http\Controllers\TalentoController;
+use App\Http\Controllers\templateERPController;
+use App\Http\Controllers\Vacacionescontroller;
 
 use App\Http\Controllers\templateERPController;
 use App\Http\Controllers\accesoController;
@@ -51,6 +50,7 @@ Route::get('/templateERP', [templateERPController::class, 'index']);
 
 
 Route::get('/contacto', [ContactoController::class, 'index']);
+
 Route::post('/contacto', [ContactoController::class, 'sendEmailFn']);
 Route::get('/fichaje', [FichajeController::class, 'index']);
 Route::post('/fichaje', [FichajeController::class, 'timekeeping']);
@@ -59,4 +59,9 @@ Route::get('/cursos', [cursoController::class, 'index']);
 Route::get('/cursos/{id}', [cursoController::class, 'curso'])->name("curso");
 Route::get('/cursos/{id}/desapuntarse', [cursoController::class, 'desapuntarse'])->name("desapuntarse");
 Route::post('/cursos/{id}', [cursoController::class, 'apuntarse'])->name("apuntarse");
+
+
+Route::get('/templateERP', templateERPController::class);
+Route::get('/vacaciones', [Vacacionescontroller::class, 'index']);
+Route::post('/vacaciones', [Vacacionescontroller::class, 'enviarDatos'])->name('enviarDatos.ajax');
 

@@ -10,9 +10,10 @@
     <script src="https://kit.fontawesome.com/768e9ae614.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
-
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    
     @yield('css')
+
 
     <link rel="stylesheet" href="{{ asset('css/inicio.css') }}">
     <link rel="stylesheet" href="{{ asset('css/trabajo.css') }}">
@@ -22,6 +23,7 @@
     <link rel="stylesheet" href="{{ asset('css/acceso.css') }}">
 
     
+
 </head>
 <body>
     <header class="z-3">
