@@ -31,7 +31,7 @@
                     <p class="nombres"><i class="fa-solid fa-user"></i> Gustavo Tejera Martínes</p>
                     <!--INICIO SECCIÓN DE BOTONES-->
                     <!--boton FICHAR-->
-                    <a href="{{ url('/fichaje') }}"><button  class="seccion pb-3"><i class="fa-solid fa-clock" id="fichaje"></i> Fichaje</button></a>
+                    <a  href="{{ url('/fichaje') }}"><button  class="seccion pb-3"><i class="fa-solid fa-clock" id="fichaje"></i> Fichaje</button></a>
                     <!--boton VACACIONES-->
                     <a href="{{ url('/vacaciones') }}"><button  class="seccion pb-3"><i class="fa-solid fa-umbrella-beach" id="vacaciones"></i> Vacaciones</button></a>
                     <!--boton NOMINAS-->

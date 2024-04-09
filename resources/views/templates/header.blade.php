@@ -20,7 +20,6 @@
           </li>
           <li class="nav-item ms-2 me-3">
 
-          <a href="{{ url('/acceso') }}" class="btn btn-bd-primary mt-2 ">Acceso empleados</button></a>
 
             <a href="{{ url('/login') }}"><button class="btn btn-bd-primary mt-2 " >Acceso empleados</button></a>
 
