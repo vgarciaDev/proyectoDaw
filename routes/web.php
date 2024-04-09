@@ -13,6 +13,7 @@ use App\Http\Controllers\Vacacionescontroller;
 use App\Http\Controllers\accesoController;
 use App\Http\Controllers\FichajeController;
 use App\Http\Controllers\cursoController;
+use App\Http\Controllers\NominasController;
 
 
 
@@ -42,11 +43,11 @@ Route::get('/talento', [TalentoController::class, 'index']);
 
 
 Route::post('/talento', [TalentoController::class, 'setCv']);
-Route::get('/templateERP', [templateERPController::class, 'index']);
+Route::get('/acceso', [templateERPController::class, 'index']);
 
 
 Route::post('/talento', [TalentoController::class, 'setCv'])->name("talento");
-Route::get('/templateERP', [templateERPController::class, 'index']);
+Route::get('/acceso', [templateERPController::class, 'index']);
 
 
 Route::get('/contacto', [ContactoController::class, 'index']);
@@ -63,4 +64,7 @@ Route::post('/cursos/{id}', [cursoController::class, 'apuntarse'])->name("apunta
 
 Route::get('/vacaciones', [Vacacionescontroller::class, 'index']);
 Route::post('/vacaciones', [Vacacionescontroller::class, 'enviarDatos'])->name('enviarDatos.ajax');
+
+Route::get('/acceso', [AccesoController::class, 'index']);
+Route::get('/nominas', [NominasController::class, 'index']);
 

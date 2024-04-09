@@ -1,53 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zona de Usuario</title>
-    <link href="css/acceso.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/768e9ae614.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    
-<div class="container-fluid fs-5">
-    <!--inicio contenedor general-->
-    <div class="row">
+@extends('templateERP')
 
-        <div class="container text-center topbar">
+@section('title') Area Personal @endsection
 
-            <img class="img-logo" src="{{ asset('img/Logo.png') }}" alt="Imagen">
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/acceso.css') }}">
+@endsection
 
-        </div>
 
-        <div class="container mt-4 text-center">
-        <div class="row mt-2">
-            <div class="col-md-6 mx-auto">
 
-                <form  id="contact">
-                    <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" v-model="form.nombre">
-                    </div>
-                    <div class="mb-3">
-                        <label for="pass" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" v-model="form.pass">
-                    </div>
-
-                    <br>
-                    <button type="button" @click="submit" class="btn btn-bd-primary mb-5">Acceder</button>
-                </form>
-
-            </div>
-        </div>
+@section('content')
+<div class="contenedor">    
+    <div class="mensaje">
+        <h2>Recursos Humanos</h2>
+        <p>La semana pasada llegamos a ser un total de algo más de <strong>10,000 trabajadores</strong> en toda Europa. Este crecimiento es un reflejo de nuestro compromiso con la expansión y la excelencia en el servicio. Estamos orgullosos de cada miembro de nuestro equipo y valoramos su contribución para hacer de nuestra empresa un líder en el mercado. Continuaremos trabajando juntos para alcanzar nuevas metas y mantener nuestro estándar de calidad.</p>
     </div>
-                
+    <div class="mensaje">
+        <h2>Recursos Humanos</h2>
+        <p>Bienvenido/a a tu área personal. Aquí puedes acceder a una variedad de funciones, incluyendo fichar, solicitar vacaciones, ver nóminas y registrarte en cursos para mejorar tus habilidades y conocimientos.</p>
     </div>
 </div>
+@endsection
 
-    <!--fin contenedor general-->
-
-
-</body>
-</html>

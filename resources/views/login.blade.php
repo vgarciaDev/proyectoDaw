@@ -45,7 +45,7 @@
                 $.post('login', this.form, function(response){
                     if(response.status == "OK"){
                         console.log("OK");
-                        window.location.href = "/proyectoDaw/public/templateERP";
+                        window.location.href = "/proyectoDaw/public/acceso";
                     } else{
                         console.log("Error");
                     }

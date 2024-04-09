@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 class Vacacionescontroller extends Controller
 {
     public function index() {
+        $idWorker = session()->get('id');
+        if(!$idWorker){
+            return view ('login');
+        }
         return view('vacaciones');
     }
     public function enviarDatos(Request $request)

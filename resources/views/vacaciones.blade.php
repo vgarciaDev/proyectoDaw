@@ -1,6 +1,15 @@
 @extends('templateERP')
 
-@section('menuElegido')
+@section('title') Vacaciones @endsection
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/vacaciones.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/smart-webcomponents/smart.default.css') }}">
+@endsection
+
+
+
+@section('content')
     <div class="container-fluid menu" id="calendar">
         <div class="row">
             <div class="col-6" id="calendarDiv">
