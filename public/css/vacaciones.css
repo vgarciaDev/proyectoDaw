@@ -19,7 +19,6 @@
 }
 #menuDias{
     text-align: center;
-    border: solid #00fefb 2px;
     display: flex;
     flex-direction: column;
     align-items: center;
