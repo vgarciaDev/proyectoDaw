@@ -3,13 +3,13 @@
 @section('title') Talento @endsection
 
 @section('css') 
+
 <link rel="stylesheet" href="{{ asset('css/talento.css') }}">
 
 @endsection
 
 
 @section('content')
-
     <div class="container">
         <div class="row mt-5">
             <div class="col-md-6 fade-in"> 
@@ -103,13 +103,14 @@
         </div>
             <div class="row">
                 <div class="col-md-9 mx-auto">
-                        <form @submit.prevent="validateForm" v-if="formulario == true" class="formulario" enctype="multipart/form-data">
+                        <form @submit.prevent="validateForm" v-if="formulario == true" class="formulario">
+                            @csrf
                             <div class="mb-3 w-75 mx-auto">
                             <label for="nombre" class="form-label text-light">Nombre <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" v-model="form.nombre">
-                                <div class="alert alert-danger mt-2" role="alert" v-if="errors.nombre!=''">
-                                    @{{errors.nombre}}
-                                </div>
+                            <div class="alert alert-danger mt-2" role="alert" v-if="errors.nombre!=''">
+                                @{{errors.nombre}}
+                              </div>
                             </div>
                             <div class="mb-3 w-75 mx-auto">
                                 <label for="apellidos" class="form-label text-light">Apellidos</label>
@@ -162,11 +163,6 @@
                                   </select>                             
                             </div>
 
-                            <div class="mb-3 w-75 mx-auto">
-                                <label for="file" class="form-label text-light">Adjunta tu CV</label>
-                                <input type="file" class="form-control"  @change="handleFileUpload">
-                            </div>
-
                             <div class="w-75 mx-auto">
                                 <button type="submit" class="btn btn-bd-primary mb-5">Enviar CV</button>
                             </div>
@@ -208,7 +204,6 @@
                         }
                     ], 
                 }, 
-                file: null,
                 errors: {
                     nombre: "",
                     telefono: "",
@@ -228,37 +223,17 @@
                     this.form.experiencias.push({puesto:'', empresa: '', fecha: '', descripcion: ""});
                 } 
             },
-            handleFileUpload(event) {
-                this.file = event.target.files[0];
-            },
             submit() {
-                let self = this;                
-                let formData = new FormData();
-                
-                formData.append('nombre', this.form.nombre);
-                formData.append('email', this.form.email);
-                formData.append('telefono', this.form.telefono);
-                formData.append('oferta', this.form.oferta);
-                let formacionesJSON = JSON.stringify(this.form.formaciones);
-                let experienciasJSON = JSON.stringify(this.form.experiencias);
-                formData.append('formaciones', formacionesJSON);
-                formData.append('experiencias', experienciasJSON);
-                formData.append('pdf', this.file);
-                console.log(formacionesJSON);
-                $.ajax({
-                    url: 'talento',
-                    type: 'POST',
-                    cache: false,
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        if(response.status == "OK"){
-                            self.formulario = false;
-                        }
-                    },
-                    error: function(error) {
-                    console.error("Error al enviar el formulario: ", error);
+                let self = this;
+                let form = {
+                    _token: '{{ csrf_token() }}',
+                    form: this.form
+                }
+                $.post("talento", form, function(response){
+                    if(response.status == "OK"){
+                        self.formulario = false;
+                    } else{
+                        console.log("KO");
                     }
                 });
             }, 
@@ -298,3 +273,4 @@
     app.mount('#form');
 </script>
 @endsection
+
