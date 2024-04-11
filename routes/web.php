@@ -14,6 +14,8 @@ use App\Http\Controllers\accesoController;
 use App\Http\Controllers\FichajeController;
 use App\Http\Controllers\cursoController;
 use App\Http\Controllers\NominasController;
+use App\Http\Controllers\templateERPRRHHController;
+use App\Http\Controllers\VacacionesRRHHController;
 
 
 
@@ -67,4 +69,7 @@ Route::post('/vacaciones', [Vacacionescontroller::class, 'enviarDatos'])->name('
 
 Route::get('/acceso', [AccesoController::class, 'index']);
 Route::get('/nominas', [NominasController::class, 'index']);
+Route::get('/RRHH', [templateERPRRHHController::class, 'index']);
+Route::get('/RRHH/vacaciones', [VacacionesRRHHController::class, 'index']);
+
 
