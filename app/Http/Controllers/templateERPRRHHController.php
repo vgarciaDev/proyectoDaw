@@ -14,7 +14,7 @@ class templateERPRRHHController extends Controller
             return view ('login');
         }
 
-        return view('/FFRRHH/templateERPRRHH');
+        return view('templateERPRRHH');
     }
 
    
