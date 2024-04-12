@@ -13,7 +13,9 @@ class FichajeController extends Controller
     protected $idWorker;
     public function index(){
         $idWorker = session()->get('id');
-        
+        if(!$idWorker){
+            return view ('login');
+        }
         $fichaje = Timekeeping::where('worker_id', $idWorker)
                     ->orderBy('date', 'desc')
                     ->limit(5)
