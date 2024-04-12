@@ -17,7 +17,7 @@ class VacacionesRRHHController extends Controller
         $vacaciones = DB::table('vacaciones')->get();
 
         // Pasa los datos a la vista
-        return view('/FFRRHH/vacacionesRRHH', ['vacaciones' => $vacaciones]);
+        return view('/RRHH/vacacionesRRHH', ['vacaciones' => $vacaciones]);
         
     }
     
