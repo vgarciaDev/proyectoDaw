@@ -16,7 +16,7 @@ use App\Http\Controllers\cursoController;
 use App\Http\Controllers\NominasController;
 use App\Http\Controllers\templateERPRRHHController;
 use App\Http\Controllers\VacacionesRRHHController;
-use App\Http\Controllers\NuevoEmpleadoController;
+use App\Http\Controllers\EmpleadoController;
 
 
 
@@ -72,6 +72,11 @@ Route::get('/acceso', [AccesoController::class, 'index']);
 Route::get('/nominas', [NominasController::class, 'index']);
 Route::get('/RRHH', [templateERPRRHHController::class, 'index']);
 Route::get('/RRHH/vacaciones', [VacacionesRRHHController::class, 'index']);
-Route::get('RRHH/nuevoEmpleado', [NuevoEmpleadoController::class, 'index']);
+Route::get('/RRHH/empleados', [EmpleadoController::class, 'index'])->name('empleados');
+Route::get('/RRHH/empleados/añadir', [EmpleadoController::class, 'formularioAñadir']);
+Route::post('/RRHH/empleados/añadir', [EmpleadoController::class, 'añadir'])->name('añadirEmpleado');
+Route::get('/RRHH/empleados/editar/{id}', [EmpleadoController::class, 'editar'])->name('editarEmpleado');
+Route::post('/RRHH/empleados/editar/{id}', [EmpleadoController::class, 'editarEmpleado'])->name('editarEmpleadoController');
+Route::get('/RRHH/empleados/eliminar', [EmpleadoController::class, 'eliminar'])->name('eliminarEmpleado');
 
 
