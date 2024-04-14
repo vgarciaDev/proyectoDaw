@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\vacaciones;
+use App\Models\Worker;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -10,6 +11,7 @@ class VacacionesRRHHController extends Controller
 {
     public function index() {
         $idWorker = session()->get('id');
+        $worker = Worker::find($idWorker);
         if(!$idWorker){
             return redirect()->route('login');
         }
@@ -17,7 +19,7 @@ class VacacionesRRHHController extends Controller
         $vacaciones = DB::table('vacaciones')->get();
 
         // Pasa los datos a la vista
-        return view('/RRHH/vacacionesRRHH', ['vacaciones' => $vacaciones]);
+        return view('/RRHH/vacacionesRRHH', ['vacaciones' => $vacaciones, 'name' => $worker->name]);
         
     }
     public function aceptarVacaciones(Request $request){

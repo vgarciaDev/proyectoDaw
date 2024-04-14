@@ -27,8 +27,9 @@
             <div class="row">
                 <div class="col-3">
 
+
                     <img class="img-usuario" src="{{ asset('img/inicio/imagen_usuario.png') }}" alt="Imagen">
-                    <p class="nombres"><i class="fa-solid fa-user"></i> Gustavo Tejera Martínes</p>
+                    <p class="nombres"><i class="fa-solid fa-user"></i></p>
                     <!--INICIO SECCIÓN DE BOTONES-->
                     <!--boton FICHAR-->
                     <a  href="{{ url('/fichaje') }}"><button  class="seccion pb-3"><i class="fa-solid fa-clock" id="fichaje"></i> Fichaje</button></a>

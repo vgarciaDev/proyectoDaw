@@ -7,16 +7,18 @@ use Illuminate\Http\Request;
 
 class EmpleadoController extends Controller
 {
+    
     public function index()
     {
         $idWorker = session()->get('id');
+        $worker = Worker::find($idWorker);
         $rolWorker = session()->get('rol');
         if(!$idWorker || $rolWorker == 2){
             return redirect()->route('login');
         }
         
         $lista = Worker::all();
-        return view('RRHH/empleados', ['lista'=> $lista]);
+        return view('RRHH/empleados', ['lista'=> $lista, 'name' => $worker->name]);
     }
 
     public function formularioAñadir(){
