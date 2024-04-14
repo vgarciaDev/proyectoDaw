@@ -20,13 +20,15 @@ class VacacionesRRHHController extends Controller
         return view('/RRHH/vacacionesRRHH', ['vacaciones' => $vacaciones]);
         
     }
-    public function aceptarVacaciones(Request $request)
-{
-    $vacaciones = vacaciones::find($request->id);
-    $vacaciones->estado_solicitud = 'aceptada';
-    $vacaciones->save();
-
-    return response()->json(['success' => 'Solicitud aceptada']);
-}
+    public function aceptarVacaciones(Request $request){
+        $vacaciones = vacaciones::find($request->id);
+        $vacaciones->estado_solicitud = 'Aceptada';
+        $vacaciones->save();
+    }
+    public function rechazarVacaciones(Request $request){
+        $vacaciones = vacaciones::find($request->id);
+        $vacaciones->estado_solicitud = 'Rechazada';
+        $vacaciones->save();    
+    }
     
 }
