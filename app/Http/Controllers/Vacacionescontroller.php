@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\vacaciones;
-
+use App\Models\Worker;
 use Illuminate\Http\Request;
 
 class Vacacionescontroller extends Controller
@@ -16,13 +16,15 @@ class Vacacionescontroller extends Controller
     }
     public function enviarDatos(Request $request)
     {
-        
+        $idWorker = session()->get('id');
+        $worker = Worker::find($idWorker);
         $diasSeleccionados = $request->input('arrayDiasSeleccionados');
         $vacaciones = new vacaciones();
-        //En user habrá que meter luego el usuario con el que estamos logueados
-        $vacaciones->user = 'Adrian';
+        //En worker habrá que meter luego el usuario con el que estamos logueados
+        $vacaciones->worker_id = $worker->id;
+        $vacaciones->name = $worker->name;
         $diasSeleccionadosString = implode(" ", $diasSeleccionados);       
-        $vacaciones->vacaciones = $diasSeleccionadosString;
+        $vacaciones->solicitud_vacaciones = $diasSeleccionadosString;
         $vacaciones->save();
         
         

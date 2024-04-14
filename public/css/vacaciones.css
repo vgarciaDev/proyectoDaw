@@ -36,3 +36,7 @@
 #calendarDiv{
     min-width: 500px;
 }
+.tablas{
+    border: 1px solid #039794;
+    text-align: center;
+}

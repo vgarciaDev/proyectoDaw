@@ -177,6 +177,8 @@
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
                     alert('Hubo un error al enviar el array');
+                    console.log(error);
+                    console.log(diasSeleccionados);
                 }
             });
         });
