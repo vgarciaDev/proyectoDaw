@@ -7,26 +7,27 @@
     
 @endsection
 @section('content')    
-    <h1>Aqui viene la tabla</h1>
-    <table>
+<h2>Solicitudes de vacaciones</h2>
+    <table class="table">
         <tr>
             {{-- <th class="tablas">ID_solicitud</th>
             <th class="tablas">ID_worker</th> --}}
-            <th class="tablas">Nombre y Apellidos</th>
-            <th class="tablas">Peticion vacaciones</th>
+            <th>Nombre y Apellidos</th>
+            <th style="text-align: center">Peticion vacaciones</th>
+            <th colspan="2" style="text-align: center">Aceptar/Rechazar</th>
             <!-- Agrega aquí más encabezados de columna según los campos de tu tabla -->
         </tr>    
         @foreach ($vacaciones->whereNull('estado_solicitud') as $vacacion)
-            <tr class="tablas">
+            <tr>
                 {{-- <td class="tablas">{{ $vacacion->id }}</td>
                 <td class="tablas">{{ $vacacion->worker_id }}</td> --}}
-                <td class="tablas">{{ $vacacion->name }}</td>
-                <td class="tablas">{{ $vacacion->solicitud_vacaciones }}</td>
-                <td class="tablas">
-                    <input type="button" value="Aceptar" class="btn btn-primary" id={{$vacacion->id}}>
+                <td>{{ $vacacion->name }}</td>
+                <td>{{ $vacacion->solicitud_vacaciones }}</td>
+                <td>
+                    <input type="button" value="Aceptar" class="aceptar seccion-empleado" id={{$vacacion->id}}>
                 </td>
-                <td class="tablas">
-                    <input type="button" value="Rechazar" class="btn btn-danger" id={{$vacacion->id}}>
+                <td>
+                    <input type="button" value="Rechazar" class="rechazar seccion-empleado" id={{$vacacion->id}}>
                 </td>               
                 <!-- Agrega aquí más celdas de datos según los campos de tu tabla -->
             </tr>
@@ -36,7 +37,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
-        $('.btn-primary').click(function(e){
+        $('.aceptar').click(function(e){
             var id = e.target.id;
             console.log(id)
             $.ajax({
@@ -58,7 +59,7 @@
         });
     });
     $(document).ready(function(){
-        $('.btn-danger').click(function(e){
+        $('.rechazar').click(function(e){
             var id = e.target.id;
             console.log(id)
             $.ajax({
