@@ -22,7 +22,6 @@ class LoginController extends Controller
             if($result){
                 session()->put('id', $result['id']);
                 session()->put('rol', $result['rol']);
-
                 return response()->json(["status"=>"OK"]);
             }
 

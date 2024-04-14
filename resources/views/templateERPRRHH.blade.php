@@ -39,7 +39,7 @@
                     <!--boton CURSO-->
                     <a href="{{ url('/cursos') }}"><button  class="seccion pb-3"><i class="fa-solid fa-book" id="cursos"></i> Cursos</button></a>
                     <!--boton TRABAJADORES-->
-                    <a href="{{ url('/cursos') }}"><button  class="seccion pb-3"><i class="fa-solid fa-book" id="cursos"></i> Trabajadores</button></a>
+                    <a href="{{ url('/RRHH/empleados') }}"><button  class="seccion pb-3"><i class="fa-solid fa-book" id="cursos"></i> Trabajadores</button></a>
                     <!--boton CANDIDATOS-->
                     <a href="{{ url('/cursos') }}"><button  class="seccion pb-3"><i class="fa-solid fa-book" id="cursos"></i> Candidatos</button></a>
 
