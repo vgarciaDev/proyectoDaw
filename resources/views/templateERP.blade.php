@@ -29,7 +29,12 @@
 
 
                     <img class="img-usuario" src="{{ asset('img/inicio/imagen_usuario.png') }}" alt="Imagen">
-                    <p class="nombres"><i class="fa-solid fa-user"></i></p>
+                    <p class="nombres"><i class="fa-solid fa-user"></i>
+                        @if (isset($name))
+                        {{ $name }}
+                        @else
+                        No se encontró el nombre.
+                        @endif</p>
                     <!--INICIO SECCIÓN DE BOTONES-->
                     <!--boton FICHAR-->
                     <a  href="{{ url('/fichaje') }}"><button  class="seccion pb-3"><i class="fa-solid fa-clock" id="fichaje"></i> Fichaje</button></a>

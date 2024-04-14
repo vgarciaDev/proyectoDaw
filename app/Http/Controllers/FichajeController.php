@@ -6,6 +6,7 @@ use App\Models\Timekeeping;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use DateTime;
+use App\Models\Worker;
 
 class FichajeController extends Controller
 {
@@ -13,6 +14,7 @@ class FichajeController extends Controller
     protected $idWorker;
     public function index(){
         $idWorker = session()->get('id');
+        $worker = Worker::find($idWorker);
         if(!$idWorker){
             return redirect()->route('login');
         }
@@ -22,7 +24,7 @@ class FichajeController extends Controller
                     ->get()
                     ->toArray();
                     
-        return view('fichaje', ['fichajes' => $fichaje]);
+        return view('fichaje', ['fichajes' => $fichaje, 'name' => $worker->name]);
     }
 
     public function timekeeping(Request $request){

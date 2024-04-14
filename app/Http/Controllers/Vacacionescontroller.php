@@ -9,10 +9,11 @@ class Vacacionescontroller extends Controller
 {
     public function index() {
         $idWorker = session()->get('id');
+        $worker = Worker::find($idWorker);
         if(!$idWorker){
             return redirect()->route('login');
         }
-        return view('vacaciones');
+        return view('vacaciones',['name' => $worker->name]);
     }
     public function enviarDatos(Request $request)
     {

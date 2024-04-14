@@ -6,11 +6,13 @@ use App\Models\Course_worker;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use DateTime;
+use App\Models\Worker;
 
 class cursoController extends Controller
 {
     public function index(){
         $idWorker = session()->get('id');
+        $worker = Worker::find($idWorker);
         if(!$idWorker){
             return view ('login');
         }
@@ -26,9 +28,9 @@ class cursoController extends Controller
         }
 
         if(count($cW)>0){
-            return view ('cursos', ["courses"=>$courses, "coursesWorker"=>$cW[0]]);
+            return view ('cursos', ["courses"=>$courses, "coursesWorker"=>$cW[0], "name" => $worker->name]);
         } else{
-            return view ('cursos', ["courses"=>$courses, "coursesWorker"=>$cW]);
+            return view ('cursos', ["courses"=>$courses, "coursesWorker"=>$cW,  "name" => $worker->name]);
         }
         
     }
