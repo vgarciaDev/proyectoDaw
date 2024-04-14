@@ -1,6 +1,6 @@
 @extends('templateERPRRHH')
 
-@section('title') Vacaciones @endsection
+@section('title') Empleados @endsection
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/empleados.css') }}">
