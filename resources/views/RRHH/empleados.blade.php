@@ -1,9 +1,10 @@
 @extends('templateERPRRHH')
 
-@section('title') Vacaciones @endsection
+@section('title') Empleados @endsection
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/empleados.css') }}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.min.css">
 @endsection
 @section('content')    
     <div class="container mt-5" id="app">
@@ -15,7 +16,7 @@
         </div>
         <div class="row">
             <div class="col-md">
-                <table class="table">
+                <table class="table" id="myTable">
                     <thead>
                       <tr>
                         <th scope="col">Nombre</th>
@@ -49,9 +50,11 @@
 @endsection
 
 @section('script')
+
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
 <script>
     const app = Vue.createApp({
         delimiters: ['{-', '-}'],
@@ -84,6 +87,41 @@
         }
     });
     app.mount("#app");
+
+    let table = new DataTable('#myTable', {
+    order: [[3, 'desc']], 
+    language: {
+            "sEmptyTable":     "No hay datos disponibles en la tabla",
+            "sInfo":           "Mostrando _START_ a _END_ de _TOTAL_ registros",
+            "sInfoEmpty":      "Mostrando 0 a 0 de 0 registros",
+            "sInfoFiltered":   "(filtrado de _MAX_ registros totales)",
+            "sInfoPostFix":    "",
+            "sInfoThousands":  ",",
+            "sLengthMenu":     "Mostrar _MENU_ registros por página",
+            "sLoadingRecords": "Cargando...",
+            "sProcessing":     "Procesando...",
+            "sSearch":         "Buscar:",
+            "sZeroRecords":    "No se encontraron registros coincidentes",
+            "oPaginate": {
+                "sFirst":    "Primero",
+                "sLast":     "Último",
+                "sNext":     "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending":  ": activar para ordenar la columna ascendente",
+                "sSortDescending": ": activar para ordenar la columna descendente"
+            },
+            "select": {
+                "rows": {
+                    "_": "Seleccionado %d filas",
+                    "0": "Haga clic en una fila para seleccionarla",
+                    "1": "Seleccionado 1 fila"
+                }
+            }
+        }
+});
+
 </script>
 @endsection
 
