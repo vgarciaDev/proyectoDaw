@@ -72,6 +72,11 @@ Route::get('/acceso', [AccesoController::class, 'index']);
 Route::get('/nominas', [NominasController::class, 'index']);
 Route::get('/RRHH', [templateERPRRHHController::class, 'index']);
 Route::get('/RRHH/vacaciones', [VacacionesRRHHController::class, 'index']);
+
+Route::get('RRHH/nuevoEmpleado', [NuevoEmpleadoController::class, 'index']);
+Route::post('/aceptarVacaciones', 'App\Http\Controllers\VacacionesRRHHController@aceptarVacaciones')->name('aceptarVacaciones');
+Route::post('/rechazarVacaciones', 'App\Http\Controllers\VacacionesRRHHController@rechazarVacaciones')->name('rechazarVacaciones');
+
 Route::get('/RRHH/empleados', [EmpleadoController::class, 'index'])->name('empleados');
 Route::get('/RRHH/empleados/añadir', [EmpleadoController::class, 'formularioAñadir']);
 Route::post('/RRHH/empleados/añadir', [EmpleadoController::class, 'añadir'])->name('añadirEmpleado');

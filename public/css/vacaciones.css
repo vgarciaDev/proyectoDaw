@@ -36,3 +36,29 @@
 #calendarDiv{
     min-width: 500px;
 }
+.seccion-empleado {
+    background-color: #2e2e2e;
+    color: #00fefb;
+
+
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 15px;
+    border: #00fefb 1px solid;
+    border-radius: 15px;
+    
+    margin-bottom: 20px;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.seccion-empleado:hover {
+    background-color: transparent;
+    border: #00807d 1px solid;
+    color: #00807d;
+    transition: 0.3s;
+}
+.rojo{
+    color: red;
+}

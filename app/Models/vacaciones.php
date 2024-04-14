@@ -12,7 +12,7 @@ class vacaciones extends Model
 
     protected $table = 'vacaciones';
 
-    protected $fillable = ['user', 'vacaciones'];
+    protected $fillable = ['user', 'solicitud de vacaciones', 'estado solicitud'];
 
     public $timestamps = false;
 }
