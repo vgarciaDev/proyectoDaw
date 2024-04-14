@@ -10,7 +10,7 @@ class Vacacionescontroller extends Controller
     public function index() {
         $idWorker = session()->get('id');
         if(!$idWorker){
-            return view ('login');
+            return redirect()->route('login');
         }
         return view('vacaciones');
     }

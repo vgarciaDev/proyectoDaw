@@ -11,7 +11,7 @@ class VacacionesRRHHController extends Controller
     public function index() {
         $idWorker = session()->get('id');
         if(!$idWorker){
-            return view ('login');
+            return redirect()->route('login');
         }
          // Recupera todos los registros de la tabla 'vacaciones'
         $vacaciones = DB::table('vacaciones')->get();

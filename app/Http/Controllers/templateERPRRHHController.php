@@ -10,8 +10,9 @@ class templateERPRRHHController extends Controller
 
     public function index() {
         $idWorker = session()->get('id');
-        if(!$idWorker){
-            return view ('login');
+        $rolWorker = session()->get('rol');
+        if(!$idWorker || $rolWorker == 2){
+            return redirect()->route('login');
         }
 
         return view('templateERPRRHH');

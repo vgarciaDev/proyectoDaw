@@ -14,7 +14,7 @@ class FichajeController extends Controller
     public function index(){
         $idWorker = session()->get('id');
         if(!$idWorker){
-            return view ('login');
+            return redirect()->route('login');
         }
         $fichaje = Timekeeping::where('worker_id', $idWorker)
                     ->orderBy('date', 'desc')
