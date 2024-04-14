@@ -12,7 +12,7 @@ class EmpleadoController extends Controller
         $idWorker = session()->get('id');
         $rolWorker = session()->get('rol');
         if(!$idWorker || $rolWorker == 2){
-            return view ('login');
+            return redirect()->route('login');
         }
         
         $lista = Worker::all();
@@ -23,7 +23,7 @@ class EmpleadoController extends Controller
         $idWorker = session()->get('id');
         $rolWorker = session()->get('rol');
         if(!$idWorker || $rolWorker == 2){
-            return view ('login');
+            return redirect()->route('login');
         }
         return view('RRHH/añadirEmpleado');
     }
@@ -32,7 +32,7 @@ class EmpleadoController extends Controller
         $idWorker = session()->get('id');
         $rolWorker = session()->get('rol');
         if(!$idWorker || $rolWorker == 2){
-            return view ('login');
+            return redirect()->route('login');
         }
         
         $worker = new Worker;
@@ -65,14 +65,14 @@ class EmpleadoController extends Controller
         return view('RRHH/empleados', ['lista'=> $lista]);
     }
 
-    public function editar($id){
+    public function editar(Request $request){
         $idWorker = session()->get('id');
         $rolWorker = session()->get('rol');
         if(!$idWorker || $rolWorker == 2){
-            return view ('login');
+            return redirect()->route('login');
         }
 
-        $worker = Worker::where('id', $id)->get()->first();
+        $worker = Worker::where('id', $request->id)->get()->first();
         
         return view('RRHH/editarEmpleado', ['worker'=>$worker]);
     }
@@ -81,7 +81,7 @@ class EmpleadoController extends Controller
         $idWorker = session()->get('id');
         $rolWorker = session()->get('rol');
         if(!$idWorker || $rolWorker == 2){
-            return view ('login');
+            return redirect()->route('login');
         }
         $worker = Worker::where('id', $id)->get()->first();
         $worker->name = $request->input('name');
@@ -107,15 +107,15 @@ class EmpleadoController extends Controller
         $worker->password = $request->input('password');
 
         $worker->save();
-        $lista = Worker::all();
-        return view('RRHH/empleados', ['lista'=> $lista]);
+        
+        return redirect()->route('empleados');
     }
 
     public function eliminar(Request $request){
         $idWorker = session()->get('id');
         $rolWorker = session()->get('rol');
         if(!$idWorker || $rolWorker == 2){
-            return view ('login');
+            return redirect()->route('login');
         }
         $worker = Worker::where('id', $request->id)->get()->first();
         $worker->delete();
