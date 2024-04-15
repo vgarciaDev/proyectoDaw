@@ -17,6 +17,7 @@ use App\Http\Controllers\NominasController;
 use App\Http\Controllers\templateERPRRHHController;
 use App\Http\Controllers\VacacionesRRHHController;
 use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\CursosRRHHController;
 
 
 
@@ -73,7 +74,6 @@ Route::get('/nominas', [NominasController::class, 'index']);
 Route::get('/RRHH', [templateERPRRHHController::class, 'index']);
 Route::get('/RRHH/vacaciones', [VacacionesRRHHController::class, 'index']);
 
-Route::get('RRHH/nuevoEmpleado', [NuevoEmpleadoController::class, 'index']);
 Route::post('/aceptarVacaciones', 'App\Http\Controllers\VacacionesRRHHController@aceptarVacaciones')->name('aceptarVacaciones');
 Route::post('/rechazarVacaciones', 'App\Http\Controllers\VacacionesRRHHController@rechazarVacaciones')->name('rechazarVacaciones');
 
@@ -83,5 +83,13 @@ Route::post('/RRHH/empleados/añadir', [EmpleadoController::class, 'añadir'])->
 Route::get('/RRHH/empleados/editar/{id}', [EmpleadoController::class, 'editar'])->name('editarEmpleado');
 Route::post('/RRHH/empleados/editar/{id}', [EmpleadoController::class, 'editarEmpleado'])->name('editarEmpleadoController');
 Route::get('/RRHH/empleados/eliminar', [EmpleadoController::class, 'eliminar'])->name('eliminarEmpleado');
+
+Route::get('/RRHH/cursos', [CursosRRHHController::class, 'index'])->name('cursosRRHH');
+Route::get('/RRHH/cursos/añadir', [CursosRRHHController::class, 'añadir'])->name('añadirCursoRRHH');
+Route::post('/RRHH/cursos/añadir', [CursosRRHHController::class, 'añadirCurso'])->name('añadirCursoRRHHPost');
+Route::get('/RRHH/cursos/{id}', [CursosRRHHController::class, 'curso'])->name('cursoRRHH');
+Route::get('/RRHH/cursos/editar/{id}', [CursosRRHHController::class, 'editar'])->name('editarCursoRRHH');
+Route::post('/RRHH/cursos/editar', [CursosRRHHController::class, 'editarCurso'])->name('editarCursoRRHHPost');
+Route::get('/RRHH/cursos/borrar/{id}', [CursosRRHHController::class, 'borrar'])->name('borrarCursoRRHH');
 
 
