@@ -14,31 +14,25 @@ class cursoController extends Controller
         $idWorker = session()->get('id');
         $worker = Worker::find($idWorker);
         if(!$idWorker){
-            return view ('login');
+            return redirect()->route('login');
         }
         $courses = Course::where('state', 1)->get()->toArray();
         $coursesWorker = Course_Worker::where('id_worker', $idWorker)->get()->toArray();
         $cW = [];
-        if($coursesWorker ){
+        if($coursesWorker){
             foreach($coursesWorker as $courseWorker){
-           
                 $cW [] =  Course::where('id', $courseWorker['id_course'])
-                ->get()->toArray();
+                ->get()->first()->toArray();
     }
         }
 
-        if(count($cW)>0){
-            return view ('cursos', ["courses"=>$courses, "coursesWorker"=>$cW[0], "name" => $worker->name]);
-        } else{
-            return view ('cursos', ["courses"=>$courses, "coursesWorker"=>$cW,  "name" => $worker->name]);
-        }
-        
+        return view ('cursos', ["courses"=>$courses, "coursesWorker"=>$cW, "name" => $worker->name]);
     }
 
     public function curso($id){
         $idWorker = session()->get('id');
         if(!$idWorker){
-            return view ('login');
+            return redirect()->route('login');
         }
         $course = Course::where('id', $id)->get()->first()->toArray();
         $course['initial_date'] = DateTime::createFromFormat('Y-m-d', $course['initial_date'])->format('d-m-Y');
@@ -59,7 +53,7 @@ class cursoController extends Controller
         try{
         $idWorker = session()->get('id');
         if(!$idWorker){
-            return view ('login');
+            return redirect()->route('login');
         }
         $signUp = new Course_worker;
         $signUp->id_course = $request['idCourse'];
@@ -76,7 +70,7 @@ class cursoController extends Controller
         try{
             $idWorker = session()->get('id');
         if(!$idWorker){
-            return view ('login');
+            return redirect()->route('login');
         }
             $course = Course_Worker::where('id_worker', $idWorker)->where('id_course', $id)->first();
             
