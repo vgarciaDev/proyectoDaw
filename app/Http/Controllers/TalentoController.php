@@ -28,7 +28,7 @@ class TalentoController extends Controller
                 $fileName = time() . '_' . $file->getClientOriginalName();
                 $filePath = $file->storeAs('uploads', $fileName);
     
-                $candidato->url_cv = $filePath;
+                $candidato->url_cv = '/app/'.$filePath;
             }
             
             $formaciones = json_decode($request->formaciones);

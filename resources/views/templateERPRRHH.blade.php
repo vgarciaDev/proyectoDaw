@@ -42,9 +42,9 @@
                     <!--boton NOMINAS-->
                     <a href="{{ url('/nominas') }}"><button  class="seccion pb-3"><i class="fa-solid fa-file-pdf" id="nominas"></i> Nominas</button></a>
                     <!--boton CURSO-->
-                    <a href="{{ url('/RRHH/cursos') }}"><button  class="seccion pb-3"><i class="fa-solid fa-book" id="cursos"></i> Cursos</button></a>
+                    <a href="{{ url('/RRHH/cursos') }}"><button  class="seccion pb-3"><i class="fa-solid fa-book" id="cursos"></i> Formación</button></a>
                     <!--boton TRABAJADORES-->
-                    <a href="{{ url('/RRHH/empleados') }}"><button  class="seccion pb-3"><i class="fa-solid fa-book" id="cursos"></i> Trabajadores</button></a>
+                    <a href="{{ url('/RRHH/empleados') }}"><button  class="seccion pb-3"><i class="fa-solid fa-users"></i></i> Trabajadores</button></a>
                     <!--boton CANDIDATOS-->
                     <a href="{{ url('/RRHH/candidatos') }}"><button  class="seccion pb-3"><i class="fa-solid fa-book" id="cursos"></i> Candidatos</button></a>
 
