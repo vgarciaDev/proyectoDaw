@@ -13,20 +13,18 @@ return new class extends Migration
     {
         Schema::create('vacaciones', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('worker_id');
-            $table->string('name');
-            $table->unsignedInteger('solicitud_vacaciones');
-            $table->string('estado_solicitud');
+            $table->integer('worker_id');
+            $table->string('name')->nullable(); 
+            $table->string('solicitud_vacaciones')->nullable();
+            $table->string('estado_solicitud')->nullable();
             $table->timestamps();
 
             $table->foreign('worker_id')
-                  ->references('id')
-                  ->on('workers')
-                  ->onDelete('cascade'); // Opcional: elimina las vacaciones si se elimina el trabajador
-            $table->foreign('name') 
-                  ->references('name')
-                  ->on('workers')
-                  ->onDelete('cascade'); // Opcional: elimina las vacaciones si se elimina el trabajador
+            ->references('id')
+            ->on('workers')
+            ->onDelete('cascade'); 
+            
+          
         });
     }
 
