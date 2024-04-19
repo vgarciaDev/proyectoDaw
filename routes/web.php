@@ -18,6 +18,7 @@ use App\Http\Controllers\templateERPRRHHController;
 use App\Http\Controllers\VacacionesRRHHController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\CursosRRHHController;
+use App\Http\Controllers\CandidatosRRHHController;
 
 
 
@@ -92,4 +93,6 @@ Route::get('/RRHH/cursos/editar/{id}', [CursosRRHHController::class, 'editar'])-
 Route::post('/RRHH/cursos/editar', [CursosRRHHController::class, 'editarCurso'])->name('editarCursoRRHHPost');
 Route::get('/RRHH/cursos/borrar/{id}', [CursosRRHHController::class, 'borrar'])->name('borrarCursoRRHH');
 
+
+Route::get('/RRHH/candidatos', [CandidatosRRHHController::class, 'index']);
 
