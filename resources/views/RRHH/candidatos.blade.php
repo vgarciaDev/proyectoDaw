@@ -14,7 +14,7 @@
                 <a  href="{{ route('verOfertas') }}"><button  class="seccion pb-3"><i class="fa-solid fa-clock" id="fichaje"></i> Ofertas de empleo</button></a>
             </div>
             <div class="col-md-6 mt-5">
-                <a  href="{{ url('/fichaje') }}"><button  class="seccion pb-3"><i class="fa-solid fa-clock" id="fichaje"></i> Búsqueda de talento</button></a>
+                <a  href="{{ route('buscarCandidatos') }}"><button  class="seccion pb-3"><i class="fa-solid fa-clock" id="fichaje"></i> Búsqueda de talento</button></a>
             </div>
            
         </div>

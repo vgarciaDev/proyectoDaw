@@ -99,8 +99,13 @@ Route::get('/RRHH/candidatos', [CandidatosController::class, 'index']);
 Route::get('/RRHH/candidatos/ofertas', [CandidatosController::class, 'ofertas'])->name('verOfertas');
 Route::get('/RRHH/candidatos/ofertas/añadir', [CandidatosController::class, 'añadir'])->name('añadirOferta');
 Route::post('/RRHH/candidatos/ofertas/añadir', [CandidatosController::class, 'añadirOferta'])->name('añadirOfertaPost');
+Route::get('/RRHH/candidatos/ofertas/eliminar', [CandidatosController::class, 'eliminar']);
+Route::get('/RRHH/candidatos/candidatos', [CandidatosController::class, 'indexCandidatos'])->name('buscarCandidatos');
+Route::get('/RRHH/candidatos/candidatos/buscar', [CandidatosController::class, 'buscarCandidatos'])->name('buscarCandidatosPost');
+
 Route::get('/RRHH/candidatos/ofertas/descargar/{idPDF}', [CandidatosController::class, 'descargarPDF'])->name('descargarPDF');
 Route::get('/RRHH/candidatos/ofertas/{id}', [CandidatosController::class, 'oferta'])->name('verOferta');
 Route::get('/RRHH/candidatos/ofertas/editar/{id}', [CandidatosController::class, 'editar'])->name('editarOferta');
-Route::get('/RRHH/candidatos/ofertas/eliminar/{id}', [CandidatosController::class, 'editar']);
+Route::post('/RRHH/candidatos/ofertas/editar', [CandidatosController::class, 'editarOferta'])->name('editarOfertaPost');
+
 

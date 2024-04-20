@@ -5,10 +5,7 @@ h1,
 h2 {
     font-family: "Montserrat", sans-serif;
 }
-h4 {
-    border: #00fffb 4px solid;
-    border-radius: 15px;
-}
+
 .underline {
     color: #00fffb;
     border: none;

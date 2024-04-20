@@ -8,42 +8,27 @@
 @endsection
 @section('content')    
     <div class="container mt-5" id="app">
-        <h2 style="mt-5">Ofertas de empleo</h2>
+        <h2 style="mt-5">Buscar Candidatos</h2>
         <div class="row mt-2">
             <div class="col-md-6">
-                <a href="{{ route('añadirOferta') }}"><button  class="seccion-empleado pb-3"><i class="fa-solid fa-list"></i> Añadir Oferta</button></a>
+                <a href="{{ url('/RRHH/candidatos') }}"><button  class="seccion-empleado pb-3"><i class="fa-solid fa-rotate-left"></i> Volver</button></a>
             </div>
         </div>
         <div class="row">
             <div class="col-md">
-                <table class="table" id="myTable">
-                    <thead>
-                      <tr>
-                        <th scope="col">Título</th>
-                        <th scope="col">Localización</th>
-                        <th scope="col">Jornada</th>
-                        <th scope="col">Descripción</th>
-                        <th scope="col">Candidatos</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    @foreach ($jobOffers as $item)
-                        <tr>
-                            <td>{{$item['title']}}</td>
-                            <td>{{$item['location']}}</td>
-                            <td>{{$item['hours']}}</td>
-                            <td>{{$item['description']}}</td>
-                            <td class="text-center">{{$item['count']}}</td>
-                            <td>
-                                <a href="{{route('verOferta', $item['id'])}}"><i class="fa-solid fa-eye"></i></i></a> 
-                                <a href="{{route('editarOferta', $item['id'])}}"><i class="fa-solid fa-pen-to-square icon-edit"></i></a> 
-                                <i @click="deleteOffer({{$item['id']}})" class="fa-solid fa-trash icon-delete"></i>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                  </table>
+                <form action="{{route('buscarCandidatosPost')}}">
+                    <label class="form-label" for="select">Buscar por:</label>
+                <select class="form-select" name="select" id="select">
+                    <option value="name">Nombre</option>
+                    <option value="tel">Teléfono</option>
+                    <option value="mail">Email</option>
+                    <option value="education">Educación</option>
+                    <option value="experience">Experiencia</option>
+                    <option value="job_offer">Oferta</option>
+                </select>
+                <input class="form-control mt-3 mb-3" type="text" name="input" id="input">
+                <button type="submit" class="btn seccion-empleado pb-3">Buscar</button>
+            </form>
             </div>
         </div>
     </div>
