@@ -16,7 +16,7 @@ class templateERPController extends Controller
         if(!$idWorker){
             return redirect()->route('login');
         }
-        dd($rol);
+        
         return view('templateERP', ['name' => $worker->name, 'rol' => $rol]);
     }
 
