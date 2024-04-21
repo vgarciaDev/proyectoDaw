@@ -18,8 +18,16 @@
     <!--inicio contenedor general-->
     <div class="row">
 
-        <div class="container logo text-center">
-            <img class="img-logo" src="{{ asset('img/Logo.png') }}" alt="Imagen">
+        <div class="container logo">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 text-center">
+                    <img class="w-25" src="{{ asset('img/Logo.png') }}" alt="Imagen">
+                </div>
+                <div class="col-md-4 d-flex flex-row-reverse">
+                    <a  href="{{ route('logout') }}"><button  class=" mt-4 btn btn-bd-primary">Salir</button></a>
+                </div>
+            </div>
         </div>
 
         <div class="container-fluid">
@@ -36,7 +44,7 @@
                         @endif</p>
                     <!--INICIO SECCIÓN DE BOTONES-->
                     <!--boton FICHAR-->
-                    <a  href="{{ url('/fichaje') }}"><button  class="seccion pb-3"><i class="fa-solid fa-clock" id="fichaje"></i> Fichaje</button></a>
+                    <a  href="{{ url('/RRHH/fichaje') }}"><button  class="seccion pb-3"><i class="fa-solid fa-clock" id="fichaje"></i> Fichaje</button></a>
                     <!--boton VACACIONES-->
                     <a href="{{ url('/RRHH/vacaciones') }}"><button  class="seccion pb-3"><i class="fa-solid fa-umbrella-beach" id="vacaciones"></i> Vacaciones</button></a>
                     <!--boton NOMINAS-->
@@ -47,6 +55,8 @@
                     <a href="{{ url('/RRHH/empleados') }}"><button  class="seccion pb-3"><i class="fa-solid fa-users"></i></i> Trabajadores</button></a>
                     <!--boton CANDIDATOS-->
                     <a href="{{ url('/RRHH/candidatos') }}"><button  class="seccion pb-3"><i class="fa-solid fa-book" id="cursos"></i> Candidatos</button></a>
+                    <!--boton PARTE TRABAJADORES-->
+                    <a href="{{ url('/acceso') }}"><button  class="seccion pb-3"><i class="fa-solid fa-book" id="cursos"></i> Parte Trabajadores</button></a>
 
                 </div>
 

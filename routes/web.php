@@ -19,6 +19,7 @@ use App\Http\Controllers\VacacionesRRHHController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\CursosRRHHController;
 use App\Http\Controllers\CandidatosController;
+use App\Http\Controllers\FichajeRRHHController;
 
 
 
@@ -36,13 +37,14 @@ use App\Http\Controllers\CandidatosController;
 Route::get('/', InicioController::class);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 //Ruta de ejemplo para poder meter en la url variables, supongamos el numero de un trabajadro que tenga 6 cifras
 // Route::get('/login/{numeroId?}', function($numeroId = null){
 //     return "Bienvenido Usuario con ID: $numeroId";
 // });
 
-Route::get('/inicio', InicioController::class);
+Route::get('/inicio', InicioController::class)->name('inicio');
 Route::get('/nuestroTrabajo', NuestroTrabajoController::class);
 Route::get('/talento', [TalentoController::class, 'index']);
 
@@ -72,7 +74,7 @@ Route::post('/vacaciones', [Vacacionescontroller::class, 'enviarDatos'])->name('
 
 Route::get('/acceso', [AccesoController::class, 'index']);
 Route::get('/nominas', [NominasController::class, 'index']);
-Route::get('/RRHH', [templateERPRRHHController::class, 'index']);
+Route::get('/RRHH', [templateERPRRHHController::class, 'index'])->name('RRHH');
 Route::get('/RRHH/vacaciones', [VacacionesRRHHController::class, 'index']);
 
 Route::post('/aceptarVacaciones', 'App\Http\Controllers\VacacionesRRHHController@aceptarVacaciones')->name('aceptarVacaciones');
@@ -109,3 +111,5 @@ Route::get('/RRHH/candidatos/ofertas/editar/{id}', [CandidatosController::class,
 Route::post('/RRHH/candidatos/ofertas/editar', [CandidatosController::class, 'editarOferta'])->name('editarOfertaPost');
 
 
+Route::get('/RRHH/fichaje', [FichajeRRHHController::class, 'index'])->name('verFichajes');
+Route::get('/RRHH/fichaje/detalle/{id}/{year}/{month}', [FichajeRRHHController::class, 'verDetalle'])->name('verDetalle');

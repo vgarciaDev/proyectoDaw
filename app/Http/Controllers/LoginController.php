@@ -22,11 +22,17 @@ class LoginController extends Controller
             if($result){
                 session()->put('id', $result['id']);
                 session()->put('rol', $result['rol']);
-                return response()->json(["status"=>"OK"]);
+                return response()->json(["status"=>"OK", 'rol' => $result['rol']]);
             }
 
         } catch (\Exception $e){
             return response()->json(["status"=>"KO"]);
         }
+    }
+
+    public function logout(){
+        session()->flush();
+
+        return redirect()->route('inicio');
     }
 }

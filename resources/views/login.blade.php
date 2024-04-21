@@ -19,8 +19,12 @@
                 <div class="d-grid gap-2 mb-5">
                     <button class="btn btn-primary" type="submit">Acceder</button>
                 </div>
+                <div v-if="error != ''" class="alert alert-danger" role="alert">
+                    @{{error}}
+                </div>
+                </div>
             </form>
-        </div>
+            
 
     </div>
 </div>
@@ -36,7 +40,8 @@
                 form: {
                     user: "",
                     password: ""
-                }
+                }, 
+                error: ""
             }
         }, 
         methods:{
@@ -44,9 +49,13 @@
                 let self = this;
                 $.post('login', this.form, function(response){
                     if(response.status == "OK"){
-                        console.log("OK");
-                        window.location.href = "/proyectoDaw/public/acceso";
+                        if(response.rol == 2){
+                            window.location.href = "/proyectoDaw/public/acceso";
+                        } else{
+                            window.location.href = "/proyectoDaw/public/RRHH";
+                        }
                     } else{
+                        self.error = "No existe ningún trabajador con estas credenciales"
                         console.log("Error");
                     }
                 })
