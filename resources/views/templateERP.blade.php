@@ -53,7 +53,7 @@
                     <!--boton CURSO-->
                     <a href="{{ url('/cursos') }}"><button  class="seccion pb-3"><i class="fa-solid fa-book" id="cursos"></i> Cursos</button></a>
                     <!--boton acceso RRHH-->
-                    @if ($rol == 0 || $rol == 1)
+                    @if (session('rol') == 0 || session('rol') == 1)
                         <a href="{{ route('RRHH') }}"><button  class="seccion pb-3"><i class="fa-solid fa-book" id="cursos"></i> Acceso RRHH</button></a>
                     @endif
 
