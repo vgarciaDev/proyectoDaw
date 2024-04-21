@@ -49,6 +49,7 @@
                 },
                 success: function(response){
                     alert('Vacaciones aceptadas');
+                    window.location.href = '/proyectoDaw/public/RRHH/vacaciones';
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
@@ -71,6 +72,7 @@
                 },
                 success: function(response){
                     alert('Vacaciones rechazadas');
+                    window.location.href = '/proyectoDaw/public/RRHH/vacaciones';
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
