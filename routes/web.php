@@ -18,6 +18,7 @@ use App\Http\Controllers\templateERPRRHHController;
 use App\Http\Controllers\VacacionesRRHHController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\CursosRRHHController;
+use App\Http\Controllers\CandidatosController;
 
 
 
@@ -91,5 +92,20 @@ Route::get('/RRHH/cursos/{id}', [CursosRRHHController::class, 'curso'])->name('c
 Route::get('/RRHH/cursos/editar/{id}', [CursosRRHHController::class, 'editar'])->name('editarCursoRRHH');
 Route::post('/RRHH/cursos/editar', [CursosRRHHController::class, 'editarCurso'])->name('editarCursoRRHHPost');
 Route::get('/RRHH/cursos/borrar/{id}', [CursosRRHHController::class, 'borrar'])->name('borrarCursoRRHH');
+
+
+Route::get('/RRHH/candidatos', [CandidatosController::class, 'index']);
+
+Route::get('/RRHH/candidatos/ofertas', [CandidatosController::class, 'ofertas'])->name('verOfertas');
+Route::get('/RRHH/candidatos/ofertas/añadir', [CandidatosController::class, 'añadir'])->name('añadirOferta');
+Route::post('/RRHH/candidatos/ofertas/añadir', [CandidatosController::class, 'añadirOferta'])->name('añadirOfertaPost');
+Route::get('/RRHH/candidatos/ofertas/eliminar', [CandidatosController::class, 'eliminar']);
+Route::get('/RRHH/candidatos/candidatos', [CandidatosController::class, 'indexCandidatos'])->name('buscarCandidatos');
+Route::get('/RRHH/candidatos/candidatos/buscar', [CandidatosController::class, 'buscarCandidatos'])->name('buscarCandidatosPost');
+
+Route::get('/RRHH/candidatos/ofertas/descargar/{idPDF}', [CandidatosController::class, 'descargarPDF'])->name('descargarPDF');
+Route::get('/RRHH/candidatos/ofertas/{id}', [CandidatosController::class, 'oferta'])->name('verOferta');
+Route::get('/RRHH/candidatos/ofertas/editar/{id}', [CandidatosController::class, 'editar'])->name('editarOferta');
+Route::post('/RRHH/candidatos/ofertas/editar', [CandidatosController::class, 'editarOferta'])->name('editarOfertaPost');
 
 

@@ -84,9 +84,9 @@
             </div>
         </div>
         <div class="row mt-3">
-            @foreach($jobOffers as $jobOffer)
+            @foreach($jobOffers as $index => $jobOffer)
             <div class="col-md-6 mx-auto ">
-                <h3>{{$jobOffer['id']}}. {{$jobOffer['title']}}</h3>
+                <h3>{{$index+1}}. {{$jobOffer['title']}}</h3>
                 <p>Localización: {{$jobOffer['location']}}</p>
                 <p>Jornada: {{$jobOffer['hours']}}</p>
                 <p>Descripción: {{$jobOffer['description']}}</p>
@@ -156,8 +156,8 @@
                                 <label for="oferta" class="form-label text-light">Oferta a postular</label>
                                 <select class="form-select" aria-label="Default select example" v-model="form.oferta">
                                     <option value="">Ninguna actual, cuando mi perfil se ajuste a otra</option>
-                                    @foreach($jobOffers as $jobOffer)
-                                    <option value="{{$jobOffer['id']}}">{{$jobOffer['id']}}. {{$jobOffer['title']}} - {{$jobOffer['location']}}</option>
+                                    @foreach($jobOffers as $index => $jobOffer)
+                                    <option value="{{$jobOffer['id']}}">{{$index+1}}. {{$jobOffer['title']}} - {{$jobOffer['location']}}</option>
                                     @endforeach
                                   </select>                             
                             </div>

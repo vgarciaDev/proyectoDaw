@@ -11,4 +11,5 @@ class JobOffer extends Model
     protected $table = 'job_offers';
 
     protected $fillable = ['title', 'location', 'hours', 'description'];
+    public $timestamps = false;
 }
