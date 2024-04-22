@@ -14,13 +14,14 @@ use App\Http\Controllers\accesoController;
 use App\Http\Controllers\FichajeController;
 use App\Http\Controllers\cursoController;
 use App\Http\Controllers\NominasController;
+use App\Http\Controllers\NominasRRHHController;
 use App\Http\Controllers\templateERPRRHHController;
 use App\Http\Controllers\VacacionesRRHHController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\CursosRRHHController;
 use App\Http\Controllers\CandidatosController;
-
-
+use App\Http\Controllers\FormNominaController;
+use App\Http\Controllers\VerNominasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,17 +67,22 @@ Route::get('/cursos/{id}', [cursoController::class, 'curso'])->name("curso");
 Route::get('/cursos/{id}/desapuntarse', [cursoController::class, 'desapuntarse'])->name("desapuntarse");
 Route::post('/cursos/{id}', [cursoController::class, 'apuntarse'])->name("apuntarse");
 
+Route::get('/acceso', [AccesoController::class, 'index']);
+Route::get('/RRHH', [templateERPRRHHController::class, 'index']);
 
 Route::get('/vacaciones', [Vacacionescontroller::class, 'index']);
 Route::post('/vacaciones', [Vacacionescontroller::class, 'enviarDatos'])->name('enviarDatos.ajax');
-
-Route::get('/acceso', [AccesoController::class, 'index']);
-Route::get('/nominas', [NominasController::class, 'index']);
-Route::get('/RRHH', [templateERPRRHHController::class, 'index']);
 Route::get('/RRHH/vacaciones', [VacacionesRRHHController::class, 'index']);
-
 Route::post('/aceptarVacaciones', 'App\Http\Controllers\VacacionesRRHHController@aceptarVacaciones')->name('aceptarVacaciones');
 Route::post('/rechazarVacaciones', 'App\Http\Controllers\VacacionesRRHHController@rechazarVacaciones')->name('rechazarVacaciones');
+
+Route::get('/nominas', [NominasController::class, 'index']);
+Route::get('/RRHH/nominasRRHH', [NominasRRHHController::class, 'index']);
+Route::get('/RRHH/formNomina/{id}', [FormNominaController::class, 'index'])->name('generarNomina');
+Route::get('/RRHH/visualizarNominas/{id}', [VerNominasController::class, 'index'])->name('verNominas');
+Route::post('/RRHH/nominasRRHH', [FormNominaController::class, 'guardarNomina'])->name('guardarNomina');
+
+
 
 Route::get('/RRHH/empleados', [EmpleadoController::class, 'index'])->name('empleados');
 Route::get('/RRHH/empleados/añadir', [EmpleadoController::class, 'formularioAñadir']);

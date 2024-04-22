@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Worker;
 
-class NominasController extends Controller
+class NominasRRHHController extends Controller
 {
     public function index()
     {
@@ -14,6 +14,8 @@ class NominasController extends Controller
         if(!$idWorker){
             return view ('login');
         }
-        return view('nominasRRHH', ['name' => $worker->name]);
+        $workers = Worker::all();
+        return view('/RRHH/nominasRRHH', ['name' => $worker->name, 'workers' => $workers]);
     }
+
 }
