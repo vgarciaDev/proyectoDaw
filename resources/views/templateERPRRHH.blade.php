@@ -40,7 +40,7 @@
                     <!--boton VACACIONES-->
                     <a href="{{ url('/RRHH/vacaciones') }}"><button  class="seccion pb-3"><i class="fa-solid fa-umbrella-beach" id="vacaciones"></i> Vacaciones</button></a>
                     <!--boton NOMINAS-->
-                    <a href="{{ url('/nominas') }}"><button  class="seccion pb-3"><i class="fa-solid fa-file-pdf" id="nominas"></i> Nominas</button></a>
+                    <a href="{{ url('/RRHH/nominasRRHH') }}"><button  class="seccion pb-3"><i class="fa-solid fa-file-pdf" id="nominas"></i> Nominas</button></a>
                     <!--boton CURSO-->
                     <a href="{{ url('/RRHH/cursos') }}"><button  class="seccion pb-3"><i class="fa-solid fa-book" id="cursos"></i> Formación</button></a>
                     <!--boton TRABAJADORES-->

@@ -77,7 +77,7 @@ Route::post('/aceptarVacaciones', 'App\Http\Controllers\VacacionesRRHHController
 Route::post('/rechazarVacaciones', 'App\Http\Controllers\VacacionesRRHHController@rechazarVacaciones')->name('rechazarVacaciones');
 
 Route::get('/nominas', [NominasController::class, 'index']);
-Route::get('/RRHH/nominasRRHH', [NominasRRHHController::class, 'index']);
+Route::get('/RRHH/nominasRRHH', [NominasRRHHController::class, 'index'])->name('nominasRRHH');
 Route::get('/RRHH/formNomina/{id}', [FormNominaController::class, 'index'])->name('generarNomina');
 Route::get('/RRHH/visualizarNominas/{id}', [VerNominasController::class, 'index'])->name('verNominas');
 Route::post('/RRHH/nominasRRHH', [FormNominaController::class, 'guardarNomina'])->name('guardarNomina');

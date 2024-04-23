@@ -6,12 +6,11 @@
     <link rel="stylesheet" href="{{ asset('css/nominas.css') }}">
 @endsection
 @section('content') 
+<a  href="{{ route('nominasRRHH')}}" class="btnStyle">Volver atras</a>
 <form action="{{ route('guardarNomina') }}" method="post">
     @csrf
     <input type="hidden" name="id_Worker" value={{$selectedWorker->id}}>
-    {{$selectedWorker->id}}
     <select name="ano" id="ano">
-        <option value="2023">2023</option>
         <option value="2024">2024</option>
         <option value="2025">2025</option>
         <option value="2026">2026</option>

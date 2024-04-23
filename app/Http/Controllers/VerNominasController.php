@@ -12,7 +12,8 @@ class VerNominasController extends Controller
     {
         $idWorker = session()->get('id');
         $worker = Worker::find($idWorker);
-        if(!$idWorker){
+        $rolWorker = session()->get('rol');
+        if(!$idWorker || $rolWorker == 2){
             return view ('login');
         }
         $selectedWorker = Worker::find($id);
