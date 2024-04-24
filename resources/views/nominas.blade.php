@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-   <div class="w-75">
+   <div class="w-75 m-auto mt-5 mb-5">
     @foreach ($nominas as $nomina)
     <details>
         <summary>{{$nomina->mes}} del {{$nomina->ano}}</summary>
