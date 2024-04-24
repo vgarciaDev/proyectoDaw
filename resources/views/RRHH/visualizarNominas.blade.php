@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="{{ asset('css/nominas.css') }}">
 @endsection
 @section('content')
-<a  href="{{ route('nominasRRHH')}}" class="btnStyle">Volver atras</a>
+<div class="w-75 m-auto mt-5 mb-5">
+    <a  href="{{ route('nominasRRHH')}}" class="btnStyle">Volver atras</a>
     @foreach ($nominas as $nomina)
         <details>
             <summary>{{$nomina->mes}} del {{$nomina->ano}}</summary>
@@ -134,6 +135,7 @@
             </div>
         </details>
     @endforeach
+</div>
 @endsection
 
 

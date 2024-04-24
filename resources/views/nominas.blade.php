@@ -7,6 +7,7 @@
 @endsection
 
 @section('content')
+   <div class="w-75">
     @foreach ($nominas as $nomina)
     <details>
         <summary>{{$nomina->mes}} del {{$nomina->ano}}</summary>
@@ -47,44 +48,44 @@
                 <div class="d-flex flex-column w-25">
                     <label style="background-color: #000000; color:#00fffb">CANTIDAD</label>
                     <input type="number" id="percepsionesSalarialesCantidad" name="percepsionesSalarialesCantidad" style="background-color: #00fffb" readonly>
-                    <input type="number" value="{{$nomina->salarioBaseCantidad}}" id="salarioBaseCantidad" name="salarioBaseCantidad"  required>
-                    <input type="number" value="{{$nomina->complementosSalarialesCantidad}}" id="complementosSalarialesCantidad" name="complementosSalarialesCantidad">
-                    <input type="number" value="{{$nomina->complementoDeAjusteCantidad}}" id="complementoDeAjusteCantidad" name="complementoDeAjusteCantidad">
-                    <input type="number" value="{{$nomina->horasExtraordinariasCantidad}}" id="horasExtraordinariasCantidad" name="horasExtraordinariasCantidad">
-                    <input type="number" value="{{$nomina->incentivosCantidad}}" id="incentivosCantidad" name="incentivosCantidad">
-                    <input type="number" value="{{$nomina->pagasExtraordinariasCantidad}}" id="pagasExtraordinariasCantidad" name="pagasExtraordinariasCantidad">
+                    <input type="number" value="{{$nomina->salarioBaseCantidad}}" id="salarioBaseCantidad" name="salarioBaseCantidad" readonly>
+                    <input type="number" value="{{$nomina->complementosSalarialesCantidad}}" id="complementosSalarialesCantidad" name="complementosSalarialesCantidad" readonly>
+                    <input type="number" value="{{$nomina->complementoDeAjusteCantidad}}" id="complementoDeAjusteCantidad" name="complementoDeAjusteCantidad" readonly>
+                    <input type="number" value="{{$nomina->horasExtraordinariasCantidad}}" id="horasExtraordinariasCantidad" name="horasExtraordinariasCantidad" readonly>
+                    <input type="number" value="{{$nomina->incentivosCantidad}}" id="incentivosCantidad" name="incentivosCantidad" readonly>
+                    <input type="number" value="{{$nomina->pagasExtraordinariasCantidad}}" id="pagasExtraordinariasCantidad" name="pagasExtraordinariasCantidad" readonly>
                     <input type="number" value="{{$nomina->percepcionesNoSalarialesCantidad}}" id="percepcionesNoSalarialesCantidad" name="percepcionesNoSalarialesCantidad" style="background-color: #00fffb" readonly>
-                    <input type="number" value="{{$nomina->dietasCantidad}}" id="dietasCantidad" name="dietasCantidad">
-                    <input type="number" value="{{$nomina->plusDeTransporteCantidad}}" id="plusDeTransporteCantidad" name="plusDeTransporteCantidad">
-                    <input type="number" value="{{$nomina->pagosPorIncapacidadTemporalCantidad}}" id="pagosPorIncapacidadTemporalCantidad" name="pagosPorIncapacidadTemporalCantidad">
+                    <input type="number" value="{{$nomina->dietasCantidad}}" id="dietasCantidad" name="dietasCantidad" readonly>
+                    <input type="number" value="{{$nomina->plusDeTransporteCantidad}}" id="plusDeTransporteCantidad" name="plusDeTransporteCantidad" readonly>
+                    <input type="number" value="{{$nomina->pagosPorIncapacidadTemporalCantidad}}" id="pagosPorIncapacidadTemporalCantidad" name="pagosPorIncapacidadTemporalCantidad" readonly>
                 </div>
                 <div class="d-flex flex-column w-25">
                     <label style="background-color: #000000; color:#00fffb">PRECIO</label>
                     <input type="number" id="percepcionesSalarialesPrecio" name="percepsionesSalarialesPrecio" style="background-color: #00fffb" readonly>
-                    <input type="number" value="{{$nomina->salarioBasePrecio}}" id="salarioBasePrecio" name="salarioBasePrecio">
-                    <input type="number" value="{{$nomina->complementosSalarialesPrecio}}" id="complementosSalarialesPrecio" name="complementosSalarialesPrecio">
-                    <input type="number" value="{{$nomina->complementoDeAjustePrecio}}" id="complementoDeAjustePrecio" name="complementoDeAjustePrecio">
-                    <input type="number" value="{{$nomina->horasExtraordinariasPrecio}}" id="horasExtraordinariasPrecio" name="horasExtraordinariasPrecio">
-                    <input type="number" value="{{$nomina->incentivosPrecio}}" id="incentivosPrecio" name="incentivosPrecio">
-                    <input type="number" value="{{$nomina->pagasExtraordinariasPrecio}}" id="pagasExtraordinariasPrecio" name="pagasExtraordinariasPrecio">
+                    <input type="number" value="{{$nomina->salarioBasePrecio}}" id="salarioBasePrecio" name="salarioBasePrecio" readonly>
+                    <input type="number" value="{{$nomina->complementosSalarialesPrecio}}" id="complementosSalarialesPrecio" name="complementosSalarialesPrecio" readonly>
+                    <input type="number" value="{{$nomina->complementoDeAjustePrecio}}" id="complementoDeAjustePrecio" name="complementoDeAjustePrecio" readonly>
+                    <input type="number" value="{{$nomina->horasExtraordinariasPrecio}}" id="horasExtraordinariasPrecio" name="horasExtraordinariasPrecio" readonly>
+                    <input type="number" value="{{$nomina->incentivosPrecio}}" id="incentivosPrecio" name="incentivosPrecio" readonly>
+                    <input type="number" value="{{$nomina->pagasExtraordinariasPrecio}}" id="pagasExtraordinariasPrecio" name="pagasExtraordinariasPrecio" readonly>
                     <input type="number" value="{{$nomina->percepcionesNoSalarialesPrecio}}" id="percepcionesNoSalarialesPrecio" name="percepcionesNoSalarialesPrecio" style="background-color: #00fffb" readonly>
-                    <input type="number" value="{{$nomina->dietasPrecio}}" id="dietasPrecio" name="dietasPrecio">
-                    <input type="number" value="{{$nomina->plusDeTransportePrecio}}" id="plusDeTransportePrecio" name="plusDeTransportePrecio">
-                    <input type="number" value="{{$nomina->pagosPorIncapacidadTemporalPrecio}}" id="pagosPorIncapacidadTemporalPrecio" name="pagosPorIncapacidadTemporalPrecio">
+                    <input type="number" value="{{$nomina->dietasPrecio}}" id="dietasPrecio" name="dietasPrecio" readonly>
+                    <input type="number" value="{{$nomina->plusDeTransportePrecio}}" id="plusDeTransportePrecio" name="plusDeTransportePrecio" readonly>
+                    <input type="number" value="{{$nomina->pagosPorIncapacidadTemporalPrecio}}" id="pagosPorIncapacidadTemporalPrecio" name="pagosPorIncapacidadTemporalPrecio" readonly>
                 </div>
                 <div class="d-flex flex-column w-50">
                     <label style="background-color: #000000; color:#00fffb">TOTALES</label>
                     <input type="number"  id="percepsionesSalarialesTotales" name="percepsionesSalarialesTotales" style="background-color: #00fffb" readonly>
-                    <input type="number" value="{{$nomina->salarioBaseTotales}}" id="salarioBaseTotales" name="salarioBaseTotales">
-                    <input type="number" value="{{$nomina->complementosSalarialesTotales}}" id="complementosSalarialesTotales" name="complementosSalarialesTotales">
-                    <input type="number" value="{{$nomina->complementoDeAjusteTotales}}" id="complementoDeAjusteTotales" name="complementoDeAjusteTotales">
-                    <input type="number" value="{{$nomina->horasExtraordinariasTotales}}" id="horasExtraordinariasTotales" name="horasExtraordinariasTotales">
-                    <input type="number" value="{{$nomina->incentivosTotales}}" id="incentivosTotales" name="incentivosTotales">
-                    <input type="number" value="{{$nomina->pagasExtraordinariasTotales}}" id="pagasExtraordinariasTotales" name="pagasExtraordinariasTotales">
+                    <input type="number" value="{{$nomina->salarioBaseTotales}}" id="salarioBaseTotales" name="salarioBaseTotales" readonly>
+                    <input type="number" value="{{$nomina->complementosSalarialesTotales}}" id="complementosSalarialesTotales" name="complementosSalarialesTotales" readonly>
+                    <input type="number" value="{{$nomina->complementoDeAjusteTotales}}" id="complementoDeAjusteTotales" name="complementoDeAjusteTotales" readonly>
+                    <input type="number" value="{{$nomina->horasExtraordinariasTotales}}" id="horasExtraordinariasTotales" name="horasExtraordinariasTotales" readonly>
+                    <input type="number" value="{{$nomina->incentivosTotales}}" id="incentivosTotales" name="incentivosTotales" readonly>
+                    <input type="number" value="{{$nomina->pagasExtraordinariasTotales}}" id="pagasExtraordinariasTotales" name="pagasExtraordinariasTotales" readonly>
                     <input type="number" value="{{$nomina->percepcionesNoSalarialesTotales}}" id="percepcionesNoSalarialesTotales" name="percepcionesNoSalarialesTotales" style="background-color: #00fffb" readonly>
-                    <input type="number" value="{{$nomina->dietasTotales}}" id="dietasTotales" name="dietasTotales">
-                    <input type="number" value="{{$nomina->plusDeTransporteTotales}}" id="plusDeTransporteTotales" name="plusDeTransporteTotales">
-                    <input type="number" value="{{$nomina->pagosPorIncapacidadTemporalTotales}}" id="pagosPorIncapacidadTemporalTotales" name="pagosPorIncapacidadTemporalTotales">
+                    <input type="number" value="{{$nomina->dietasTotales}}" id="dietasTotales" name="dietasTotales" readonly>
+                    <input type="number" value="{{$nomina->plusDeTransporteTotales}}" id="plusDeTransporteTotales" name="plusDeTransporteTotales" readonly>
+                    <input type="number" value="{{$nomina->pagosPorIncapacidadTemporalTotales}}" id="pagosPorIncapacidadTemporalTotales" name="pagosPorIncapacidadTemporalTotales" readonly>
                 </div>            
             </div>        
         </div>
@@ -106,32 +107,34 @@
                 <div class="d-flex flex-column w-50">
                     <label style="background-color: #000000; color:#00fffb">PORCENTAJE</label>
                     <input type="number"  id="aportacionTrabajadorPorcentaje" name="aportacionTrabajadorPorcentaje" style="background-color: #00fffb" readonly>
-                    <input type="number" value="{{$nomina->contingenciasComunesPorcentaje}}" id="contingenciasComunesPorcentaje" name="contingenciasComunesPorcentaje">
-                    <input type="number" value="{{$nomina->desempleoPorcentaje}}" id="desempleoPorcentaje" name="desempleoPorcentaje">
-                    <input type="number" value="{{$nomina->formacionProfesionalPorcentaje}}" id="formacionProfesionalPorcentaje" name="formacionProfesionalPorcentaje">
-                    <input type="number" value="{{$nomina->retencionesACuentaDeIRPFPorcentaje}}" id="retencionesACuentaDeIRPFPorcentaje" name="retencionesACuentaDeIRPFPorcentaje">
-                    <input type="number" value="{{$nomina->otrasDeduccionesPorcentaje}}" id="otrasDeduccionesPorcentaje" name="otrasDeduccionesPorcentaje">                
+                    <input type="number" value="{{$nomina->contingenciasComunesPorcentaje}}" id="contingenciasComunesPorcentaje" name="contingenciasComunesPorcentaje" readonly>
+                    <input type="number" value="{{$nomina->desempleoPorcentaje}}" id="desempleoPorcentaje" name="desempleoPorcentaje" readonly>
+                    <input type="number" value="{{$nomina->formacionProfesionalPorcentaje}}" id="formacionProfesionalPorcentaje" name="formacionProfesionalPorcentaje" readonly>
+                    <input type="number" value="{{$nomina->retencionesACuentaDeIRPFPorcentaje}}" id="retencionesACuentaDeIRPFPorcentaje" name="retencionesACuentaDeIRPFPorcentaje" readonly>
+                    <input type="number" value="{{$nomina->otrasDeduccionesPorcentaje}}" id="otrasDeduccionesPorcentaje" name="otrasDeduccionesPorcentaje" readonly>                
                 </div>
                 <div class="d-flex flex-column w-50">
                     <label style="background-color: #000000; color:#00fffb">TOTALES</label>
                     <input type="number"  id="aportacionTrabajadorTotales" name="aportacionTrabajadorTotales" style="background-color: #00fffb" readonly>
-                    <input type="number" value="{{$nomina->contingenciasComunesTotales}}" id="contingenciasComunesTotales" name="contingenciasComunesTotales">
-                    <input type="number" value="{{$nomina->desempleoTotales}}" id="desempleoTotales" name="desempleoTotales">
-                    <input type="number" value="{{$nomina->formacionProfesionalTotales}}" id="formacionProfesionalTotales" name="formacionProfesionalTotales">
-                    <input type="number" value="{{$nomina->retencionesACuentaDeIRPFTotales}}" id="retencionesACuentaDeIRPFTotales" name="retencionesACuentaDeIRPFTotales">
-                    <input type="number" value="{{$nomina->otrasDeduccionesTotales}}" id="otrasDeduccionesTotales" name="otrasDeduccionesTotales">                
+                    <input type="number" value="{{$nomina->contingenciasComunesTotales}}" id="contingenciasComunesTotales" name="contingenciasComunesTotales" readonly>
+                    <input type="number" value="{{$nomina->desempleoTotales}}" id="desempleoTotales" name="desempleoTotales" readonly>
+                    <input type="number" value="{{$nomina->formacionProfesionalTotales}}" id="formacionProfesionalTotales" name="formacionProfesionalTotales" readonly>
+                    <input type="number" value="{{$nomina->retencionesACuentaDeIRPFTotales}}" id="retencionesACuentaDeIRPFTotales" name="retencionesACuentaDeIRPFTotales" readonly>
+                    <input type="number" value="{{$nomina->otrasDeduccionesTotales}}" id="otrasDeduccionesTotales" name="otrasDeduccionesTotales" readonly>                
                 </div>            
             </div>        
         </div>
         <div class="d-flex w-100">
             <label style="background-color: #00fffb" class="w-75">TOTAL A DEDUCIR</label>
-            <input type="number" value="{{$nomina->totalADeducir}}" id="totalADeducir" name="totalADeducir" class="w-25" >
+            <input type="number" value="{{$nomina->totalADeducir}}" id="totalADeducir" name="totalADeducir" class="w-25"  readonly>
         </div>
         <div class="d-flex w-100">
             <label style="background-color: #00fffb" class="w-75">LIQUIDO A PERCIBIR</label>
             <input type="number" value="{{$nomina->liquidoAPercibir}}" id="liquidoAPercibir" name="liquidoAPercibir" class="w-25" readonly>
         </div>
         </div>
+        <input type="submit" class="btn btn-primary m-3" value="Guardar en PDF">
     </details>
     @endforeach
+   </div>
 @endsection

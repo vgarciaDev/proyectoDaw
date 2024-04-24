@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="{{ asset('css/nominas.css') }}">
 @endsection
 @section('content') 
-<a  href="{{ route('nominasRRHH')}}" class="btnStyle">Volver atras</a>
+<div class="w-75 m-auto mt-5">
+    <a  href="{{ route('nominasRRHH')}}" class="btnStyle">Volver atras</a>
 <form action="{{ route('guardarNomina') }}" method="post">
     @csrf
     <input type="hidden" name="id_Worker" value={{$selectedWorker->id}}>
@@ -63,45 +64,45 @@
         <div class="d-flex w-50">
             <div class="d-flex flex-column w-25">
                 <label style="background-color: #000000; color:#00fffb">CANTIDAD</label>
-                <input type="number"  id="percepsionesSalarialesCantidad" name="percepsionesSalarialesCantidad" style="background-color: #00fffb" readonly>
-                <input type="number" id="salarioBaseCantidad" name="salarioBaseCantidad"  required>
-                <input type="number" id="complementosSalarialesCantidad" name="complementosSalarialesCantidad">
-                <input type="number" id="complementoDeAjusteCantidad" name="complementoDeAjusteCantidad">
-                <input type="number" id="horasExtraordinariasCantidad" name="horasExtraordinariasCantidad">
-                <input type="number" id="incentivosCantidad" name="incentivosCantidad">
-                <input type="number" id="pagasExtraordinariasCantidad" name="pagasExtraordinariasCantidad">
-                <input type="number" id="percepcionesNoSalarialesCantidad" name="percepcionesNoSalarialesCantidad" style="background-color: #00fffb" readonly>
-                <input type="number" id="dietasCantidad" name="dietasCantidad">
-                <input type="number" id="plusDeTransporteCantidad" name="plusDeTransporteCantidad">
-                <input type="number" id="pagosPorIncapacidadTemporalCantidad" name="pagosPorIncapacidadTemporalCantidad">
+                <input type="text"  id="percepsionesSalarialesCantidad" name="percepsionesSalarialesCantidad" style="background-color: #00fffb" readonly>
+                <input type="number" step="0.01" id="salarioBaseCantidad" name="salarioBaseCantidad"  required>
+                <input type="number" step="0.01" id="complementosSalarialesCantidad" name="complementosSalarialesCantidad">
+                <input type="number" step="0.01" id="complementoDeAjusteCantidad" name="complementoDeAjusteCantidad">
+                <input type="number" step="0.01" id="horasExtraordinariasCantidad" name="horasExtraordinariasCantidad">
+                <input type="number" step="0.01" id="incentivosCantidad" name="incentivosCantidad">
+                <input type="number" step="0.01" id="pagasExtraordinariasCantidad" name="pagasExtraordinariasCantidad">
+                <input type="text" id="percepcionesNoSalarialesCantidad" name="percepcionesNoSalarialesCantidad" style="background-color: #00fffb" readonly>
+                <input type="number" step="0.01" id="dietasCantidad" name="dietasCantidad">
+                <input type="number" step="0.01" id="plusDeTransporteCantidad" name="plusDeTransporteCantidad">
+                <input type="number" step="0.01" id="pagosPorIncapacidadTemporalCantidad" name="pagosPorIncapacidadTemporalCantidad">
             </div>
             <div class="d-flex flex-column w-25">
                 <label style="background-color: #000000; color:#00fffb">PRECIO</label>
-                <input type="number"  id="percepsionesSalarialesPrecio" name="percepsionesSalarialesPrecio" style="background-color: #00fffb" readonly>
-                <input type="number" id="salarioBasePrecio" name="salarioBasePrecio">
-                <input type="number" id="complementosSalarialesPrecio" name="complementosSalarialesPrecio">
-                <input type="number" id="complementoDeAjustePrecio" name="complementoDeAjustePrecio">
-                <input type="number" id="horasExtraordinariasPrecio" name="horasExtraordinariasPrecio">
-                <input type="number" id="incentivosPrecio" name="incentivosPrecio">
-                <input type="number" id="pagasExtraordinariasPrecio" name="pagasExtraordinariasPrecio">
-                <input type="number" id="percepcionesNoSalarialesPrecio" name="percepcionesNoSalarialesPrecio" style="background-color: #00fffb" readonly>
-                <input type="number" id="dietasPrecio" name="dietasPrecio">
-                <input type="number" id="plusDeTransportePrecio" name="plusDeTransportePrecio">
-                <input type="number" id="pagosPorIncapacidadTemporalPrecio" name="pagosPorIncapacidadTemporalPrecio">
+                <input type="text"  id="percepsionesSalarialesPrecio" name="percepsionesSalarialesPrecio" style="background-color: #00fffb" readonly>
+                <input type="number" step="0.01" id="salarioBasePrecio" name="salarioBasePrecio">
+                <input type="number" step="0.01" id="complementosSalarialesPrecio" name="complementosSalarialesPrecio">
+                <input type="number" step="0.01" id="complementoDeAjustePrecio" name="complementoDeAjustePrecio">
+                <input type="number" step="0.01" id="horasExtraordinariasPrecio" name="horasExtraordinariasPrecio">
+                <input type="number" step="0.01" id="incentivosPrecio" name="incentivosPrecio">
+                <input type="number" step="0.01" id="pagasExtraordinariasPrecio" name="pagasExtraordinariasPrecio">
+                <input type="number" step="0.01" id="percepcionesNoSalarialesPrecio" name="percepcionesNoSalarialesPrecio" style="background-color: #00fffb" readonly>
+                <input type="number" step="0.01" id="dietasPrecio" name="dietasPrecio">
+                <input type="number" step="0.01" id="plusDeTransportePrecio" name="plusDeTransportePrecio">
+                <input type="number" step="0.01" id="pagosPorIncapacidadTemporalPrecio" name="pagosPorIncapacidadTemporalPrecio">
             </div>
             <div class="d-flex flex-column w-50">
                 <label style="background-color: #000000; color:#00fffb">TOTALES</label>
-                <input type="number"  id="percepsionesSalarialesTotales" name="percepsionesSalarialesTotales" style="background-color: #00fffb" readonly>
-                <input type="number" id="salarioBaseTotales" name="salarioBaseTotales">
-                <input type="number" id="complementosSalarialesTotales" name="complementosSalarialesTotales">
-                <input type="number" id="complementoDeAjusteTotales" name="complementoDeAjusteTotales">
-                <input type="number" id="horasExtraordinariasTotales" name="horasExtraordinariasTotales">
-                <input type="number" id="incentivosTotales" name="incentivosTotales">
-                <input type="number" id="pagasExtraordinariasTotales" name="pagasExtraordinariasTotales">
-                <input type="number" id="percepcionesNoSalarialesTotales" name="percepcionesNoSalarialesTotales" style="background-color: #00fffb" readonly>
-                <input type="number" id="dietasTotales" name="dietasTotales">
-                <input type="number" id="plusDeTransporteTotales" name="plusDeTransporteTotales">
-                <input type="number" id="pagosPorIncapacidadTemporalTotales" name="pagosPorIncapacidadTemporalTotales">
+                <input type="text" step="0.01" id="percepsionesSalarialesTotales" name="percepsionesSalarialesTotales" style="background-color: #00fffb" readonly>
+                <input type="number" step="0.01" id="salarioBaseTotales" name="salarioBaseTotales">
+                <input type="number" step="0.01" id="complementosSalarialesTotales" name="complementosSalarialesTotales">
+                <input type="number" step="0.01" id="complementoDeAjusteTotales" name="complementoDeAjusteTotales">
+                <input type="number" step="0.01" id="horasExtraordinariasTotales" name="horasExtraordinariasTotales">
+                <input type="number" step="0.01" id="incentivosTotales" name="incentivosTotales">
+                <input type="number" step="0.01" id="pagasExtraordinariasTotales" name="pagasExtraordinariasTotales">
+                <input type="text" id="percepcionesNoSalarialesTotales" name="percepcionesNoSalarialesTotales" style="background-color: #00fffb" readonly>
+                <input type="number" step="0.01" id="dietasTotales" name="dietasTotales">
+                <input type="number" step="0.01" id="plusDeTransporteTotales" name="plusDeTransporteTotales">
+                <input type="number" step="0.01" id="pagosPorIncapacidadTemporalTotales" name="pagosPorIncapacidadTemporalTotales">
             </div>            
         </div>        
     </div>
@@ -122,36 +123,37 @@
         <div class="d-flex w-50">
             <div class="d-flex flex-column w-50">
                 <label style="background-color: #000000; color:#00fffb">PORCENTAJE</label>
-                <input type="number"  id="aportacionTrabajadorPorcentaje" name="aportacionTrabajadorPorcentaje" style="background-color: #00fffb" readonly>
-                <input type="number" id="contingenciasComunesPorcentaje" name="contingenciasComunesPorcentaje">
-                <input type="number" id="desempleoPorcentaje" name="desempleoPorcentaje">
-                <input type="number" id="formacionProfesionalPorcentaje" name="formacionProfesionalPorcentaje">
-                <input type="number" id="retencionesACuentaDeIRPFPorcentaje" name="retencionesACuentaDeIRPFPorcentaje">
-                <input type="number" id="otrasDeduccionesPorcentaje" name="otrasDeduccionesPorcentaje">                
+                <input type="number" step="0.01"  id="aportacionTrabajadorPorcentaje" name="aportacionTrabajadorPorcentaje" style="background-color: #00fffb" readonly>
+                <input type="number" step="0.01" id="contingenciasComunesPorcentaje" name="contingenciasComunesPorcentaje">
+                <input type="number" step="0.01" id="desempleoPorcentaje" name="desempleoPorcentaje">
+                <input type="number" step="0.01" id="formacionProfesionalPorcentaje" name="formacionProfesionalPorcentaje">
+                <input type="number" step="0.01" value="{{$selectedWorker->irpf_withholding}}" id="retencionesACuentaDeIRPFPorcentaje" name="retencionesACuentaDeIRPFPorcentaje">
+                <input type="number" step="0.01" id="otrasDeduccionesPorcentaje" name="otrasDeduccionesPorcentaje">                
             </div>
             <div class="d-flex flex-column w-50">
                 <label style="background-color: #000000; color:#00fffb">TOTALES</label>
-                <input type="number"  id="aportacionTrabajadorTotales" name="aportacionTrabajadorTotales" style="background-color: #00fffb" readonly>
-                <input type="number" id="contingenciasComunesTotales" name="contingenciasComunesTotales">
-                <input type="number" id="desempleoTotales" name="desempleoTotales">
-                <input type="number" id="formacionProfesionalTotales" name="formacionProfesionalTotales">
-                <input type="number" id="retencionesACuentaDeIRPFTotales" name="retencionesACuentaDeIRPFTotales">
-                <input type="number" id="otrasDeduccionesTotales" name="otrasDeduccionesTotales">                
+                <input type="number" step="0.01"  id="aportacionTrabajadorTotales" name="aportacionTrabajadorTotales" style="background-color: #00fffb" readonly>
+                <input type="number" step="0.01" id="contingenciasComunesTotales" name="contingenciasComunesTotales">
+                <input type="number" step="0.01" id="desempleoTotales" name="desempleoTotales">
+                <input type="number" step="0.01" id="formacionProfesionalTotales" name="formacionProfesionalTotales">
+                <input type="number" step="0.01" id="retencionesACuentaDeIRPFTotales" name="retencionesACuentaDeIRPFTotales">
+                <input type="number" step="0.01" id="otrasDeduccionesTotales" name="otrasDeduccionesTotales">                
             </div>            
         </div>        
     </div>
     <div class="d-flex w-100">
         <label style="background-color: #00fffb" class="w-75">TOTAL A DEDUCIR</label>
-        <input type="number" id="totalADeducir" name="totalADeducir" class="w-25" >
+        <input type="number" step="0.01" id="totalADeducir" name="totalADeducir" class="w-25" >
     </div>
     <div class="d-flex w-100">
         <label style="background-color: #00fffb" class="w-75">LIQUIDO A PERCIBIR</label>
-        <input type="number" id="liquidoAPercibir" name="liquidoAPercibir" class="w-25" readonly>
+        <input type="number" step="0.01" id="liquidoAPercibir" name="liquidoAPercibir" class="w-25" readonly>
     </div>
     <div style="text-align: center" class="mt-3 mb-3">
         <input type="submit" value="Generar Nomina">
     </div>
 </form>
+</div>
 @endsection
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -375,6 +377,14 @@
             let total = (parseFloat(totalDevengado.value) || 0) - (parseFloat(totalADeducir.value) || 0);
             liquidoAPercibir.value = total;
         }
+
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('change', updateLiquidoAPercibir);
+            input.addEventListener('change', updateTotalADeducir);
+            input.addEventListener('change', updateTotalDevengado);
+            input.addEventListener('change', updateRetencionesACuentaDeIRPFTotales);
+            
+        });
         
     });     
 </script>

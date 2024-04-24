@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="{{ asset('css/nominas.css') }}">
 @endsection
 @section('content') 
-<table class="table" id="myTable">
+<div class="w-75 m-auto mt-5">
+  <table class="table" id="myTable">
     <thead>
       <tr>
         <th scope="col">Nombre</th>
@@ -29,7 +30,7 @@
         </tr>
     @endforeach
     </tbody>
-  </table>      
+  </table>   </div>   
 @endsection
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
