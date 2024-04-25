@@ -18,11 +18,19 @@
     <!--inicio contenedor general-->
     <div class="row">
 
-        <div class="container logo text-center">
-            <img class="img-logo" src="{{ asset('img/Logo.png') }}" alt="Imagen">
+        <div class="container logo">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 text-center">
+                    <img class="w-25" src="{{ asset('img/Logo.png') }}" alt="Imagen">
+                </div>
+                <div class="col-md-4 d-flex flex-row-reverse">
+                    <a  href="{{ route('logout') }}"><button  class=" mt-4 btn btn-bd-primary">Salir</button></a>
+                </div>
+            </div>
         </div>
 
-        <div class="container-fluid">
+        <div class="container-fluid" id="acceso">
             <!--LADO IZQUIERDO-->
             <div class="row">
                 <div class="col-3">
@@ -44,6 +52,10 @@
                     <a href="{{ url('/nominas') }}"><button  class="seccion pb-3"><i class="fa-solid fa-file-pdf" id="nominas"></i> Nominas</button></a>
                     <!--boton CURSO-->
                     <a href="{{ url('/cursos') }}"><button  class="seccion pb-3"><i class="fa-solid fa-book" id="cursos"></i> Cursos</button></a>
+                    <!--boton acceso RRHH-->
+                    @if (session('rol') == 0 || session('rol') == 1)
+                        <a href="{{ route('RRHH') }}"><button  class="seccion pb-3"><i class="fa-solid fa-book" id="cursos"></i> Acceso RRHH</button></a>
+                    @endif
 
                 </div>
 
@@ -56,15 +68,14 @@
                 <!--FIN SECCION MOSTRAR INFORMACIÓN-->
             </div>
 
-
-
         </div>
                 
     </div>
 </div>
-
+    
     <!--fin contenedor general-->
     @yield('script')
 
 </body>
 </html>
+
