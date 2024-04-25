@@ -97,9 +97,11 @@
             const year = Number(event.srcElement.value.getFullYear());
             const element = `${year}-${mes}-${dia}`;
             console.log(element);
-            diasSeleccionados.push(element);
-            console.log(diasSeleccionados);
-            pintarDias(); 
+            if (!diasSeleccionados.includes(element)) {
+                diasSeleccionados.push(element);
+                console.log(diasSeleccionados);
+                pintarDias(); 
+            }            
         }
     }); 
 
@@ -173,6 +175,8 @@
                 success: function(response) {
                     console.log(response);
                     alert('Array enviado correctamente');
+                    diasSeleccionados = [];
+                    pintarDias();
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
