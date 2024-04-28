@@ -4,9 +4,17 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/vacaciones.css') }}">
-    
+    <script>
+        .swal2-popup {
+            position: fixed !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+        }
+    </script>
+
 @endsection
-@section('content')    
+@section('content')
 <h2>Solicitudes de vacaciones</h2>
     <table class="table">
         <tr>
@@ -16,7 +24,7 @@
             <th style="text-align: center">Peticion vacaciones</th>
             <th colspan="2" style="text-align: center">Aceptar/Rechazar</th>
             <!-- Agrega aquí más encabezados de columna según los campos de tu tabla -->
-        </tr>    
+        </tr>
         @foreach ($vacaciones->whereNull('estado_solicitud') as $vacacion)
             <tr>
                 {{-- <td class="tablas">{{ $vacacion->id }}</td>
@@ -24,18 +32,21 @@
                 <td>{{ $vacacion->name }}</td>
                 <td>{{ $vacacion->solicitud_vacaciones }}</td>
                 <td>
-                    <input type="button" value="Aceptar" class="aceptar seccion-empleado" id={{$vacacion->id}}>
+                    <input type="button" value="Aceptar" class="aceptar btn btn-bd-primary" id={{$vacacion->id}}>
                 </td>
                 <td>
-                    <input type="button" value="Rechazar" class="rechazar seccion-empleado" id={{$vacacion->id}}>
-                </td>               
+                    <input type="button" value="Rechazar" class="rechazar btn btn-bd-primary" id={{$vacacion->id}}>
+                </td>
                 <!-- Agrega aquí más celdas de datos según los campos de tu tabla -->
             </tr>
         @endforeach
     </table>
 @endsection
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+
     $(document).ready(function(){
         $('.aceptar').click(function(e){
             var id = e.target.id;
@@ -48,7 +59,13 @@
                     _token: '{{ csrf_token() }}'
                 },
                 success: function(response){
-                    alert('Vacaciones aceptadas');
+                    Swal.fire({
+                        icon: "success",
+                        title: "Vacaciones aceptadas",
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                    // alert('Vacaciones aceptadas');
                     window.location.href = '/proyectoDaw/public/RRHH/vacaciones';
                 },
                 error: function(xhr, status, error) {
@@ -71,7 +88,13 @@
                     _token: '{{ csrf_token() }}'
                 },
                 success: function(response){
-                    alert('Vacaciones rechazadas');
+                    Swal.fire({
+                        icon: "success",
+                        title: "Vacaciones rechazadas",
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                    // alert('Vacaciones rechazadas');
                     window.location.href = '/proyectoDaw/public/RRHH/vacaciones';
                 },
                 error: function(xhr, status, error) {

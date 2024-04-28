@@ -19,14 +19,14 @@
                 <input type="text" value="ROYAL TECH" id="nombreEmpresa" name="nombreEmpresa" readonly>
                 <input type="text" value="Pl. España, 23540 Torres Jaén" id="domicilio" name="domicilio" readonly>
                 <input type="text" value="A73945729" id="cif" name="cif" readonly>
-                <input type="text" value="27384950583" id="codigoCotizacion" name="codigoCotizacion" readonly>    
+                <input type="text" value="27384950583" id="codigoCotizacion" name="codigoCotizacion" readonly>
             </div>
             <div id="empresa" class="d-flex flex-column w-50">
                 <label style="background-color: #000000; color:#00fffb">TRABAJADOR</label>
                 <input type="text" value="{{$selectedWorker->name}}" id="name" name="name" readonly>
                 <input type="text" value="{{$selectedWorker->dni}}" id="dni" name="dni" readonly>
                 <input type="text" value="{{$selectedWorker->ss_number}}" id="ss_number" name="ss_number" readonly>
-                <input type="text" value="{{$selectedWorker->proffesional_category}}" id="proffesional_category" name="proffesional_category" readonly>    
+                <input type="text" value="{{$selectedWorker->proffesional_category}}" id="proffesional_category" name="proffesional_category" readonly>
             </div>
         </div>
         <div id="devengos" class="d-flex">
@@ -86,8 +86,8 @@
                     <input type="number" value="{{$nomina->dietasTotales}}" id="dietasTotales" name="dietasTotales" readonly>
                     <input type="number" value="{{$nomina->plusDeTransporteTotales}}" id="plusDeTransporteTotales" name="plusDeTransporteTotales" readonly>
                     <input type="number" value="{{$nomina->pagosPorIncapacidadTemporalTotales}}" id="pagosPorIncapacidadTemporalTotales" name="pagosPorIncapacidadTemporalTotales" readonly>
-                </div>            
-            </div>        
+                </div>
+            </div>
         </div>
         <div class="d-flex w-100">
             <label style="background-color: #00fffb" class="w-75">TOTAL DEVENGADO</label>
@@ -111,7 +111,7 @@
                     <input type="number" value="{{$nomina->desempleoPorcentaje}}" id="desempleoPorcentaje" name="desempleoPorcentaje" readonly>
                     <input type="number" value="{{$nomina->formacionProfesionalPorcentaje}}" id="formacionProfesionalPorcentaje" name="formacionProfesionalPorcentaje" readonly>
                     <input type="number" value="{{$nomina->retencionesACuentaDeIRPFPorcentaje}}" id="retencionesACuentaDeIRPFPorcentaje" name="retencionesACuentaDeIRPFPorcentaje" readonly>
-                    <input type="number" value="{{$nomina->otrasDeduccionesPorcentaje}}" id="otrasDeduccionesPorcentaje" name="otrasDeduccionesPorcentaje" readonly>                
+                    <input type="number" value="{{$nomina->otrasDeduccionesPorcentaje}}" id="otrasDeduccionesPorcentaje" name="otrasDeduccionesPorcentaje" readonly>
                 </div>
                 <div class="d-flex flex-column w-50">
                     <label style="background-color: #000000; color:#00fffb">TOTALES</label>
@@ -120,9 +120,9 @@
                     <input type="number" value="{{$nomina->desempleoTotales}}" id="desempleoTotales" name="desempleoTotales" readonly>
                     <input type="number" value="{{$nomina->formacionProfesionalTotales}}" id="formacionProfesionalTotales" name="formacionProfesionalTotales" readonly>
                     <input type="number" value="{{$nomina->retencionesACuentaDeIRPFTotales}}" id="retencionesACuentaDeIRPFTotales" name="retencionesACuentaDeIRPFTotales" readonly>
-                    <input type="number" value="{{$nomina->otrasDeduccionesTotales}}" id="otrasDeduccionesTotales" name="otrasDeduccionesTotales" readonly>                
-                </div>            
-            </div>        
+                    <input type="number" value="{{$nomina->otrasDeduccionesTotales}}" id="otrasDeduccionesTotales" name="otrasDeduccionesTotales" readonly>
+                </div>
+            </div>
         </div>
         <div class="d-flex w-100">
             <label style="background-color: #00fffb" class="w-75">TOTAL A DEDUCIR</label>
@@ -133,7 +133,7 @@
             <input type="number" value="{{$nomina->liquidoAPercibir}}" id="liquidoAPercibir" name="liquidoAPercibir" class="w-25" readonly>
         </div>
         </div>
-        <input type="submit" class="btn btn-primary m-3" value="Guardar en PDF">
+        <input type="submit" class="btn btn-bd-primary mt-3" value="Guardar en PDF">
     </details>
     @endforeach
    </div>

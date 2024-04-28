@@ -5,18 +5,18 @@
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/nominas.css') }}">
 @endsection
-@section('content') 
+@section('content')
 <div class="w-75 m-auto mt-5">
-    <a  href="{{ route('nominasRRHH')}}" class="btnStyle">Volver atras</a>
+    <a  href="{{ route('nominasRRHH')}}" class="btn btn-bd-primary mb-3">Volver atras</a>
 <form action="{{ route('guardarNomina') }}" method="post">
     @csrf
     <input type="hidden" name="id_Worker" value={{$selectedWorker->id}}>
-    <select name="ano" id="ano">
+    <select name="ano" id="ano" class="form-select">
         <option value="2024">2024</option>
         <option value="2025">2025</option>
         <option value="2026">2026</option>
     </select>
-    <select name="mes" id="mes">
+    <select name="mes" id="mes" class="form-select mb-3">
         <option value="enero">Enero</option>
         <option value="febrero">Febrero</option>
         <option value="marzo">Marzo</option>
@@ -36,14 +36,14 @@
             <input type="text" value="ROYAL TECH" id="nombreEmpresa" name="nombreEmpresa" readonly>
             <input type="text" value="Pl. España, 23540 Torres Jaén" id="domicilio" name="domicilio" readonly>
             <input type="text" value="A73945729" id="cif" name="cif" readonly>
-            <input type="text" value="27384950583" id="codigoCotizacion" name="codigoCotizacion" readonly>    
+            <input type="text" value="27384950583" id="codigoCotizacion" name="codigoCotizacion" readonly>
         </div>
         <div id="empresa" class="d-flex flex-column w-50">
             <label style="background-color: #000000; color:#00fffb">TRABAJADOR</label>
             <input type="text" value="{{$selectedWorker->name}}" id="name" name="name" readonly>
             <input type="text" value="{{$selectedWorker->dni}}" id="dni" name="dni" readonly>
             <input type="text" value="{{$selectedWorker->ss_number}}" id="ss_number" name="ss_number" readonly>
-            <input type="text" value="{{$selectedWorker->proffesional_category}}" id="proffesional_category" name="proffesional_category" readonly>    
+            <input type="text" value="{{$selectedWorker->proffesional_category}}" id="proffesional_category" name="proffesional_category" readonly>
         </div>
     </div>
     <div id="devengos" class="d-flex">
@@ -103,8 +103,8 @@
                 <input type="number" step="0.01" id="dietasTotales" name="dietasTotales">
                 <input type="number" step="0.01" id="plusDeTransporteTotales" name="plusDeTransporteTotales">
                 <input type="number" step="0.01" id="pagosPorIncapacidadTemporalTotales" name="pagosPorIncapacidadTemporalTotales">
-            </div>            
-        </div>        
+            </div>
+        </div>
     </div>
     <div class="d-flex w-100">
         <label style="background-color: #00fffb" class="w-75">TOTAL DEVENGADO</label>
@@ -128,7 +128,7 @@
                 <input type="number" step="0.01" id="desempleoPorcentaje" name="desempleoPorcentaje">
                 <input type="number" step="0.01" id="formacionProfesionalPorcentaje" name="formacionProfesionalPorcentaje">
                 <input type="number" step="0.01" value="{{$selectedWorker->irpf_withholding}}" id="retencionesACuentaDeIRPFPorcentaje" name="retencionesACuentaDeIRPFPorcentaje">
-                <input type="number" step="0.01" id="otrasDeduccionesPorcentaje" name="otrasDeduccionesPorcentaje">                
+                <input type="number" step="0.01" id="otrasDeduccionesPorcentaje" name="otrasDeduccionesPorcentaje">
             </div>
             <div class="d-flex flex-column w-50">
                 <label style="background-color: #000000; color:#00fffb">TOTALES</label>
@@ -137,9 +137,9 @@
                 <input type="number" step="0.01" id="desempleoTotales" name="desempleoTotales">
                 <input type="number" step="0.01" id="formacionProfesionalTotales" name="formacionProfesionalTotales">
                 <input type="number" step="0.01" id="retencionesACuentaDeIRPFTotales" name="retencionesACuentaDeIRPFTotales">
-                <input type="number" step="0.01" id="otrasDeduccionesTotales" name="otrasDeduccionesTotales">                
-            </div>            
-        </div>        
+                <input type="number" step="0.01" id="otrasDeduccionesTotales" name="otrasDeduccionesTotales">
+            </div>
+        </div>
     </div>
     <div class="d-flex w-100">
         <label style="background-color: #00fffb" class="w-75">TOTAL A DEDUCIR</label>
@@ -150,7 +150,7 @@
         <input type="number" step="0.01" id="liquidoAPercibir" name="liquidoAPercibir" class="w-25" readonly>
     </div>
     <div style="text-align: center" class="mt-3 mb-3">
-        <input type="submit" value="Generar Nomina">
+        <input type="submit" class="btn btn-bd-primary mt-3" value="Generar Nomina">
     </div>
 </form>
 </div>
@@ -162,7 +162,7 @@
         const salarioBasePrecio = document.getElementById('salarioBasePrecio');
         const salarioBaseTotales = document.getElementById('salarioBaseTotales');
         salarioBaseCantidad.addEventListener('input', updateSalarioBaseTotales);
-        salarioBasePrecio.addEventListener('input', updateSalarioBaseTotales);    
+        salarioBasePrecio.addEventListener('input', updateSalarioBaseTotales);
         function updateSalarioBaseTotales() {
             let cantidad = parseFloat(salarioBaseCantidad.value);
             let precio = parseFloat(salarioBasePrecio.value);
@@ -173,7 +173,7 @@
         const complementosSalarialesPrecio = document.getElementById('complementosSalarialesPrecio');
         const complementosSalarialesTotales = document.getElementById('complementosSalarialesTotales');
         complementosSalarialesCantidad.addEventListener('input', updateComplementosSalarialesTotales);
-        complementosSalarialesPrecio.addEventListener('input', updateComplementosSalarialesTotales);    
+        complementosSalarialesPrecio.addEventListener('input', updateComplementosSalarialesTotales);
         function updateComplementosSalarialesTotales() {
             let cantidad = parseFloat(complementosSalarialesCantidad.value);
             let precio = parseFloat(complementosSalarialesPrecio.value);
@@ -367,7 +367,7 @@
         retencionesACuentaDeIRPFPorcentaje.addEventListener('input', updateTotalADeducir);
         otrasDeduccionesPorcentaje.addEventListener('input', updateTotalADeducir);
 
-        
+
         /////////////////////////////////////////////////////////////////////////////////////////////////
         // Obtén el elemento para el líquido a percibir
         const liquidoAPercibir = document.getElementById('liquidoAPercibir');
@@ -378,13 +378,17 @@
             liquidoAPercibir.value = total;
         }
 
-        document.querySelectorAll('input').forEach(input => {
-            input.addEventListener('change', updateLiquidoAPercibir);
-            input.addEventListener('change', updateTotalADeducir);
-            input.addEventListener('change', updateTotalDevengado);
-            input.addEventListener('change', updateRetencionesACuentaDeIRPFTotales);
-            
-        });
-        
-    });     
+        function updateValues() {
+            updateLiquidoAPercibir();
+            updateTotalADeducir();
+            updateTotalDevengado();
+            updateRetencionesACuentaDeIRPFTotales();
+        }
+
+        // document.querySelectorAll('input').forEach(input => {
+        //     input.addEventListener('change', updateValues);
+        // });
+
+        setInterval(updateValues, 1000);
+    });
 </script>
