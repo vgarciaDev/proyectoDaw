@@ -33,8 +33,8 @@
         </div>
         <div class="row mt-5">
             <h2 class="text-center">Últimos fichajes</h2>
-            <div class="col-md-10 mx-auto text-center">
-                <table class="table table-info table-striped">
+            <div class="col-md-10 mx-auto text-center table-responsive">
+                <table class="table table-info table-striped table-hover ">
                     <thead>
                       <tr>
                         <th scope="col">Fecha</th>

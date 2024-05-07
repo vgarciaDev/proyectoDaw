@@ -20,7 +20,7 @@
 @section('content')
     <div class="container-fluid menu" id="calendar">
         <div class="row">
-            <div class="col-6" id="calendarDiv">
+            <div class="col-md-6 " id="calendarDiv">
                 <smart-calendar
                 id='calendario'
                 theme='blue'
@@ -32,10 +32,10 @@
                 month-name-format='long'>
                 </smart-calendar>
             </div>
-            <div class="col-6" id="menuDias">
+            <div class="col-md-6 mt-5" id="menuDias">
                 <button class="btn btn-bd-primary" id="seleccionarDiasButton">Seleccionar días</button>
                 <div id="cajonDias">
-                    <div>dias seleccionados</div>
+                    <div class="pt-2">Días seleccionados</div>
                     <ul id="listaDias">
                     </ul>
                 </div>

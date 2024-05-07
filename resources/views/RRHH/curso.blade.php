@@ -30,24 +30,26 @@
     <div class="row mt-3">
         <div class="col-md">
             <h2>Trabajadores apuntados</h2>
-            <table class="table">
-                <tr>
-                    <th scope="col">Nº</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">DNI</th>
-                    <th scope="col">Departamento</th>
-                    <th scope="col">Puesto de trabajo</th>
-                </tr>
-                @foreach ($workers as $key => $item)
-                        <tr>
-                            <td>{{$key+1}}</td>
-                            <td>{{$item['name']}}</td>
-                            <td>{{$item['dni']}}</td>
-                            <td>{{$item['department']}}</td>
-                            <td>{{$item['position']}}</td>
-                        </tr>
-                    @endforeach
-            </table>
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th scope="col">Nº</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">DNI</th>
+                        <th scope="col">Departamento</th>
+                        <th scope="col">Puesto de trabajo</th>
+                    </tr>
+                    @foreach ($workers as $key => $item)
+                            <tr>
+                                <td>{{$key+1}}</td>
+                                <td>{{$item['name']}}</td>
+                                <td>{{$item['dni']}}</td>
+                                <td>{{$item['department']}}</td>
+                                <td>{{$item['position']}}</td>
+                            </tr>
+                        @endforeach
+                </table>
+            </div>
         </div>
     </div>
 </div>

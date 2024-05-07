@@ -41,3 +41,22 @@
     color: rgb(0, 82, 0);
     cursor: pointer;
 }
+
+@media (500px >= width) {
+    .seccion-empleado {
+        background-color: #2e2e2e;
+        color: #00fefb;
+        width: 100%;
+
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 15px;
+        border: #00fefb 1px solid;
+        border-radius: 15px;
+        padding-top: 12px;
+        margin-bottom: 20px;
+
+        box-shadow: rgb(56, 56, 56) 0px 6px 12px -2px,
+            rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    }
+}

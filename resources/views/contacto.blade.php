@@ -80,7 +80,7 @@
     </div>
 <div class="container-fluid row justify-content-center fondo_container p-4">
     <div class=" contenedor w-50 ">
-        <iframe class="shadow" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3292.801394463721!2d-3.5116335458877024!3d37.785412958801125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6e65db1982fa79%3A0xac125553ba270bda!2zMjM1NDAgVG9ycmVzLCBKYcOpbiwgRXNwYcOxYQ!5e0!3m2!1ses!2sde!4v1709674162317!5m2!1ses!2sde" width="600" height="450" style="border: #00fffb 4px solid; border-radius:15px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe class="shadow w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3292.801394463721!2d-3.5116335458877024!3d37.785412958801125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6e65db1982fa79%3A0xac125553ba270bda!2zMjM1NDAgVG9ycmVzLCBKYcOpbiwgRXNwYcOxYQ!5e0!3m2!1ses!2sde!4v1709674162317!5m2!1ses!2sde" width="600" height="450" style="border: #00fffb 4px solid; border-radius:15px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </div> 
 

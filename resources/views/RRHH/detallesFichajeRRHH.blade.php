@@ -19,7 +19,7 @@
         <p><b>DNI:</b>  {{$worker['dni']}}</p>
         <p><b>Puesto:</b>  {{$worker['position']}}</p>
         <div class="row">
-            <div class="col-md">
+            <div class="col-md table-responsive">
                 <table class="table" id="myTable">
                     <thead>
                         <tr>

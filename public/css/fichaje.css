@@ -1,3 +1,9 @@
 .hora {
     font-size: 150px;
 }
+
+@media (500px >= width) {
+    .hora {
+        font-size: 80px;
+    }
+}

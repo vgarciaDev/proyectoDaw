@@ -27,19 +27,19 @@
 </div>
     
 <div class="container-fluid">
-    <div class="row">
+    <div class="row mt-3">
         <div class="col-1">            
         </div>
-        <div class="col-3 m-auto">
+        <div class="col-md-3 m-auto">
             <img src="{{ asset('img/inicio/inicio_12.jpg') }}" class="w-100 m-auto imgRounded">
         </div>
         
-        <div class="col-7">
+        <div class="col-md-7">
             <h4 class="text-justify mt-5 w-100 m-auto p-4 mb-4">En un mundo donde la tecnología evoluciona a un ritmo vertiginoso, las empresas se 
                 enfrentan a desafíos cada vez más complejos para mantenerse competitivas y adaptarse a las demandas del mercado. En este contexto, 
                 la consultoría en tecnologías de la información ROYAL TECH se convierte en un aliado indispensable para impulsar la innovación, 
                 optimizar procesos y maximizar el rendimiento empresarial.
-            <br>
+            <br><br>
                 ROYAL TECH, líder en consultoría de TI, se enorgullece de ofrecer soluciones integrales y personalizadas que ayudan a las 
                 organizaciones a alcanzar sus objetivos estratégicos. Con una vasta experiencia y un equipo multidisciplinario de expertos, 
                 nos dedicamos a brindar asesoramiento especializado en una amplia gama de áreas, desde la planificación y ejecución de proyectos 
@@ -64,23 +64,23 @@
         </div> 
     </div>
     <div class="row">
-        <div class="col-3" id="pic1">
+        <div class="col-md-3" id="pic1">
             <a href="javascript:void(0)"><img src="{{ asset('img/inicio/inicio_05.jpg') }}" class="img-fluid img-thumbnail" alt="Imagen 1" onclick="mostrarTexto('pic1')"></a>
         </div>
-        <div class="col-3" id="pic2">
+        <div class="col-md-3" id="pic2">
             <a href="javascript:void(0)"><img src="{{ asset('img/inicio/inicio_06.jpg') }}" class="img-fluid img-thumbnail" alt="Imagen 1" onclick="mostrarTexto('pic2')"></a>        
         </div>
-        <div class="col-3" id="pic3">
+        <div class="col-md-3" id="pic3">
             <a href="javascript:void(0)"><img src="{{ asset('img/inicio/inicio_07.jpg') }}" class="img-fluid img-thumbnail" alt="Imagen 1" onclick="mostrarTexto('pic3')"></a>        
         </div>
-        <div class="col-3" id="pic4">
+        <div class="col-md-3" id="pic4">
             <a href="javascript:void(0)"><img src="{{ asset('img/inicio/inicio_08.jpg') }}" class="img-fluid img-thumbnail" alt="Imagen 1" onclick="mostrarTexto('pic4')"></a>        
         </div>
     </div>
     
 
     <div class="row">
-        <div class="col-8">
+        <div class="col-md-8">
             <h4 class="justify-content-end mt-5 w-75 m-auto p-4 mb-4">    
                 Nuestro enfoque se centra en comprender las necesidades únicas de cada cliente y diseñar soluciones innovadoras que impulsen su 
                 crecimiento y éxito a largo plazo. Ya sea que se trate de implementar nuevas tecnologías, mejorar la eficiencia operativa o 
@@ -92,8 +92,8 @@
                 los desafíos del futuro.
             </h4>
         </div>
-        <div class="col-3 m-auto">
-            <img src="{{ asset('img/inicio/inicio_11.jpg') }}" class="w-100 m-auto imgRounded">
+        <div class="col-md-3 m-auto">
+            <img src="{{ asset('img/inicio/inicio_11.jpg') }}" class="w-100 m-auto imgRounded mb-4">
         </div>
         <div class="col-1">            
         </div>

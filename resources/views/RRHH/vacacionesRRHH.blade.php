@@ -15,32 +15,34 @@
 
 @endsection
 @section('content')
-<h2>Solicitudes de vacaciones</h2>
-    <table class="table">
-        <tr>
-            {{-- <th class="tablas">ID_solicitud</th>
-            <th class="tablas">ID_worker</th> --}}
-            <th>Nombre y Apellidos</th>
-            <th style="text-align: center">Peticion vacaciones</th>
-            <th colspan="2" style="text-align: center">Aceptar/Rechazar</th>
-            <!-- Agrega aquí más encabezados de columna según los campos de tu tabla -->
-        </tr>
-        @foreach ($vacaciones->whereNull('estado_solicitud') as $vacacion)
+<h2 class="mt-5">Solicitudes de vacaciones</h2>
+    <div class="container table-responsive">
+        <table class="table">
             <tr>
-                {{-- <td class="tablas">{{ $vacacion->id }}</td>
-                <td class="tablas">{{ $vacacion->worker_id }}</td> --}}
-                <td>{{ $vacacion->name }}</td>
-                <td>{{ $vacacion->solicitud_vacaciones }}</td>
-                <td>
-                    <input type="button" value="Aceptar" class="aceptar btn btn-bd-primary" id={{$vacacion->id}}>
-                </td>
-                <td>
-                    <input type="button" value="Rechazar" class="rechazar btn btn-bd-primary" id={{$vacacion->id}}>
-                </td>
-                <!-- Agrega aquí más celdas de datos según los campos de tu tabla -->
+                {{-- <th class="tablas">ID_solicitud</th>
+                <th class="tablas">ID_worker</th> --}}
+                <th>Nombre y Apellidos</th>
+                <th style="text-align: center">Peticion vacaciones</th>
+                <th colspan="2" style="text-align: center">Aceptar/Rechazar</th>
+                <!-- Agrega aquí más encabezados de columna según los campos de tu tabla -->
             </tr>
-        @endforeach
-    </table>
+            @foreach ($vacaciones->whereNull('estado_solicitud') as $vacacion)
+                <tr>
+                    {{-- <td class="tablas">{{ $vacacion->id }}</td>
+                    <td class="tablas">{{ $vacacion->worker_id }}</td> --}}
+                    <td>{{ $vacacion->name }}</td>
+                    <td>{{ $vacacion->solicitud_vacaciones }}</td>
+                    <td>
+                        <input type="button" value="Aceptar" class="aceptar btn btn-bd-primary" id={{$vacacion->id}}>
+                    </td>
+                    <td>
+                        <input type="button" value="Rechazar" class="rechazar btn btn-bd-primary" id={{$vacacion->id}}>
+                    </td>
+                    <!-- Agrega aquí más celdas de datos según los campos de tu tabla -->
+                </tr>
+            @endforeach
+        </table>
+    </div>
 @endsection
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

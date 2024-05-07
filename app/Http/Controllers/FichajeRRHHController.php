@@ -11,6 +11,7 @@ class FichajeRRHHController extends Controller
     public function index()
     {
         $idWorker = session()->get('id');
+        $worker = Worker::find($idWorker);
         $rolWorker = session()->get('rol');
         if (!$idWorker || $rolWorker == 2) {
             return redirect()->route('login');
@@ -58,7 +59,7 @@ class FichajeRRHHController extends Controller
             return $i;
         })->toArray();
 
-        return view('RRHH/fichajeRRHH', ['workers' => $workers]);
+        return view('RRHH/fichajeRRHH', ['workers' => $workers, 'name' => $worker->name]);
     }
 
     public function verDetalle($id, $year, $month){

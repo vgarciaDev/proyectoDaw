@@ -33,7 +33,7 @@
         <div class="container-fluid">
             <!--LADO IZQUIERDO-->
             <div class="row">
-                <div class="col-3">
+                <div class="col-md-3 text-center mx-auto">
 
                     <img class="img-usuario" src="{{ asset('img/inicio/imagen_usuario.png') }}" alt="Imagen">
                     <p class="nombres"><i class="fa-solid fa-user"></i>
@@ -63,7 +63,7 @@
                 
 
                 <!--INICIO SECCION MOSTRAR INFORMACIÓN-->
-                <div class="col-9 info">
+                <div class="col-md-9 info">
                     @yield('content')
                 </div>
                 <!--FIN SECCION MOSTRAR INFORMACIÓN-->

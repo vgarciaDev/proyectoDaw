@@ -11,12 +11,12 @@
     <div class="row mt-5">
         <h2>Fichaje Empleados</h2>
         <div class="row mt-2">
-            <div class="col-md-6">
+            <div class="col-md">
                 <a href="{{ url('/fichaje') }}"><button  class="seccion-empleado pb-3"><i class="fa-solid fa-list"></i> Ir a fichar</button></a>
             </div>
         </div>
         <div class="row">
-            <div class="col-md">
+            <div class="col-md table-responsive">
                 <table class="table" id="myTable">
                     <thead>
                         <tr>
